@@ -1,0 +1,20 @@
+.wp-block-icb-cards {
+	.icbCards {
+		.components-placeholder {
+			border-radius: inherit;
+		}
+
+		&.horizontal {
+			.components-placeholder {
+				max-width: 50%;
+			}
+		}
+	}
+}
+
+.bPlPanelBody {
+	.components-base-control__help {
+		font-size: 11px;
+		margin-top: 4px;
+	}
+}

@@ -1,0 +1,573 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "icb/cards",
+  "version": "0.1.0",
+  "title": "Info Cards",
+  "category": "widgets",
+  "icon": "smiley",
+  "description": "info-card block plugin",
+  "textdomain": "info-cards",
+  "attributes": {
+    "className": {
+      "type": "string",
+      "default": ""
+    },
+    "align": {
+      "type": "string",
+      "default": ""
+    },
+    "clientId": {
+      "type": "string",
+      "default": ""
+    },
+    "cards": {
+      "type": "array",
+      "default": [
+        {
+          "background": {
+            "color": "#fff"
+          },
+          "img": "",
+          "title": "Title of the 1 number card",
+          "desc": "Description of the 1 number card",
+          "btnLabal": "Button",
+          "btnUrl": "#",
+          "isBtn": true,
+          "cardUrl": ""
+        },
+        {
+          "background": {
+            "color": "#fff"
+          },
+          "img": "",
+          "title": "Title of the 2 number card",
+          "desc": "Description of the 2 number card",
+          "btnLabal": "Button",
+          "btnUrl": "#",
+          "isBtn": true,
+          "cardUrl": ""
+        },
+        {
+          "background": {
+            "color": "#fff"
+          },
+          "img": "",
+          "title": "Title of the 3 number card",
+          "desc": "Description of the 3 number card",
+          "btnLabal": "Button",
+          "btnUrl": "#",
+          "isBtn": true,
+          "cardUrl": ""
+        }
+      ]
+    },
+    "layout": {
+      "type": "string",
+      "default": "vertical"
+    },
+    "theme": {
+      "type": "string",
+      "default": "default"
+    },
+    "columns": {
+      "type": "object",
+      "default": {
+        "desktop": 3,
+        "tablet": 2,
+        "mobile": 1
+      }
+    },
+    "columnGap": {
+      "type": "string",
+      "default": "20px"
+    },
+    "rowGap": {
+      "type": "string",
+      "default": "20px"
+    },
+    "isImg": {
+      "type": "boolean",
+      "default": true
+    },
+    "isTab": {
+      "type": "boolean",
+      "default": false
+    },
+    "imgHeight": {
+      "type": "string",
+      "default": "200px"
+    },
+    "imgPos": {
+      "type": "string",
+      "default": "first"
+    },
+    "background": {
+      "type": "object",
+      "default": {
+        "color": "#0000"
+      }
+    },
+    "padding": {
+      "type": "object",
+      "default": {
+        "top": "0px",
+        "right": "0x",
+        "bottom": "0px",
+        "left": "0px"
+      }
+    },
+    "cardPadding": {
+      "type": "object",
+      "default": {
+        "top": "0px",
+        "right": "0px",
+        "bottom": "0px",
+        "left": "0px"
+      }
+    },
+    "cardRadius": {
+      "type": "string",
+      "default": "8px"
+    },
+    "cardShadow": {
+      "type": "array",
+      "default": [
+        {
+          "hOffset": "0px",
+          "vOffset": "4px",
+          "blur": "8px",
+          "spreed": "0px",
+          "color": "#0003"
+        }
+      ]
+    },
+    "contentAlign": {
+      "type": "string",
+      "default": "left"
+    },
+    "contentPadding": {
+      "type": "object",
+      "default": {
+        "top": "20px",
+        "right": "15px",
+        "bottom": "15px",
+        "left": "15px"
+      }
+    },
+    "titleTypo": {
+      "type": "object",
+      "default": {
+        "fontSize": "20"
+      }
+    },
+    "titleColor": {
+      "type": "string",
+      "default": "#000"
+    },
+    "descTypo": {
+      "type": "object",
+      "default": {
+        "fontSize": "16"
+      }
+    },
+    "descColor": {
+      "type": "string",
+      "default": "#000"
+    },
+    "btnTypo": {
+      "type": "object",
+      "default": {
+        "fontSize": 15,
+        "textDecoration": "none"
+      }
+    },
+    "btnAlign": {
+      "type": "string",
+      "default": "left"
+    },
+    "btnColors": {
+      "type": "object",
+      "default": {
+        "color": "#fff",
+        "bg": "#4527a4"
+      }
+    },
+    "btnHovColors": {
+      "type": "object",
+      "default": {
+        "color": "#fff",
+        "bg": "#fe6601"
+      }
+    },
+    "btnPadding": {
+      "type": "object",
+      "default": {
+        "top": "10px",
+        "right": "15px",
+        "bottom": "10px",
+        "left": "15px"
+      }
+    },
+    "btnRadius": {
+      "type": "string",
+      "default": "8px"
+    },
+    "productsInfo": {
+      "type": "array",
+      "default": [
+        {
+          "title": "Alienware Gaming Laptop",
+          "description": "Alienware Laptop is one of the best Gaming Laptops. Every gamer loves it.",
+          "variant": [
+            "i3",
+            "i5",
+            "i6",
+            "i9"
+          ],
+          "image": "https://templates.bplugins.com/wp-content/uploads/2025/05/Alienware-Laptop.png",
+          "button": {
+            "text": "Buy Now",
+            "link": ""
+          }
+        },
+        {
+          "title": "Alienware Gaming Laptop",
+          "description": "Alienware Laptop is one of the best Gaming Laptops. Every gamer loves it.",
+          "variant": [
+            "i3",
+            "i5",
+            "i6",
+            "i9"
+          ],
+          "image": "https://templates.bplugins.com/wp-content/uploads/2025/05/Alienware-Laptop.png",
+          "button": {
+            "text": "Buy Now",
+            "link": ""
+          }
+        },
+        {
+          "title": "Alienware Gaming Laptop",
+          "description": "Alienware Laptop is one of the best Gaming Laptops. Every gamer loves it.",
+          "variant": [
+            "i3",
+            "i5",
+            "i6",
+            "i9"
+          ],
+          "image": "https://templates.bplugins.com/wp-content/uploads/2025/05/Alienware-Laptop.png",
+          "button": {
+            "text": "Buy Now",
+            "link": ""
+          }
+        }
+      ]
+    },
+    "styles": {
+      "type": "object",
+      "default": {
+        "contentAlignment": "center",
+        "bg": {},
+        "columnGap": "20px",
+        "rowGap": "20px",
+        "padding": {
+          "desktop": {
+            "top": "10px",
+            "left": "0px",
+            "right": "0px",
+            "bottom": "10px"
+          },
+          "tablet": {
+            "top": "10px",
+            "left": "0px",
+            "right": "0px",
+            "bottom": "10px"
+          },
+          "mobile": {
+            "top": "10px",
+            "left": "10px",
+            "right": "10px",
+            "bottom": "10px"
+          }
+        },
+        "margin": {
+          "desktop": {
+            "top": "0px",
+            "left": "0px",
+            "right": "0px",
+            "bottom": "0px"
+          },
+          "tablet": {
+            "top": "0px",
+            "left": "0px",
+            "right": "0px",
+            "bottom": "0px"
+          },
+          "mobile": {
+            "top": "0px",
+            "left": "0px",
+            "right": "0px",
+            "bottom": "0px"
+          }
+        },
+        "radius": {
+          "top": "0px",
+          "left": "0px",
+          "right": "0px",
+          "bottom": "0px"
+        },
+        "width": {
+          "desktop": "100%",
+          "tablet": "100%",
+          "mobile": "100%"
+        },
+        "card": {
+          "width": "400px",
+          "height": "660px",
+          "bg": {
+            "type": "solid",
+            "color": "#ffffff"
+          },
+          "radius": {
+            "top": "10px",
+            "left": "10px",
+            "right": "10px",
+            "bottom": "10px"
+          },
+          "padding": {
+            "top": "10px",
+            "left": "20px",
+            "right": "20px",
+            "bottom": "10px"
+          },
+          "shadow": [
+            {
+              "hOffset": "0px",
+              "vOffset": "0px",
+              "blur": "10px",
+              "spreed": "0px",
+              "color": "rgba(99,99,99,0.2)",
+              "isInset": false
+            },
+            {
+              "hOffset": "0px",
+              "vOffset": "5px",
+              "blur": "6px",
+              "spreed": "0px",
+              "color": "rgba(99,99,99,0.2)",
+              "isInset": false
+            }
+          ],
+          "image": {
+            "width": "360px",
+            "height": "362px",
+            "position": "contain"
+          },
+          "circle": {
+            "width": "300px",
+            "height": "270px",
+            "radius": {
+              "top": "50%",
+              "left": "50%",
+              "right": "50%",
+              "bottom": "50%"
+            },
+            "bg": {
+              "type": "gradient",
+              "gradient": "linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3), rgba(0, 217, 255, 0.5))"
+            }
+          },
+          "title": {
+            "typo": {
+              "fontFamily": "Archivo",
+              "fontCategory": "sans-serif",
+              "fontWeight": "",
+              "fontVariant": "400",
+              "isUploadFont": true,
+              "fontSize": {
+                "desktop": 30,
+                "tablet": 30,
+                "mobile": 22
+              },
+              "fontStyle": "normal",
+              "textTransform": "none",
+              "textDecoration": "none",
+              "lineHeight": "",
+              "letterSpace": "0px"
+            },
+            "color": "#000000",
+            "alignment": "center"
+          },
+          "description": {
+            "color": "#000000",
+            "typo": {
+              "fontFamily": "Archivo",
+              "fontCategory": "sans-serif",
+              "fontWeight": "",
+              "fontVariant": "400",
+              "isUploadFont": true,
+              "fontSize": {
+                "desktop": 20,
+                "tablet": 20,
+                "mobile": 16
+              },
+              "fontStyle": "normal",
+              "textTransform": "none",
+              "textDecoration": "none",
+              "lineHeight": "1.5",
+              "letterSpace": "0px"
+            },
+            "alignment": "justify"
+          },
+          "variantState": {
+            "bg": "#ffffff",
+            "padding": {
+              "top": "10px",
+              "right": "20px",
+              "bottom": "10px",
+              "left": "20px"
+            },
+            "radius": {
+              "top": "2px",
+              "right": "2px",
+              "bottom": "2px",
+              "left": "2px"
+            },
+            "shadow": [
+              {
+                "hOffset": "0px",
+                "vOffset": "0px",
+                "blur": "2px",
+                "spreed": "0px",
+                "color": "#666666",
+                "isInset": false
+              }
+            ],
+            "typo": {
+              "fontFamily": "Archivo",
+              "fontCategory": "sans-serif",
+              "fontWeight": "",
+              "fontVariant": "400",
+              "isUploadFont": true,
+              "fontSize": {
+                "desktop": 15,
+                "tablet": 15,
+                "mobile": 15
+              },
+              "fontStyle": "normal",
+              "textTransform": "none",
+              "textDecoration": "none",
+              "lineHeight": "",
+              "letterSpace": "1px"
+            },
+            "color": "#000000",
+            "gap": "5px",
+            "alignment": "space-between",
+            "active": {
+              "color": "#fff ",
+              "bg": "#444"
+            }
+          },
+          "button": {
+            "bg": "#0bf2f2",
+            "color": "#000000",
+            "padding": {
+              "top": "10px",
+              "left": "20px",
+              "right": "20px",
+              "bottom": "10px"
+            },
+            "radius": {
+              "top": "6px",
+              "left": "6px",
+              "right": "6px",
+              "bottom": "6px"
+            },
+            "shadow": [
+              {
+                "hOffset": "0px",
+                "vOffset": "0px",
+                "blur": "2px",
+                "spreed": "0px",
+                "color": "#666666",
+                "isInset": false
+              }
+            ],
+            "hover": {
+              "color": "#0bf2f2 ",
+              "bg": "#444"
+            },
+            "width": "100%",
+            "alignment": "center",
+            "typo": {
+              "fontFamily": "Archivo",
+              "fontCategory": "sans-serif",
+              "fontWeight": "",
+              "fontVariant": "400",
+              "isUploadFont": true,
+              "fontSize": {
+                "desktop": 18,
+                "tablet": 18,
+                "mobile": 18
+              },
+              "fontStyle": "normal",
+              "textTransform": "none",
+              "textDecoration": "none",
+              "lineHeight": "",
+              "letterSpace": "0px"
+            }
+          }
+        }
+      }
+    },
+    "options": {
+      "type": "object",
+      "default": {
+        "isOpenInNewTab": true,
+        "isVariantShow": true,
+        "isButtonShow": true,
+        "isVisibleCircle": true
+      }
+    }
+  },
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ],
+    "html": false
+  },
+  "example": {
+    "attributes": {
+      "cards": [
+        {
+          "background": {
+            "color": "#fff"
+          },
+          "img": "https://i.ibb.co/cTjwpDT/pexels-photo-97533.jpg",
+          "title": "Title of the 1 number card",
+          "desc": "Description of the 1 number card",
+          "btnLabal": "Button",
+          "btnUrl": "#",
+          "isBtn": true
+        }
+      ],
+      "columns": {
+        "desktop": 1,
+        "tablet": 1,
+        "mobile": 1
+      }
+    }
+  },
+  "editorScript": [
+    "file:./index.js"
+  ],
+  "editorStyle": [
+    "file:./index.css"
+  ],
+  "style": [
+    "file:./view.css"
+  ],
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}
