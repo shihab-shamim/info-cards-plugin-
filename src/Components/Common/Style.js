@@ -230,8 +230,8 @@ const Style = ({ attributes, id }) => {
 			   }
 
 
-		${tabBreakpoint}{
-		${productInfoCards}{
+		 ${tabBreakpoint}{
+		 ${productInfoCards}{
 		padding:${getBoxCSS(styles?.padding?.tablet)};
 		margin:${getBoxCSS(styles?.margin?.tablet)};
 		width:${styles?.width?.tablet}
@@ -239,7 +239,7 @@ const Style = ({ attributes, id }) => {
 		
 		}
 
-		${mobileBreakpoint}{
+		  ${mobileBreakpoint}{
 			${productInfoCards}{
 		padding:${getBoxCSS(styles?.padding?.mobile)};
 		margin:${getBoxCSS(styles?.margin?.mobile)};
