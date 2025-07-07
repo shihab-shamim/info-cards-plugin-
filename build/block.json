@@ -520,13 +520,479 @@
         }
       }
     },
+    "themeSevenInfo": {
+      "type": "array",
+      "default": [
+        {
+          "title": "Nicotine",
+          "content": "Nicotine is a poisonous, addictive chemical found in tobacco plants. It is also present in most e-cigarettes, and is used in some insecticides.",
+          "button": {
+            "text": "See more",
+            "link": "#",
+            "color": "#FFEB00"
+          },
+          "tag": {
+            "name": "View",
+            "value": "3D"
+          },
+          "tagStyle": {
+            "name": "#ffffff",
+            "value": "#FFEB00"
+          },
+          "backgroundImage": {
+            "type": "image",
+            "image": {
+              "alt": "",
+              "url": "https://img.freepik.com/premium-photo/broken-space-ai-technology-generated-image_1112-11087.jpg",
+              "title": "backgrouns"
+            },
+            "position": "top center"
+          },
+          "backgroundColor": "#4379F2",
+          "titleColor": "#f0f8ff",
+          "descriptionColor": "#b5b7b9",
+          "shadow": [
+            {
+              "blur": "50px",
+              "color": "#4379F2",
+              "hOffset": "0px",
+              "vOffset": "20px",
+              "spreed": "-20px",
+              "isInset": false
+            }
+          ],
+          "tagShadow": [
+            {
+              "hOffset": "0px",
+              "vOffset": "20px",
+              "blur": "60px",
+              "spreed": "0px",
+              "color": "#0000f3",
+              "isInset": false
+            },
+            {
+              "hOffset": "0px",
+              "vOffset": "18px",
+              "blur": "36px",
+              "spreed": "-18px",
+              "color": "#0000f0",
+              "isInset": false
+            }
+          ]
+        },
+        {
+          "title": "Caffeine",
+          "content": "Caffeine is a central nervous system stimulant found in coffee, tea, and energy drinks. It's the most commonly consumed psychoactive substance in the world.",
+          "tag": {
+            "name": "View",
+            "value": "3D"
+          },
+          "tagStyle": {
+            "name": "#ffffff",
+            "value": "#53F6FF"
+          },
+          "button": {
+            "text": "See more",
+            "link": "#",
+            "color": "#53F6FF"
+          },
+          "backgroundImage": {
+            "type": "image",
+            "image": {
+              "alt": "",
+              "url": "https://img.freepik.com/premium-photo/broken-space-ai-technology-generated-image_1112-11087.jpg",
+              "title": "backgrouns"
+            },
+            "position": "top center"
+          },
+          "backgroundColor": "#E05F25",
+          "titleColor": "#f0f8ff",
+          "descriptionColor": "#b5b7b9",
+          "shadow": [
+            {
+              "blur": "50px",
+              "color": "#E05F25",
+              "hOffset": "0px",
+              "vOffset": "20px",
+              "spreed": "-20px",
+              "isInset": false
+            }
+          ],
+          "tagShadow": [
+            {
+              "hOffset": "0px",
+              "vOffset": "20px",
+              "blur": "60px",
+              "spreed": "0px",
+              "color": "#E05F25",
+              "isInset": false
+            },
+            {
+              "hOffset": "0px",
+              "vOffset": "18px",
+              "blur": "36px",
+              "spreed": "-18px",
+              "color": "#E05F25",
+              "isInset": false
+            }
+          ]
+        },
+        {
+          "title": "Serotonin",
+          "content": "Progressively seize enabled experiences through sticky web-readiness. Proactively facilitate one-to-one.",
+          "tag": {
+            "name": "View",
+            "value": "3D"
+          },
+          "tagStyle": {
+            "name": "#ffffff",
+            "value": "#FFA88B"
+          },
+          "button": {
+            "text": "See more",
+            "link": "#",
+            "color": "#FFA88B"
+          },
+          "backgroundImage": {
+            "type": "image",
+            "image": {
+              "alt": "",
+              "url": "https://img.freepik.com/premium-photo/broken-space-ai-technology-generated-image_1112-11087.jpg",
+              "title": "backgrouns"
+            },
+            "position": "top center"
+          },
+          "backgroundColor": "#009C88",
+          "titleColor": "#f0f8ff",
+          "descriptionColor": "#b5b7b9",
+          "shadow": [
+            {
+              "blur": "50px",
+              "color": "#009C88",
+              "hOffset": "0px",
+              "vOffset": "20px",
+              "spreed": "-20px",
+              "isInset": false
+            }
+          ],
+          "tagShadow": [
+            {
+              "hOffset": "0px",
+              "vOffset": "20px",
+              "blur": "60px",
+              "spreed": "0px",
+              "color": "#009C88",
+              "isInset": false
+            },
+            {
+              "hOffset": "0px",
+              "vOffset": "18px",
+              "blur": "36px",
+              "spreed": "-18px",
+              "color": "#009C88",
+              "isInset": false
+            }
+          ]
+        },
+        {
+          "title": "Oxytocin",
+          "content": "Oxytocin is a hormone that plays lorem50 a role in reproduction, social bonding, and childbirth. It's also known as the love hormone.",
+          "tag": {
+            "name": "View",
+            "value": "3D"
+          },
+          "tagStyle": {
+            "name": "#ffffff",
+            "value": "#01FFBE"
+          },
+          "button": {
+            "text": "See more",
+            "link": "#",
+            "color": "#01FFBE"
+          },
+          "backgroundImage": {
+            "type": "image",
+            "image": {
+              "alt": "",
+              "url": "https://img.freepik.com/premium-photo/broken-space-ai-technology-generated-image_1112-11087.jpg",
+              "title": "backgrouns"
+            },
+            "position": "top center"
+          },
+          "backgroundColor": "#F24CA9",
+          "titleColor": "#f0f8ff",
+          "descriptionColor": "#b5b7b9",
+          "shadow": [
+            {
+              "blur": "50px",
+              "color": "#F24CA9",
+              "hOffset": "0px",
+              "vOffset": "20px",
+              "spreed": "-20px",
+              "isInset": false
+            }
+          ],
+          "tagShadow": [
+            {
+              "hOffset": "0px",
+              "vOffset": "20px",
+              "blur": "60px",
+              "spreed": "0px",
+              "color": "#F24CA9",
+              "isInset": false
+            },
+            {
+              "hOffset": "0px",
+              "vOffset": "18px",
+              "blur": "36px",
+              "spreed": "-18px",
+              "color": "#F24CA9",
+              "isInset": false
+            }
+          ]
+        }
+      ]
+    },
+    "themeSevenStyles": {
+      "type": "object",
+      "default": {
+        "gap": {
+          "row": "100px",
+          "column": "100px"
+        },
+        "radius": {
+          "top": "0px",
+          "left": "0px",
+          "right": "0px",
+          "bottom": "0px"
+        },
+        "shadow": [],
+        "bg": {
+          "type": "solid",
+          "color": "#191919"
+        },
+        "padding": {
+          "desktop": {
+            "top": "50px",
+            "left": "0px",
+            "bottom": "50px",
+            "right": "0px"
+          },
+          "tablet": {
+            "top": "50px",
+            "left": "0px",
+            "bottom": "50px",
+            "right": "0px"
+          },
+          "mobile": {
+            "top": "50px",
+            "left": "0px",
+            "bottom": "50px",
+            "right": "0px"
+          }
+        },
+        "margin": {
+          "desktop": {
+            "top": "0px",
+            "left": "0px",
+            "bottom": "0px",
+            "right": "0px"
+          },
+          "tablet": {
+            "top": "0px",
+            "left": "0px",
+            "bottom": "0px",
+            "right": "0px"
+          },
+          "mobile": {
+            "top": "0px",
+            "left": "0px",
+            "bottom": "0px",
+            "right": "0px"
+          }
+        },
+        "card": {
+          "width": {
+            "desktop": "300px",
+            "tablet": "300px",
+            "mobile": "300px"
+          },
+          "height": {
+            "desktop": "400px",
+            "tablet": "400px",
+            "mobile": "400px"
+          },
+          "contentBg": {
+            "type": "solid",
+            "color": "#4379F2"
+          },
+          "contentRadius": {
+            "top": "0px",
+            "right": "0px",
+            "bottom": "10px",
+            "left": "10px"
+          },
+          "radius": {
+            "top": "10px",
+            "right": "10px",
+            "bottom": "10px",
+            "left": "10px"
+          },
+          "tag": {
+            "bg": "#191919",
+            "width": "70px",
+            "height": "70px",
+            "position": {
+              "left": 25,
+              "top": 75
+            },
+            "radius": {
+              "top": "10px",
+              "left": "10px",
+              "right": "10px",
+              "bottom": "10px"
+            },
+            "padding": {
+              "top": "12px",
+              "left": "12px",
+              "right": "12px",
+              "bottom": "12px"
+            },
+            "color": "#ffffff",
+            "typo": {
+              "fontFamily": "Archivo",
+              "fontCategory": "sans-serif",
+              "fontWeight": 700,
+              "fontVariant": "400",
+              "isUploadFont": true,
+              "fontSize": {
+                "desktop": 12,
+                "tablet": 12,
+                "mobile": 12
+              },
+              "fontStyle": "normal",
+              "textTransform": "none",
+              "textDecoration": "none",
+              "lineHeight": "135%",
+              "letterSpace": "1px"
+            },
+            "value": {
+              "color": "#FFEB00",
+              "typo": {
+                "fontFamily": "Archivo",
+                "fontCategory": "sans-serif",
+                "fontWeight": 900,
+                "fontVariant": "400",
+                "isUploadFont": true,
+                "fontSize": {
+                  "desktop": 19,
+                  "tablet": 19,
+                  "mobile": 19
+                },
+                "fontStyle": "normal",
+                "textTransform": "none",
+                "textDecoration": "none",
+                "lineHeight": "135%",
+                "letterSpace": ""
+              }
+            }
+          },
+          "title": {
+            "color": "#f0f8ff",
+            "typo": {
+              "fontFamily": "Archivo",
+              "fontCategory": "sans-serif",
+              "fontWeight": 900,
+              "fontVariant": "400",
+              "isUploadFont": true,
+              "fontSize": {
+                "desktop": 25,
+                "tablet": 25,
+                "mobile": 25
+              },
+              "fontStyle": "normal",
+              "textTransform": "none",
+              "textDecoration": "none",
+              "lineHeight": "135%",
+              "letterSpace": "1px"
+            }
+          },
+          "description": {
+            "color": "#b5b7b9",
+            "typo": {
+              "fontFamily": "Archivo",
+              "fontCategory": "sans-serif",
+              "fontWeight": 400,
+              "fontVariant": "400",
+              "isUploadFont": true,
+              "fontSize": {
+                "desktop": 12,
+                "tablet": 12,
+                "mobile": 12
+              },
+              "fontStyle": "normal",
+              "textTransform": "none",
+              "textDecoration": "none",
+              "lineHeight": "135%",
+              "letterSpace": ""
+            }
+          },
+          "button": {
+            "color": "#FFEB00",
+            "typo": {
+              "fontFamily": "Archivo",
+              "fontCategory": "sans-serif",
+              "fontWeight": 900,
+              "fontVariant": "400",
+              "isUploadFont": true,
+              "fontSize": {
+                "desktop": 10,
+                "tablet": 10,
+                "mobile": 10
+              },
+              "fontStyle": "normal",
+              "textTransform": "uppercase",
+              "textDecoration": "none",
+              "lineHeight": "135%",
+              "letterSpace": ""
+            }
+          },
+          "contentPadding": {
+            "top": "50px",
+            "left": "25px",
+            "right": "25px",
+            "bottom": "25px"
+          },
+          "cardPadding": {
+            "top": "100px",
+            "left": "0px",
+            "right": "0px",
+            "bottom": "0px"
+          },
+          "cardRoted": 20
+        },
+        "width": {
+          "desktop": "100%",
+          "tablet": "100%",
+          "mobile": "100%"
+        },
+        "alignment": "center"
+      }
+    },
+    "alignment": {
+      "type": "string",
+      "default": "center"
+    },
     "options": {
       "type": "object",
       "default": {
         "isOpenInNewTab": true,
         "isVariantShow": true,
         "isButtonShow": true,
-        "isVisibleCircle": true
+        "isVisibleCircle": true,
+        "isTagShow": true,
+        "isNewTabOpen": true,
+        "isHoverRotated": true
       }
     }
   },

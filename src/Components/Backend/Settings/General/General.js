@@ -16,6 +16,9 @@ import {
   Background,
   InlineMediaUpload,
   ItemsPanel,
+  Device,
+  BoxControl,
+  BButtonGroup
 } from "../../../../../../bpl-tools/Components";
 import { useState } from "react";
 import { BDevice } from "../../../../../../bpl-tools/Components/Deprecated";
@@ -37,7 +40,8 @@ const General = ({ attributes, setAttributes, updateCard }) => {
     imgPos,
     imgHeight,
     isTab,
-    options
+    options,
+    themeSevenStyles
   } = attributes;
   // console.log("hello",theme);
   const [device, setDevice] = useState("desktop");
@@ -665,6 +669,206 @@ const General = ({ attributes, setAttributes, updateCard }) => {
           />
         </Label>
       </PanelBody>
+    </>
+      }
+        {
+        theme ==="theme7" &&  <>
+      <PanelBody
+        className="bPlPanelBody"
+        title={__("3D InfoBoxes", "info-cards")}
+        initialOpen={false}
+      >
+        {/* <ItemsPanel
+          newItem={cardData}
+          design="sortable"
+          attributes={attributes}
+          setAttributes={setAttributes}
+          arrKey="themeSevenInfo"
+          itemLabel="InfoBox"
+          ItemSettings={InfoCardSetting}
+        /> */}
+      </PanelBody>
+
+      <PanelBody
+        className="bPlPanelBody"
+        title={__("Layouts", "info-cards")}
+        initialOpen={false}
+      >
+        <PanelRow>
+          <Label className="mt0">Section Width</Label>
+          <Device />
+        </PanelRow>
+        <UnitControl
+          value={themeSevenStyles?.width[device]}
+          onChange={(value) =>
+            setAttributes({
+              themeSevenStyles: updateData(themeSevenStyles, value, "width", device),
+            })
+          }
+        />
+        <PanelRow>
+          {" "}
+          <Label className="mt0"> Section Padding</Label> <Device />{" "}
+        </PanelRow>
+        <BoxControl
+          values={themeSevenStyles?.padding[device]}
+          onChange={(value) =>
+            setAttributes({
+              themeSevenStyles: updateData(themeSevenStyles, value, "padding", device),
+            })
+          }
+        />
+
+        <PanelRow>
+          {" "}
+          <Label className="mt0"> Section Margin</Label> <Device />{" "}
+        </PanelRow>
+        <BoxControl
+          values={themeSevenStyles?.margin[device]}
+          onChange={(value) =>
+            setAttributes({
+              themeSevenStyles: updateData(themeSevenStyles, value, "margin", device),
+            })
+          }
+        />
+
+        <PanelRow>
+          <Label className="mt0">InfoBox Width</Label>
+          <Device />
+        </PanelRow>
+        <UnitControl
+          value={themeSevenStyles?.card?.width[device]}
+          onChange={(value) =>
+            setAttributes({
+              themeSevenStyles: updateData(themeSevenStyles, value, "card", "width", device),
+            })
+          }
+        />
+        <PanelRow>
+          <Label className="mt0">InfoBox Height</Label>
+          <Device />
+        </PanelRow>
+        <UnitControl
+          value={themeSevenStyles?.card?.height[device]}
+          onChange={(value) =>
+            setAttributes({
+              themeSevenStyles: updateData(themeSevenStyles, value, "card", "height", device),
+            })
+          }
+        />
+        <BoxControl
+          label={__(" Content Padding", "info-cards")}
+          values={themeSevenStyles?.card?.contentPadding}
+          onChange={(value) =>
+            setAttributes({
+              themeSevenStyles: updateData(themeSevenStyles, value, "card", "contentPadding"),
+            })
+          }
+        />
+
+        <BButtonGroup
+          value={themeSevenStyles?.alignment}
+          style={{ marginTop: "5px" }}
+          label={__(" Alignment", "info-cards")}
+          options={[
+            { label: "Left", value: "left" },
+            { label: "Center", value: "center" },
+            { label: "Right", value: "right" },
+          ]}
+          onChange={(value) =>
+            setAttributes({ themeSevenStyles: updateData(themeSevenStyles, value, "alignment") })
+          }
+        />
+
+        <Label>Column Gap</Label>
+        <UnitControl
+          value={themeSevenStyles?.gap?.column}
+          onChange={(value) =>
+            setAttributes({
+              themeSevenStyles: updateData(themeSevenStyles, value, "gap", "column"),
+            })
+          }
+        />
+
+        <Label>Row Gap Gap</Label>
+        <UnitControl
+          value={themeSevenStyles?.gap?.row}
+          onChange={(value) =>
+            setAttributes({ themeSevenStyles: updateData(themeSevenStyles, value, "gap", "row") })
+          }
+        />
+      </PanelBody>
+
+      <PanelBody
+        className="bPlPanelBody"
+        title={__("Options", "info-cards")}
+        initialOpen={false}
+      >
+        <Label>
+          {" "}
+          <strong>Enable Tag Visibility</strong>{" "}
+          <FormToggle
+            checked={options?.isTagShow}
+            onChange={() =>
+              setAttributes({
+                options: updateData(options, !options?.isTagShow, "isTagShow"),
+              })
+            }
+          />
+        </Label>
+
+        <Label>
+          {" "}
+          <strong>Enable Button Visibility</strong>{" "}
+          <FormToggle
+            checked={options?.isButtonShow}
+            onChange={() =>
+              setAttributes({
+                options: updateData(
+                  options,
+                  !options?.isButtonShow,
+                  "isButtonShow"
+                ),
+              })
+            }
+          />
+        </Label>
+
+        <Label>
+          {" "}
+          <strong>Link open in new tab</strong>{" "}
+          <FormToggle
+            checked={options?.isNewTabOpen}
+            onChange={() =>
+              setAttributes({
+                options: updateData(
+                  options,
+                  !options?.isNewTabOpen,
+                  "isNewTabOpen"
+                ),
+              })
+            }
+          />
+        </Label>
+
+        <Label>
+          {" "}
+          <strong>The element rotates on hover</strong>{" "}
+          <FormToggle
+            checked={options?.isHoverRotated}
+            onChange={() =>
+              setAttributes({
+                options: updateData(
+                  options,
+                  !options?.isHoverRotated,
+                  "isHoverRotated"
+                ),
+              })
+            }
+          />
+        </Label>
+      </PanelBody>
+
     </>
       }
     </>

@@ -22,8 +22,9 @@ import {
   BoxControl as BoxControls
 } from "../../../../../../bpl-tools/Components";
 import { updateData } from "../../../../../../bpl-tools/utils/functions";
+import { RangeControl } from "@wordpress/components";
 
-const Style = ({ attributes, setAttributes ,device}) => {
+const Style = ({ attributes, setAttributes ,device,activeIndex}) => {
   const {
     theme,
     background,
@@ -43,7 +44,9 @@ const Style = ({ attributes, setAttributes ,device}) => {
     cardRadius,
     btnRadius,
     styles,
-    options
+    options,
+    themeSevenStyles,
+    themeSevenInfo
   } = attributes;
 
   return (
@@ -247,6 +250,7 @@ const Style = ({ attributes, setAttributes ,device}) => {
           </PanelBody>
         </>
       )}
+
 
      {theme ==="theme6" &&  <>
       <PanelBody
@@ -453,6 +457,359 @@ onChange={(value)=>setAttributes({styles:updateData(styles,value,"card","variant
  }
 
     </>}
+     
+      {
+        theme ==="theme7" && <>
+      <PanelBody
+        className="bPlPanelBody"
+        title={__("Section", "info-cards")}
+        initialOpen={false}
+      >
+        <Background
+          label={__("Background", "info-cards")}
+          value={themeSevenStyles?.bg}
+          onChange={(value) =>
+            setAttributes({ themeSevenStyles: updateData(themeSevenStyles, value, "bg") })
+          }
+        />
+
+        <BoxControl
+          label={__("Radius", "info-cards")}
+          values={themeSevenStyles?.radius}
+          onChange={(value) =>
+            setAttributes({ themeSevenStyles: updateData(themeSevenStyles, value, "radius") })
+          }
+        />
+        <ShadowControl
+          value={themeSevenStyles?.shadow}
+          onChange={(value) =>
+            setAttributes({ themeSevenStyles: updateData(themeSevenStyles, value, "shadow") })
+          }
+        />
+      </PanelBody>
+      <PanelBody
+        className="bPlPanelBody"
+        title={__("InfoBox", "info-cards")}
+        initialOpen={false}
+      >
+        <Background
+          label={__("Background", "info-cards")}
+          value={themeSevenInfo[activeIndex]?.backgroundImage}
+          onChange={(value) =>
+            setAttributes({
+              themeSevenInfo: updateData(
+                themeSevenInfo,
+                value,
+                activeIndex,
+                "backgroundImage"
+              ),
+            })
+          }
+        />
+        <BoxControl
+          values={themeSevenStyles?.card?.cardPadding}
+          onChange={(value) =>
+            setAttributes({
+              themeSevenStyles: updateData(themeSevenStyles, value, "card", "cardPadding"),
+            })
+          }
+        />
+        <BoxControl
+          label={__("Radius", "info-cards")}
+          values={themeSevenStyles?.card?.radius}
+          onChange={(value) =>
+            setAttributes({
+              themeSevenStyles: updateData(themeSevenStyles, value, "card", "radius"),
+            })
+          }
+        />
+
+        <ColorControl
+          label={__("Content Background", "info-cards")}
+          value={themeSevenInfo[activeIndex]?.backgroundColor}
+          onChange={(value) =>
+            setAttributes({
+              themeSevenInfo: updateData(
+                themeSevenInfo,
+                value,
+                activeIndex,
+                "backgroundColor"
+              ),
+            })
+          }
+        />
+
+        <ShadowControl
+          label={__("Content  Shadow", "info-cards")}
+          value={themeSevenInfo[activeIndex]?.shadow}
+          onChange={(value) =>
+            setAttributes({
+              themeSevenInfo: updateData(themeSevenInfo, value, activeIndex, "shadow"),
+            })
+          }
+        />
+        <BoxControl
+          label={__("Content  Radius", "info-cards")}
+          values={themeSevenStyles?.card?.contentRadius}
+          onChange={(value) =>
+            setAttributes({
+              themeSevenStyles: updateData(themeSevenStyles, value, "card", "contentRadius"),
+            })
+          }
+        />
+
+        <Label>Hover Rotation (deg)</Label>
+
+        {options?.isHoverRotated && (
+          <RangeControl
+            max={200}
+            value={themeSevenStyles?.card?.cardRoted}
+            onChange={(value) =>
+              setAttributes({
+                themeSevenStyles: updateData(themeSevenStyles, value, "card", "cardRoted"),
+              })
+            }
+          />
+        )}
+      </PanelBody>
+
+      {options?.isTagShow && (
+        <PanelBody
+          className="bPlPanelBody"
+          title={__("Tag", "info-cards")}
+          initialOpen={false}
+        >
+          <Label className="mt0">
+            Width{" "}
+            <UnitControl
+              value={themeSevenStyles?.card?.tag?.width}
+              onChange={(value) =>
+                setAttributes({
+                  themeSevenStyles: updateData(themeSevenStyles, value, "card", "tag", "width"),
+                })
+              }
+            />
+          </Label>
+          <Label className="mt15 mb15">
+            Height{" "}
+            <UnitControl
+              value={themeSevenStyles?.card?.tag?.height}
+              onChange={(value) =>
+                setAttributes({
+                  themeSevenStyles: updateData(themeSevenStyles, value, "card", "tag", "height"),
+                })
+              }
+            />
+          </Label>
+
+          <ColorControl
+            label={__("Background-Color", "info-cards")}
+            value={themeSevenStyles?.card?.tag?.bg}
+            onChange={(value) =>
+              setAttributes({
+                themeSevenStyles: updateData(themeSevenStyles, value, "card", "tag", "bg"),
+              })
+            }
+          />
+          <ShadowControl
+            label={__("Shadow ", "info-cards")}
+            value={themeSevenInfo[activeIndex]?.tagShadow}
+            onChange={(value) =>
+              setAttributes({
+                themeSevenInfo: updateData(
+                  themeSevenInfo,
+                  value,
+                  activeIndex,
+                  "tagShadow"
+                ),
+              })
+            }
+          />
+          <BoxControl
+            label={__("Radius ", "info-cards")}
+            values={themeSevenStyles?.card?.tag?.radius}
+            onChange={(value) =>
+              setAttributes({
+                themeSevenStyles: updateData(themeSevenStyles, value, "card", "tag", "radius"),
+              })
+            }
+          />
+          <BoxControl
+            label={__("Padding ", "info-cards")}
+            values={themeSevenStyles?.card?.tag?.padding}
+            onChange={(value) =>
+              setAttributes({
+                themeSevenStyles: updateData(themeSevenStyles, value, "card", "tag", "padding"),
+              })
+            }
+          />
+
+          <Label>TranslateX </Label>
+          <RangeControl
+            max={300}
+            value={themeSevenStyles?.card?.tag?.position?.left}
+            onChange={(value) =>
+              setAttributes({
+                themeSevenStyles: updateData(
+                  themeSevenStyles,
+                  value,
+                  "card",
+                  "tag",
+                  "position",
+                  "left"
+                ),
+              })
+            }
+          />
+          <Label>TranslateY </Label>
+          <RangeControl
+            max={300}
+            value={themeSevenStyles?.card?.tag?.position?.top}
+            onChange={(value) =>
+              setAttributes({
+                themeSevenStyles: updateData(
+                  themeSevenStyles,
+                  value,
+                  "card",
+                  "tag",
+                  "position",
+                  "top"
+                ),
+              })
+            }
+          />
+
+          <ColorControl
+            label={__("Name Color ", "info-cards")}
+            value={themeSevenStyles?.card?.tag?.color}
+            onChange={(value) =>
+              setAttributes({
+                themeSevenStyles: updateData(themeSevenStyles, value, "card", "tag", "color"),
+              })
+            }
+          />
+          <Typography
+            label={__("Name Typography ", "info-cards")}
+            value={themeSevenStyles?.card?.tag?.typo}
+            onChange={(value) =>
+              setAttributes({
+                themeSevenStyles: updateData(themeSevenStyles, value, "card", "tag", "typo"),
+              })
+            }
+          />
+          <ColorControl
+            label={__("Value Color ", "info-cards")}
+            value={themeSevenStyles?.card?.tag?.value?.color}
+            onChange={(value) =>
+              setAttributes({
+                themeSevenStyles: updateData(
+                  themeSevenStyles,
+                  value,
+                  "card",
+                  "tag",
+                  "value",
+                  "color"
+                ),
+              })
+            }
+          />
+          <Typography
+            label={__("Value Typography ", "info-cards")}
+            value={themeSevenStyles?.card?.tag?.value?.typo}
+            onChange={(value) =>
+              setAttributes({
+                themeSevenStyles: updateData(
+                  themeSevenStyles,
+                  value,
+                  "card",
+                  "tag",
+                  "value",
+                  "typo"
+                ),
+              })
+            }
+          />
+        </PanelBody>
+      )}
+
+      <PanelBody
+        className="bPlPanelBody"
+        title={__("Title", "info-cards")}
+        initialOpen={false}
+      >
+        <ColorControl
+          label={__("Color ", "info-cards")}
+          value={themeSevenStyles?.card?.title?.color}
+          onChange={(value) =>
+            setAttributes({
+              themeSevenStyles: updateData(themeSevenStyles, value, "card", "title", "color"),
+            })
+          }
+        />
+        <Typography
+          label={__("Typography ", "info-cards")}
+          value={themeSevenStyles?.card?.title?.typo}
+          onChange={(value) =>
+            setAttributes({
+              themeSevenStyles: updateData(themeSevenStyles, value, "card", "title", "typo"),
+            })
+          }
+        />
+      </PanelBody>
+      <PanelBody
+        lassName="bPlPanelBody"
+        title={__("Description", "info-cards")}
+        initialOpen={false}
+      >
+        <ColorControl
+          label={__("Color ", "info-cards")}
+          value={themeSevenStyles?.card?.description?.color}
+          onChange={(value) =>
+            setAttributes({
+              themeSevenStyles: updateData(themeSevenStyles, value, "card", "description", "color"),
+            })
+          }
+        />
+        <Typography
+          label={__("Typography ", "info-cards")}
+          value={themeSevenStyles?.card?.description?.typo}
+          onChange={(value) =>
+            setAttributes({
+              themeSevenStyles: updateData(themeSevenStyles, value, "card", "description", "typo"),
+            })
+          }
+        />
+      </PanelBody>
+
+      {options?.isButtonShow && (
+        <PanelBody
+          lassName="bPlPanelBody"
+          title={__("Button", "info-cards")}
+          initialOpen={false}
+        >
+          <ColorControl
+            label={__("Color ", "info-cards")}
+            value={themeSevenStyles?.card?.button?.color}
+            onChange={(value) =>
+              setAttributes({
+                themeSevenStyles: updateData(themeSevenStyles, value, "card", "button", "color"),
+              })
+            }
+          />
+          <Typography
+            label={__("Typography ", "info-cards")}
+            value={themeSevenStyles?.card?.button?.typo}
+            onChange={(value) =>
+              setAttributes({
+                themeSevenStyles: updateData(themeSevenStyles, value, "card", "button", "typo"),
+              })
+            }
+          />
+        </PanelBody>
+      )}
+    </>
+      }
+
     </>
   );
 };

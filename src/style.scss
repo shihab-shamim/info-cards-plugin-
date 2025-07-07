@@ -31,9 +31,11 @@
   }
 }
 
-.icbCards.columns-3.columns-tablet-2.columns-mobile-1.vertical {
-  margin-top: 40px;
-}
+
+//  margin top 40 px pacche dekhe comment kora hoiche 
+// .icbCards.columns-3.columns-tablet-2.columns-mobile-1.vertical {
+//   margin-top: 40px;
+// }
 
 .wp-block-icb-cards {
   * {
@@ -351,7 +353,101 @@
 
   }
 
-  
+
+//    theme  7 ar style 
+
+
+    .InfoContainerWrapper {
+    .infoThreeDContainer {
+      display: flex;
+      flex-wrap: wrap;
+
+      justify-content: center;
+      align-items: stretch;
+      .infoParent {
+        perspective: 1000px;
+        display: flex;
+        flex-direction: column;
+        .threeDinfoCard {
+          display: flex;
+          align-items: stretch;
+          flex-direction: column;
+          position: relative;
+          // padding-top: 100px;
+
+          transition: all 1s ease-in-out;
+          transform-style: preserve-3d;
+          .threeDinfoCardContentBox {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            // padding: 50px 25px 25px;
+            transition: all 0.5s ease-in-out;
+            transform-style: preserve-3d;
+            .threeDinfoCardTitle {
+              // color: aliceblue;
+              // color: #f0f8ff;
+              // font-size: 25px;
+              // font-weight: 900;
+              transform: translate3d(0, 0, 20px);
+              transition: all 0.5s ease-in-out;
+              &:hover {
+                transform: translate3d(0, 0, 50px);
+              }
+            }
+            .threeDinfoCardDescription {
+              padding-top: 15px;
+              transform: translate3d(0, 0, 20px);
+              transition: all 0.5s ease-in-out;
+              flex-grow: 1;
+              &:hover {
+                transform: translate3d(0, 0, 50px);
+              }
+            }
+
+            .threeDinfoSeeMore {
+              display: block;
+              padding-top: 15px;
+              // font-size: 11px;
+              // font-weight: 900;
+              // color: #FFEB00;
+              // text-transform: uppercase;
+              outline: none;
+
+              transform: translate3d(0, 0, 20px);
+              transition: all 0.5s ease-in-out;
+              &:hover {
+                transform: translate3d(0, 0, 50px);
+              }
+            }
+          }
+          .date-box {
+            position: absolute;
+            // top: 75px;
+            // left: 25px;
+            // right: 50px;
+            // height: 60px;
+            // width: 60px;
+            // background-color: #191919;
+            // border-radius: 10px;
+            // padding: 12px;
+            // box-shadow: #0000f3 0px 20px 60px, #0000f0 0px 18px 36px -18px;
+            transform: translate3d(0, 0, 50px);
+            span {
+              display: block;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .threeDinfoCard:hover {
+    background-position: 80% 20%;
+  }
 
 
 

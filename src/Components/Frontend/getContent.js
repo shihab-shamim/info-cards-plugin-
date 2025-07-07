@@ -1,6 +1,7 @@
   
   
   import Theme6 from '../Common/theme6/Theme6';
+import SevenInfoCard from '../Common/theme7/SevenInfoCard';
 import Cards from './Cards';
   
   
@@ -16,4 +17,13 @@ import Cards from './Cards';
   } if(theme=== "theme6"){
     return <Theme6 attributes={attributes}  isBacked={isBacked} />
   }
+  if(theme=== "theme7"){
+    return <SevenInfoCard
+           isBackend={false}
+          
+          attributes={attributes}
+         />
+
+  }
 }
+
