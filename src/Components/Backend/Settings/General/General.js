@@ -18,7 +18,9 @@ import {
   ItemsPanel,
   Device,
   BoxControl,
-  BButtonGroup
+  BButtonGroup,
+   BoxControl as BoxControls,
+   ShadowControl
 } from "../../../../../../bpl-tools/Components";
 import { useState } from "react";
 import { BDevice } from "../../../../../../bpl-tools/Components/Deprecated";
@@ -26,9 +28,10 @@ import { gearIcon } from "../../../../../../bpl-tools/utils/icons";
 import { themeSwitch } from "../../../../utils/function";
 import { updateData } from "../../../../../../bpl-tools/utils/functions";
 import ProductInfoSetting from "../../../Common/theme6/ProductInfoSetting";
+import SevenInfoCardSetting from "../../../Common/theme7/SevenInfoCardSetting";
 // import ProductInfoSetting from "../../../Common/theme6/ProductInfoSetting";
 
-const General = ({ attributes, setAttributes, updateCard }) => {
+const General = ({ attributes, setAttributes, updateCard,editDevice }) => {
   const {
     cards,
     layout,
@@ -41,9 +44,10 @@ const General = ({ attributes, setAttributes, updateCard }) => {
     imgHeight,
     isTab,
     options,
-    themeSevenStyles
+    themeSevenStyles,
+    styles
   } = attributes;
-  // console.log("hello",theme);
+  // console.log("styles",styles?.bg);
   const [device, setDevice] = useState("desktop");
    const newProduct = {
     title: "Alienware Gaming Laptop",
@@ -56,6 +60,64 @@ const General = ({ attributes, setAttributes, updateCard }) => {
       text: "Buy Now",
       link: "#",
     },
+  };
+ const cardData = {
+    title: "Serotonin",
+    content:
+      "Progressively seize enabled experiences through sticky web-readiness. Proactively facilitate one-to-one.",
+    tag: {
+      name: "View",
+      value: "3D",
+    },
+    tagStyle: {
+      name: "#ffffff",
+      value: "#FFA88B",
+    },
+    button: {
+      text: "See more",
+      link: "#",
+      color: "#FFA88B",
+    },
+    backgroundImage: {
+      type: "image",
+      image: {
+        alt: "",
+        url: "https://img.freepik.com/premium-photo/broken-space-ai-technology-generated-image_1112-11087.jpg",
+        title: "background",
+      },
+      position: "top center",
+    },
+    backgroundColor: "#009C88",
+    titleColor: "#f0f8ff",
+    descriptionColor: "#b5b7b9",
+    shadow: [
+      {
+        blur: "50px",
+        color: "#009C88",
+        hOffset: "0px",
+        vOffset: "20px",
+        spreed: "-20px",
+        isInset: false,
+      },
+    ],
+    tagShadow: [
+      {
+        hOffset: "0px",
+        vOffset: "20px",
+        blur: "60px",
+        spreed: "0px",
+        color: "#009C88",
+        isInset: false,
+      },
+      {
+        hOffset: "0px",
+        vOffset: "18px",
+        blur: "36px",
+        spreed: "-18px",
+        color: "#009C88",
+        isInset: false,
+      },
+    ],
   };
 
   const onAddCard = () => {
@@ -587,7 +649,7 @@ const General = ({ attributes, setAttributes, updateCard }) => {
         theme ==="theme6" &&  <>
       <PanelBody
         className="bPlPanelBody"
-        title={__("Products ", "info-cards")}
+        title={__("Add or Remove Cards ", "info-cards")}
         initialOpen={false}
       >
         <ItemsPanel
@@ -596,10 +658,40 @@ const General = ({ attributes, setAttributes, updateCard }) => {
           attributes={attributes}
           setAttributes={setAttributes}
           arrKey="productsInfo"
-          itemLabel="Product"
+          itemLabel="Card"
           ItemSettings={ProductInfoSetting}
         />
-      </PanelBody>
+      </PanelBody >
+
+      <PanelBody className="bPlPanelBody"
+        title={__("Layout ", "info-cards")}
+        initialOpen={false}>
+           <PanelRow><Label>Section Width</Label> <Device/> </PanelRow>
+                    <UnitControl step={1} label={__(" ", "info-cards")} value={styles?.width[editDevice]} onChange={(value)=>setAttributes({styles:updateData(styles,value,"width",editDevice)})} />
+          
+                     <PanelRow><Label>Section Padding</Label> <Device/> </PanelRow>
+                    <BoxControls label={__(" ", "info-cards")} values={styles?.padding[editDevice]} onChange={(value)=>setAttributes({styles:updateData(styles,value,"padding",editDevice)})} />
+          
+                     <PanelRow><Label>Section Margin</Label> <Device/> </PanelRow>
+                    <BoxControls label={__(" ", "info-cards")} values={styles?.margin[editDevice]} onChange={(value)=>setAttributes({styles:updateData(styles,value,"margin",editDevice)})} />
+          
+          
+                      <BButtonGroup  style={{marginTop:"10px"}}  value={styles?.contentAlignment}  label={__("Alignment ", "info-cards")} options={[
+                        {label:"Left",value:"left"},
+                        {label:"Center",value:"center"},
+                        {label:"Right",value:"right"}
+                      ]} 
+                      onChange={(value)=>setAttributes({styles:updateData(styles,value,"contentAlignment")})}
+                      />
+          
+                      <Label>Column Gap  </Label>
+                      <UnitControl step={1} value={styles?.columnGap} onChange={(value)=>setAttributes({styles:updateData(styles,value,"columnGap")})}   />
+                      <Label>Row Gap </Label>
+                      <UnitControl  step={1} value={styles?.rowGap} onChange={(value)=>setAttributes({styles:updateData(styles,value,"rowGap")})}   /> 
+                
+                </PanelBody>
+          
+             
 
       <PanelBody
         className="bPlPanelBody"
@@ -675,23 +767,23 @@ const General = ({ attributes, setAttributes, updateCard }) => {
         theme ==="theme7" &&  <>
       <PanelBody
         className="bPlPanelBody"
-        title={__("3D InfoBoxes", "info-cards")}
+        title={__("Add or Remove Cards", "info-cards")}
         initialOpen={false}
       >
-        {/* <ItemsPanel
+        <ItemsPanel
           newItem={cardData}
           design="sortable"
           attributes={attributes}
           setAttributes={setAttributes}
           arrKey="themeSevenInfo"
-          itemLabel="InfoBox"
-          ItemSettings={InfoCardSetting}
-        /> */}
+          itemLabel="Card"
+          ItemSettings={SevenInfoCardSetting}
+        />
       </PanelBody>
 
       <PanelBody
         className="bPlPanelBody"
-        title={__("Layouts", "info-cards")}
+        title={__("Layout", "info-cards")}
         initialOpen={false}
       >
         <PanelRow>
@@ -699,10 +791,10 @@ const General = ({ attributes, setAttributes, updateCard }) => {
           <Device />
         </PanelRow>
         <UnitControl
-          value={themeSevenStyles?.width[device]}
+          value={styles?.width[editDevice]}
           onChange={(value) =>
             setAttributes({
-              themeSevenStyles: updateData(themeSevenStyles, value, "width", device),
+              styles: updateData(styles, value, "width", editDevice),
             })
           }
         />
@@ -711,10 +803,10 @@ const General = ({ attributes, setAttributes, updateCard }) => {
           <Label className="mt0"> Section Padding</Label> <Device />{" "}
         </PanelRow>
         <BoxControl
-          values={themeSevenStyles?.padding[device]}
+          values={styles?.padding[editDevice]}
           onChange={(value) =>
             setAttributes({
-              themeSevenStyles: updateData(themeSevenStyles, value, "padding", device),
+              styles: updateData(styles, value, "padding", editDevice),
             })
           }
         />
@@ -724,50 +816,18 @@ const General = ({ attributes, setAttributes, updateCard }) => {
           <Label className="mt0"> Section Margin</Label> <Device />{" "}
         </PanelRow>
         <BoxControl
-          values={themeSevenStyles?.margin[device]}
+          values={styles?.margin[editDevice]}
           onChange={(value) =>
             setAttributes({
-              themeSevenStyles: updateData(themeSevenStyles, value, "margin", device),
+              styles: updateData(styles, value, "margin", editDevice),
             })
           }
         />
 
-        <PanelRow>
-          <Label className="mt0">InfoBox Width</Label>
-          <Device />
-        </PanelRow>
-        <UnitControl
-          value={themeSevenStyles?.card?.width[device]}
-          onChange={(value) =>
-            setAttributes({
-              themeSevenStyles: updateData(themeSevenStyles, value, "card", "width", device),
-            })
-          }
-        />
-        <PanelRow>
-          <Label className="mt0">InfoBox Height</Label>
-          <Device />
-        </PanelRow>
-        <UnitControl
-          value={themeSevenStyles?.card?.height[device]}
-          onChange={(value) =>
-            setAttributes({
-              themeSevenStyles: updateData(themeSevenStyles, value, "card", "height", device),
-            })
-          }
-        />
-        <BoxControl
-          label={__(" Content Padding", "info-cards")}
-          values={themeSevenStyles?.card?.contentPadding}
-          onChange={(value) =>
-            setAttributes({
-              themeSevenStyles: updateData(themeSevenStyles, value, "card", "contentPadding"),
-            })
-          }
-        />
+       
 
         <BButtonGroup
-          value={themeSevenStyles?.alignment}
+          value={styles?.contentAlignment}
           style={{ marginTop: "5px" }}
           label={__(" Alignment", "info-cards")}
           options={[
@@ -776,16 +836,16 @@ const General = ({ attributes, setAttributes, updateCard }) => {
             { label: "Right", value: "right" },
           ]}
           onChange={(value) =>
-            setAttributes({ themeSevenStyles: updateData(themeSevenStyles, value, "alignment") })
+            setAttributes({ styles: updateData(styles, value, "contentAlignment") })
           }
         />
 
         <Label>Column Gap</Label>
         <UnitControl
-          value={themeSevenStyles?.gap?.column}
+          value={styles?.columnGap}
           onChange={(value) =>
             setAttributes({
-              themeSevenStyles: updateData(themeSevenStyles, value, "gap", "column"),
+              styles: updateData(styles, value, "columnGap"),
             })
           }
         />

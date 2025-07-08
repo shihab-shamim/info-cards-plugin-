@@ -43,7 +43,7 @@ export default function ({ attributes, setAttributes, updateCard, device,activeI
                   attributes={attributes}
                   setAttributes={setAttributes}
                   updateCard={updateCard}
-                  device={device}
+                  editDevice={device}
                 />
               )}
 
@@ -52,7 +52,7 @@ export default function ({ attributes, setAttributes, updateCard, device,activeI
                   attributes={attributes}
                   setAttributes={setAttributes}
                   updateCard={updateCard}
-                  device={device}
+                  editDevice={device}
                   activeIndex={activeIndex}
                 />
               )}

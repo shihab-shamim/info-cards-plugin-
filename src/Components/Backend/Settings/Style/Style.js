@@ -259,35 +259,15 @@ const Style = ({ attributes, setAttributes ,device,activeIndex}) => {
         title={__(" Section", "info-cards")}
         initialOpen={false}
       >
-          <PanelRow><Label>Width</Label> <Device/> </PanelRow>
-          <UnitControl step={1} label={__(" ", "info-cards")} value={styles?.width[device]} onChange={(value)=>setAttributes({styles:updateData(styles,value,"width",device)})} />
-        <Background label={__(" Background", "info-cards")} value={styles?.bg} onChange={(value)=>setAttributes({styles:updateData(styles,value,"bg")})} />
-
-           <PanelRow><Label>Padding</Label> <Device/> </PanelRow>
-          <BoxControls label={__(" ", "info-cards")} values={styles?.padding[device]} onChange={(value)=>setAttributes({styles:updateData(styles,value,"padding",device)})} />
-
-           <PanelRow><Label>Margin</Label> <Device/> </PanelRow>
-          <BoxControls label={__(" ", "info-cards")} values={styles?.margin[device]} onChange={(value)=>setAttributes({styles:updateData(styles,value,"margin",device)})} />
-
+          <Background label={__(" Background", "info-cards")} value={styles?.bg} onChange={(value)=>setAttributes({styles:updateData(styles,value,"bg")})} />
           <BoxControls label={__("Radius ", "info-cards")} values={styles?.radius} onChange={(value)=>setAttributes({styles:updateData(styles,value,"radius")})} />
-
-            <BButtonGroup  style={{marginTop:"10px"}}  value={styles?.contentAlignment}  label={__("Alignment ", "info-cards")} options={[
-              {label:"Left",value:"left"},
-              {label:"Center",value:"center"},
-              {label:"Right",value:"right"}
-            ]} 
-            onChange={(value)=>setAttributes({styles:updateData(styles,value,"contentAlignment")})}
-            />
-
-            <Label>Column Gap  </Label>
-            <UnitControl step={1} value={styles?.columnGap} onChange={(value)=>setAttributes({styles:updateData(styles,value,"columnGap")})}   />
-            <Label>Row Gap </Label>
-            <UnitControl  step={1} value={styles?.rowGap} onChange={(value)=>setAttributes({styles:updateData(styles,value,"rowGap")})}   /> 
+       
+        
       
       </PanelBody>
 
       <PanelBody className="bPlPanelBody"
-        title={__("InfoBox", "info-cards")}
+        title={__("Card", "info-cards")}
         initialOpen={false}>
           <UnitControl  step={1} label={__("Width ", "info-cards")} value={styles?.card?.width} onChange={(value)=>setAttributes({styles:updateData(styles,value,"card","width")})} />
           <UnitControl step={1} style={{marginTop:"10px"}} label={__("Height ", "info-cards")} value={styles?.card?.height} onChange={(value)=>setAttributes({styles:updateData(styles,value,"card","height")})} />
@@ -467,31 +447,64 @@ onChange={(value)=>setAttributes({styles:updateData(styles,value,"card","variant
       >
         <Background
           label={__("Background", "info-cards")}
-          value={themeSevenStyles?.bg}
+          value={styles?.bg}
           onChange={(value) =>
-            setAttributes({ themeSevenStyles: updateData(themeSevenStyles, value, "bg") })
+            setAttributes({ styles: updateData(styles, value, "bg") })
           }
         />
 
-        <BoxControl
+        <BoxControls
           label={__("Radius", "info-cards")}
-          values={themeSevenStyles?.radius}
+          values={styles?.radius}
           onChange={(value) =>
-            setAttributes({ themeSevenStyles: updateData(themeSevenStyles, value, "radius") })
+            setAttributes({ styles: updateData(styles, value, "radius") })
           }
         />
-        <ShadowControl
+        {/* <ShadowControl
           value={themeSevenStyles?.shadow}
           onChange={(value) =>
             setAttributes({ themeSevenStyles: updateData(themeSevenStyles, value, "shadow") })
           }
-        />
+        /> */}
       </PanelBody>
       <PanelBody
         className="bPlPanelBody"
-        title={__("InfoBox", "info-cards")}
+        title={__("Card", "info-cards")}
         initialOpen={false}
       >
+         <PanelRow>
+          <Label className="mt0"> Width</Label>
+          <Device />
+        </PanelRow>
+        <UnitControl
+          value={themeSevenStyles?.card?.width[device]}
+          onChange={(value) =>
+            setAttributes({
+              themeSevenStyles: updateData(themeSevenStyles, value, "card", "width", device),
+            })
+          }
+        />
+        <PanelRow>
+          <Label className="mt0"> Height</Label>
+          <Device />
+        </PanelRow>
+        <UnitControl
+          value={themeSevenStyles?.card?.height[device]}
+          onChange={(value) =>
+            setAttributes({
+              themeSevenStyles: updateData(themeSevenStyles, value, "card", "height", device),
+            })
+          }
+        />
+        <BoxControls style={{marginTop:"10px"}}
+          label={__(" Content Padding", "info-cards")}
+          values={themeSevenStyles?.card?.contentPadding}
+          onChange={(value) =>
+            setAttributes({
+              themeSevenStyles: updateData(themeSevenStyles, value, "card", "contentPadding"),
+            })
+          }
+        />
         <Background
           label={__("Background", "info-cards")}
           value={themeSevenInfo[activeIndex]?.backgroundImage}
@@ -506,7 +519,8 @@ onChange={(value)=>setAttributes({styles:updateData(styles,value,"card","variant
             })
           }
         />
-        <BoxControl
+        <BoxControls
+         label={__("Padding", "info-cards")}
           values={themeSevenStyles?.card?.cardPadding}
           onChange={(value) =>
             setAttributes({
@@ -514,7 +528,7 @@ onChange={(value)=>setAttributes({styles:updateData(styles,value,"card","variant
             })
           }
         />
-        <BoxControl
+        <BoxControls
           label={__("Radius", "info-cards")}
           values={themeSevenStyles?.card?.radius}
           onChange={(value) =>
@@ -548,7 +562,7 @@ onChange={(value)=>setAttributes({styles:updateData(styles,value,"card","variant
             })
           }
         />
-        <BoxControl
+        <BoxControls
           label={__("Content  Radius", "info-cards")}
           values={themeSevenStyles?.card?.contentRadius}
           onChange={(value) =>
@@ -625,7 +639,7 @@ onChange={(value)=>setAttributes({styles:updateData(styles,value,"card","variant
               })
             }
           />
-          <BoxControl
+          <BoxControls
             label={__("Radius ", "info-cards")}
             values={themeSevenStyles?.card?.tag?.radius}
             onChange={(value) =>
@@ -634,7 +648,7 @@ onChange={(value)=>setAttributes({styles:updateData(styles,value,"card","variant
               })
             }
           />
-          <BoxControl
+          <BoxControls
             label={__("Padding ", "info-cards")}
             values={themeSevenStyles?.card?.tag?.padding}
             onChange={(value) =>

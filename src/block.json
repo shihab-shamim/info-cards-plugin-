@@ -740,61 +740,7 @@
     "themeSevenStyles": {
       "type": "object",
       "default": {
-        "gap": {
-          "row": "100px",
-          "column": "100px"
-        },
-        "radius": {
-          "top": "0px",
-          "left": "0px",
-          "right": "0px",
-          "bottom": "0px"
-        },
-        "shadow": [],
-        "bg": {
-          "type": "solid",
-          "color": "#191919"
-        },
-        "padding": {
-          "desktop": {
-            "top": "50px",
-            "left": "0px",
-            "bottom": "50px",
-            "right": "0px"
-          },
-          "tablet": {
-            "top": "50px",
-            "left": "0px",
-            "bottom": "50px",
-            "right": "0px"
-          },
-          "mobile": {
-            "top": "50px",
-            "left": "0px",
-            "bottom": "50px",
-            "right": "0px"
-          }
-        },
-        "margin": {
-          "desktop": {
-            "top": "0px",
-            "left": "0px",
-            "bottom": "0px",
-            "right": "0px"
-          },
-          "tablet": {
-            "top": "0px",
-            "left": "0px",
-            "bottom": "0px",
-            "right": "0px"
-          },
-          "mobile": {
-            "top": "0px",
-            "left": "0px",
-            "bottom": "0px",
-            "right": "0px"
-          }
-        },
+        
         "card": {
           "width": {
             "desktop": "300px",
@@ -951,13 +897,8 @@
             "bottom": "0px"
           },
           "cardRoted": 20
-        },
-        "width": {
-          "desktop": "100%",
-          "tablet": "100%",
-          "mobile": "100%"
-        },
-        "alignment": "center"
+        }
+      
       }
     },
 

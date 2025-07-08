@@ -316,15 +316,14 @@ const Style = ({ attributes, id }) => {
 		}
 		
 		${threeDContainerSl} {
-		${getBackgroundCSS(themeSevenStyles?.bg)}
-		padding:${getBoxCSS(themeSevenStyles?.padding?.desktop)};
-		margin:${getBoxCSS(themeSevenStyles?.margin?.desktop)};
-		width:${themeSevenStyles?.width?.desktop};
-		justify-content:${themeSevenStyles?.alignment};
-		row-gap:${themeSevenStyles?.gap?.row};
-		column-gap:${themeSevenStyles?.gap?.column};
-		border-radius:${getBoxCSS(themeSevenStyles?.radius)};
-		box-shadow:${getMultiShadowCSS(themeSevenStyles?.shadow)};
+		${getBackgroundCSS(styles?.bg)}
+		padding:${getBoxCSS(styles?.padding?.desktop)};
+		margin:${getBoxCSS(styles?.margin?.desktop)};
+		width:${styles?.width?.desktop};
+		justify-content:${styles?.contentAlignment};
+		row-gap:${styles?.rowGap};
+		column-gap:${styles?.columnGap};
+		border-radius:${getBoxCSS(styles?.radius)};
 			
 		}
 
@@ -385,9 +384,9 @@ const Style = ({ attributes, id }) => {
 
 		${tabBreakpoint}{
 		${threeDContainerSl}{
-		padding:${getBoxCSS(themeSevenStyles?.padding?.tablet)};
-		margin:${getBoxCSS(themeSevenStyles?.margin?.tablet)};
-		width:${themeSevenStyles?.width?.tablet}
+		padding:${getBoxCSS(styles?.padding?.tablet)};
+		margin:${getBoxCSS(styles?.margin?.tablet)};
+		width:${styles?.width?.tablet}
 		}
 		${parentSl}{
 		 width:${themeSevenStyles?.card?.width?.tablet};
@@ -400,9 +399,9 @@ const Style = ({ attributes, id }) => {
 
 		${mobileBreakpoint}{
 		${threeDContainerSl}{
-		padding:${getBoxCSS(themeSevenStyles?.padding?.mobile)};
-		margin:${getBoxCSS(themeSevenStyles?.margin?.mobile)};
-		width:${themeSevenStyles?.width?.mobile}
+		padding:${getBoxCSS(styles?.padding?.mobile)};
+		margin:${getBoxCSS(styles?.margin?.mobile)};
+		width:${styles?.width?.mobile}
 		}
 		${parentSl}{
 		 width:${themeSevenStyles?.card?.width?.mobile};
