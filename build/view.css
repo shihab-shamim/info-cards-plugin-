@@ -121,6 +121,10 @@
     grid-template-columns: repeat(12, 1fr);
   }
 }
+.icbCards.columns-3.columns-tablet-2.columns-mobile-1.vertical {
+  margin-top: 40px;
+}
+
 .wp-block-icb-cards * {
   box-sizing: border-box;
 }

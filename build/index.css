@@ -7,6 +7,9 @@
 .wp-block-icb-cards .icbCards.horizontal .components-placeholder {
   max-width: 50%;
 }
+.wp-block-icb-cards .activeCards {
+  border: 1px solid white;
+}
 
 .bPlPanelBody .components-base-control__help {
   font-size: 11px;
