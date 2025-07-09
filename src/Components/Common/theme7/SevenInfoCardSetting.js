@@ -6,8 +6,8 @@ import { updateData } from '../../../../../bpl-tools/utils/functions';
 
 const SevenInfoCardSetting = (props) => {
       const { attributes, setAttributes, index } = props;
-  const { themeSevenInfo } = attributes;
-  const item = themeSevenInfo[index];
+  const { productsInfo } = attributes;
+  const item = productsInfo[index];
     return (
         <div>
       <span>Tag</span>
@@ -19,7 +19,7 @@ const SevenInfoCardSetting = (props) => {
           value={item?.tag?.name}
           onChange={(value) =>
             setAttributes({
-              themeSevenInfo: updateData(themeSevenInfo, value, index, "tag", "name"),
+              productsInfo: updateData(productsInfo, value, index, "tag", "name"),
             })
           }
         />
@@ -29,7 +29,7 @@ const SevenInfoCardSetting = (props) => {
           value={item?.tag?.value}
           onChange={(value) =>
             setAttributes({
-              themeSevenInfo: updateData(themeSevenInfo, value, index, "tag", "value"),
+              productsInfo: updateData(productsInfo, value, index, "tag", "value"),
             })
           }
         />
@@ -41,7 +41,7 @@ const SevenInfoCardSetting = (props) => {
         value={item?.title}
         onChange={(value) =>
           setAttributes({
-            themeSevenInfo: updateData(themeSevenInfo, value, index, "title"),
+            productsInfo: updateData(productsInfo, value, index, "title"),
           })
         }
       />
@@ -52,7 +52,7 @@ const SevenInfoCardSetting = (props) => {
         value={item?.content}
         onChange={(value) =>
           setAttributes({
-            themeSevenInfo: updateData(themeSevenInfo, value, index, "content"),
+            productsInfo: updateData(productsInfo, value, index, "content"),
           })
         }
       />
@@ -66,7 +66,7 @@ const SevenInfoCardSetting = (props) => {
           value={item?.button?.text}
           onChange={(value) =>
             setAttributes({
-              themeSevenInfo: updateData(themeSevenInfo, value, index, "button", "text"),
+              productsInfo: updateData(productsInfo, value, index, "button", "text"),
             })
           }
         />
@@ -76,7 +76,7 @@ const SevenInfoCardSetting = (props) => {
           value={item?.button?.link}
           onChange={(value) =>
             setAttributes({
-              themeSevenInfo: updateData(themeSevenInfo, value, index, "button", "link"),
+              productsInfo: updateData(productsInfo, value, index, "button", "link"),
             })
           }
         />

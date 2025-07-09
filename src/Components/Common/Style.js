@@ -36,8 +36,7 @@ const Style = ({ attributes, id }) => {
     btnHovColors,
     styles,
     alignment,
-    themeSevenStyles,
-    themeSevenInfo,options
+    productsInfo,options
   } = attributes;
 
 
@@ -76,7 +75,7 @@ const Style = ({ attributes, id }) => {
   const cardContentSl = `${contentBoxSl} .threeDinfoCardDescription`;
   const buttonSl = `${contentBoxSl} .threeDinfoSeeMore`;
 
-   const dynamicCardStyle = themeSevenInfo
+   const dynamicCardStyle = productsInfo
     .map((card, index) => {
       return `
 			.threeDinfoCard${index}{
@@ -85,7 +84,7 @@ const Style = ({ attributes, id }) => {
 			.threeDinfoCardContentBox${index}{
 			background:${card?.backgroundColor};
 			box-shadow:${getMultiShadowCSS(card?.shadow)};
-			padding:${getBoxCSS(themeSevenStyles?.card?.contentPadding)}
+			padding:${getBoxCSS(styles?.card?.contentPadding)}
 			}
 			${dateBoxSl}${index}{
 			box-shadow:${getMultiShadowCSS(card?.tagShadow)};
@@ -109,11 +108,11 @@ const Style = ({ attributes, id }) => {
 		${getTypoCSS("", styles?.card?.description?.typo)?.googleFontLink}
 		${getTypoCSS("", styles?.card?.variantState?.typo)?.googleFontLink}
 		${getTypoCSS("", styles?.card?.button?.typo)?.googleFontLink}
-        ${getTypoCSS("", themeSevenStyles?.card?.tag?.typo)?.googleFontLink}
-		${getTypoCSS("", themeSevenStyles?.card?.tag?.value?.typo)?.googleFontLink}
-		${getTypoCSS("", themeSevenStyles?.card?.title?.typo)?.googleFontLink}
-		${getTypoCSS("", themeSevenStyles?.card?.description?.typo)?.googleFontLink}
-		${getTypoCSS("", themeSevenStyles?.card?.button?.typo)?.googleFontLink}
+        ${getTypoCSS("", styles?.card?.tag?.typo)?.googleFontLink}
+		${getTypoCSS("", styles?.card?.tag?.value?.typo)?.googleFontLink}
+		${getTypoCSS("", styles?.card?.title?.typo)?.googleFontLink}
+		${getTypoCSS("", styles?.card?.description?.typo)?.googleFontLink}
+		${getTypoCSS("", styles?.card?.button?.typo)?.googleFontLink}
 		
 		
 
@@ -140,11 +139,11 @@ const Style = ({ attributes, id }) => {
 		${getTypoCSS(productInfoBtnSl, styles?.card?.variantState?.typo)?.styles}
 		${getTypoCSS(productBuyBtnSl, styles?.card?.button?.typo)?.styles}
     
-       ${getTypoCSS(nameSl, themeSevenStyles?.card?.tag?.typo)?.styles} 
-		${getTypoCSS(valueSl, themeSevenStyles?.card?.tag?.value?.typo)?.styles} 
-		${getTypoCSS(titleSl, themeSevenStyles?.card?.title?.typo)?.styles} 
-		${getTypoCSS(cardContentSl, themeSevenStyles?.card?.description?.typo)?.styles} 
-		${getTypoCSS(buttonSl, themeSevenStyles?.card?.button?.typo)?.styles} 
+       ${getTypoCSS(nameSl, styles?.card?.tag?.typo)?.styles} 
+		${getTypoCSS(valueSl, styles?.card?.tag?.value?.typo)?.styles} 
+		${getTypoCSS(titleSl, styles?.card?.title?.typo)?.styles} 
+		${getTypoCSS(cardContentSl, styles?.card?.description?.typo)?.styles} 
+		${getTypoCSS(buttonSl, styles?.card?.button?.typo)?.styles} 
 		
 
         
@@ -328,52 +327,52 @@ const Style = ({ attributes, id }) => {
 		}
 
 		${parentSl}{
-		 width:${themeSevenStyles?.card?.width?.desktop};
+		 width:${styles?.card?.width?.desktop};
 		}
 		 ${infoCardSl}{
-		 min-height:${themeSevenStyles?.card?.height?.desktop} !important;
-		 border-radius:${getBoxCSS(themeSevenStyles?.card?.radius)};
-		 padding:${getBoxCSS(themeSevenStyles?.card?.cardPadding)};
+		 min-height:${styles?.card?.height?.desktop} !important;
+		 border-radius:${getBoxCSS(styles?.card?.radius)};
+		 padding:${getBoxCSS(styles?.card?.cardPadding)};
 
 		 }
 		 ${infoCardSl}:hover{
 		 transform: rotate3d(0.5, 1, 0, ${
        options?.isHoverRotated
-         ? `${themeSevenStyles?.card?.cardRoted}deg`
+         ? `${styles?.card?.cardRoted}deg`
          : "0deg"
      });
 		 }
 		 ${contentBoxSl}{
-		 border-radius:${getBoxCSS(themeSevenStyles?.card?.contentRadius)};
+		 border-radius:${getBoxCSS(styles?.card?.contentRadius)};
 		 }
 		 ${dateBoxSl}{
-		 background-color:${themeSevenStyles?.card?.tag?.bg};
-		 width:${themeSevenStyles?.card?.tag?.width};
-		 height:${themeSevenStyles?.card?.tag?.height};
-		 left:${themeSevenStyles?.card?.tag?.position?.left}px;
-		 top:${themeSevenStyles?.card?.tag?.position?.top}px;
-		 border-radius:${getBoxCSS(themeSevenStyles?.card?.tag?.radius)};
-		 padding:${getBoxCSS(themeSevenStyles?.card?.tag?.padding)};
+		 background-color:${styles?.card?.tag?.bg};
+		 width:${styles?.card?.tag?.width};
+		 height:${styles?.card?.tag?.height};
+		 left:${styles?.card?.tag?.position?.left}px;
+		 top:${styles?.card?.tag?.position?.top}px;
+		 border-radius:${getBoxCSS(styles?.card?.tag?.radius)};
+		 padding:${getBoxCSS(styles?.card?.tag?.padding)};
 		 
 		 }
 		${dateBoxSl} .month{
-		 color:${themeSevenStyles?.card?.tag?.color};
+		 color:${styles?.card?.tag?.color};
 		
 		 }
 		 ${valueSl}{
-		 color:${themeSevenStyles?.card?.tag?.value?.color};
+		 color:${styles?.card?.tag?.value?.color};
 		 }
 
 		 ${titleSl}{
-		 color:${themeSevenStyles?.card?.title?.color};
+		 color:${styles?.card?.title?.color};
 		 
 		 }
 		 ${cardContentSl}{
-          color:${themeSevenStyles?.card?.description?.color};
+          color:${styles?.card?.description?.color};
 
 		 }
 		  ${buttonSl}{
-		  color:${themeSevenStyles?.card?.button?.color};
+		  color:${styles?.card?.button?.color};
 		  }
 
 
@@ -389,10 +388,10 @@ const Style = ({ attributes, id }) => {
 		width:${styles?.width?.tablet}
 		}
 		${parentSl}{
-		 width:${themeSevenStyles?.card?.width?.tablet};
+		 width:${styles?.card?.width?.tablet};
 		}
 		  ${infoCardSl}{
-		 min-height:${themeSevenStyles?.card?.height?.tablet} !important;
+		 min-height:${styles?.card?.height?.tablet} !important;
 		 }
 		
 		}
@@ -404,10 +403,10 @@ const Style = ({ attributes, id }) => {
 		width:${styles?.width?.mobile}
 		}
 		${parentSl}{
-		 width:${themeSevenStyles?.card?.width?.mobile};
+		 width:${styles?.card?.width?.mobile};
 		}
 		  ${infoCardSl}{
-		 min-height:${themeSevenStyles?.card?.height?.mobile} !important;
+		 min-height:${styles?.card?.height?.mobile} !important;
 		 }
 		
 		}

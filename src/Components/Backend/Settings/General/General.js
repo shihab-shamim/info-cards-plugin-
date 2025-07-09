@@ -47,7 +47,7 @@ const General = ({ attributes, setAttributes, updateCard,editDevice }) => {
     themeSevenStyles,
     styles
   } = attributes;
-  // console.log("styles",styles?.bg);
+ 
   const [device, setDevice] = useState("desktop");
    const newProduct = {
     title: "Alienware Gaming Laptop",
@@ -775,7 +775,7 @@ const General = ({ attributes, setAttributes, updateCard,editDevice }) => {
           design="sortable"
           attributes={attributes}
           setAttributes={setAttributes}
-          arrKey="themeSevenInfo"
+          arrKey="productsInfo"
           itemLabel="Card"
           ItemSettings={SevenInfoCardSetting}
         />

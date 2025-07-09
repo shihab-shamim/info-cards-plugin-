@@ -4,10 +4,9 @@ import { produce } from "immer";
 import { withSelect } from "@wordpress/data";
 
 
-import Cards from "./Cards";
 import Style from '../Common/Style';
 import Settings from "./Settings/Settings";
-import { getCardContent, getCardContentEdit } from "../../utils/function";
+import {  getCardContentEdit } from "../../utils/function";
 
 
 
@@ -50,5 +49,6 @@ export default withSelect((select) => {
     device: getDeviceType()?.toLowerCase(),
   };
 })(Edit);
+
 
 

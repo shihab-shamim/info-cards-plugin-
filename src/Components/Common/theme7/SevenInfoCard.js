@@ -9,13 +9,13 @@ const SevenInfoCard = ({
   isBackend,
 }) => {
 
-    const cardsData = attributes?.themeSevenInfo;
+    const cardsData = attributes?.productsInfo;
 
-  const { themeSevenStyles } = attributes;
+  const { styles } = attributes;
 
   const cardRefs = useRef([]);
   useEffect(() => {
-    let maxHeight = themeSevenStyles?.card?.height?.desktop;
+    let maxHeight = styles?.card?.height?.desktop;
     cardRefs.current.forEach((card) => {
       if (card) {
         card.style.height = "auto";

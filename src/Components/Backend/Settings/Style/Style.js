@@ -24,7 +24,7 @@ import {
 import { updateData } from "../../../../../../bpl-tools/utils/functions";
 import { RangeControl } from "@wordpress/components";
 
-const Style = ({ attributes, setAttributes ,device,activeIndex}) => {
+const Style = ({ attributes, setAttributes ,editDevice,activeIndex}) => {
   const {
     theme,
     background,
@@ -45,8 +45,7 @@ const Style = ({ attributes, setAttributes ,device,activeIndex}) => {
     btnRadius,
     styles,
     options,
-    themeSevenStyles,
-    themeSevenInfo
+    productsInfo
   } = attributes;
 
   return (
@@ -460,12 +459,7 @@ onChange={(value)=>setAttributes({styles:updateData(styles,value,"card","variant
             setAttributes({ styles: updateData(styles, value, "radius") })
           }
         />
-        {/* <ShadowControl
-          value={themeSevenStyles?.shadow}
-          onChange={(value) =>
-            setAttributes({ themeSevenStyles: updateData(themeSevenStyles, value, "shadow") })
-          }
-        /> */}
+       
       </PanelBody>
       <PanelBody
         className="bPlPanelBody"
@@ -477,10 +471,10 @@ onChange={(value)=>setAttributes({styles:updateData(styles,value,"card","variant
           <Device />
         </PanelRow>
         <UnitControl
-          value={themeSevenStyles?.card?.width[device]}
+          value={styles?.card?.width[editDevice]}
           onChange={(value) =>
             setAttributes({
-              themeSevenStyles: updateData(themeSevenStyles, value, "card", "width", device),
+              styles: updateData(styles, value, "card", "width", editDevice),
             })
           }
         />
@@ -489,29 +483,29 @@ onChange={(value)=>setAttributes({styles:updateData(styles,value,"card","variant
           <Device />
         </PanelRow>
         <UnitControl
-          value={themeSevenStyles?.card?.height[device]}
+          value={styles?.card?.height[editDevice]}
           onChange={(value) =>
             setAttributes({
-              themeSevenStyles: updateData(themeSevenStyles, value, "card", "height", device),
+              styles: updateData(styles, value, "card", "height", editDevice),
             })
           }
         />
         <BoxControls style={{marginTop:"10px"}}
           label={__(" Content Padding", "info-cards")}
-          values={themeSevenStyles?.card?.contentPadding}
+          values={styles?.card?.contentPadding}
           onChange={(value) =>
             setAttributes({
-              themeSevenStyles: updateData(themeSevenStyles, value, "card", "contentPadding"),
+              styles: updateData(styles, value, "card", "contentPadding"),
             })
           }
         />
         <Background
           label={__("Background", "info-cards")}
-          value={themeSevenInfo[activeIndex]?.backgroundImage}
+          value={productsInfo[activeIndex]?.backgroundImage}
           onChange={(value) =>
             setAttributes({
-              themeSevenInfo: updateData(
-                themeSevenInfo,
+              productsInfo: updateData(
+                productsInfo,
                 value,
                 activeIndex,
                 "backgroundImage"
@@ -521,30 +515,30 @@ onChange={(value)=>setAttributes({styles:updateData(styles,value,"card","variant
         />
         <BoxControls
          label={__("Padding", "info-cards")}
-          values={themeSevenStyles?.card?.cardPadding}
+          values={styles?.card?.cardPadding}
           onChange={(value) =>
             setAttributes({
-              themeSevenStyles: updateData(themeSevenStyles, value, "card", "cardPadding"),
+              styles: updateData(styles, value, "card", "cardPadding"),
             })
           }
         />
         <BoxControls
           label={__("Radius", "info-cards")}
-          values={themeSevenStyles?.card?.radius}
+          values={styles?.card?.radius}
           onChange={(value) =>
             setAttributes({
-              themeSevenStyles: updateData(themeSevenStyles, value, "card", "radius"),
+              styles: updateData(styles, value, "card", "radius"),
             })
           }
         />
 
         <ColorControl
           label={__("Content Background", "info-cards")}
-          value={themeSevenInfo[activeIndex]?.backgroundColor}
+          value={productsInfo[activeIndex]?.backgroundColor}
           onChange={(value) =>
             setAttributes({
-              themeSevenInfo: updateData(
-                themeSevenInfo,
+              productsInfo: updateData(
+                productsInfo,
                 value,
                 activeIndex,
                 "backgroundColor"
@@ -555,19 +549,19 @@ onChange={(value)=>setAttributes({styles:updateData(styles,value,"card","variant
 
         <ShadowControl
           label={__("Content  Shadow", "info-cards")}
-          value={themeSevenInfo[activeIndex]?.shadow}
+          value={productsInfo[activeIndex]?.shadow}
           onChange={(value) =>
             setAttributes({
-              themeSevenInfo: updateData(themeSevenInfo, value, activeIndex, "shadow"),
+              productsInfo: updateData(productsInfo, value, activeIndex, "shadow"),
             })
           }
         />
         <BoxControls
           label={__("Content  Radius", "info-cards")}
-          values={themeSevenStyles?.card?.contentRadius}
+          values={styles?.card?.contentRadius}
           onChange={(value) =>
             setAttributes({
-              themeSevenStyles: updateData(themeSevenStyles, value, "card", "contentRadius"),
+              styles: updateData(styles, value, "card", "contentRadius"),
             })
           }
         />
@@ -577,10 +571,10 @@ onChange={(value)=>setAttributes({styles:updateData(styles,value,"card","variant
         {options?.isHoverRotated && (
           <RangeControl
             max={200}
-            value={themeSevenStyles?.card?.cardRoted}
+            value={styles?.card?.cardRoted}
             onChange={(value) =>
               setAttributes({
-                themeSevenStyles: updateData(themeSevenStyles, value, "card", "cardRoted"),
+                styles: updateData(styles, value, "card", "cardRoted"),
               })
             }
           />
@@ -596,10 +590,10 @@ onChange={(value)=>setAttributes({styles:updateData(styles,value,"card","variant
           <Label className="mt0">
             Width{" "}
             <UnitControl
-              value={themeSevenStyles?.card?.tag?.width}
+              value={styles?.card?.tag?.width}
               onChange={(value) =>
                 setAttributes({
-                  themeSevenStyles: updateData(themeSevenStyles, value, "card", "tag", "width"),
+                  styles: updateData(styles, value, "card", "tag", "width"),
                 })
               }
             />
@@ -607,10 +601,10 @@ onChange={(value)=>setAttributes({styles:updateData(styles,value,"card","variant
           <Label className="mt15 mb15">
             Height{" "}
             <UnitControl
-              value={themeSevenStyles?.card?.tag?.height}
+              value={styles?.card?.tag?.height}
               onChange={(value) =>
                 setAttributes({
-                  themeSevenStyles: updateData(themeSevenStyles, value, "card", "tag", "height"),
+                  styles: updateData(styles, value, "card", "tag", "height"),
                 })
               }
             />
@@ -618,20 +612,20 @@ onChange={(value)=>setAttributes({styles:updateData(styles,value,"card","variant
 
           <ColorControl
             label={__("Background-Color", "info-cards")}
-            value={themeSevenStyles?.card?.tag?.bg}
+            value={styles?.card?.tag?.bg}
             onChange={(value) =>
               setAttributes({
-                themeSevenStyles: updateData(themeSevenStyles, value, "card", "tag", "bg"),
+                styles: updateData(styles, value, "card", "tag", "bg"),
               })
             }
           />
           <ShadowControl
             label={__("Shadow ", "info-cards")}
-            value={themeSevenInfo[activeIndex]?.tagShadow}
+            value={productsInfo[activeIndex]?.tagShadow}
             onChange={(value) =>
               setAttributes({
-                themeSevenInfo: updateData(
-                  themeSevenInfo,
+                productsInfo: updateData(
+                  productsInfo,
                   value,
                   activeIndex,
                   "tagShadow"
@@ -641,19 +635,19 @@ onChange={(value)=>setAttributes({styles:updateData(styles,value,"card","variant
           />
           <BoxControls
             label={__("Radius ", "info-cards")}
-            values={themeSevenStyles?.card?.tag?.radius}
+            values={styles?.card?.tag?.radius}
             onChange={(value) =>
               setAttributes({
-                themeSevenStyles: updateData(themeSevenStyles, value, "card", "tag", "radius"),
+                styles: updateData(styles, value, "card", "tag", "radius"),
               })
             }
           />
           <BoxControls
             label={__("Padding ", "info-cards")}
-            values={themeSevenStyles?.card?.tag?.padding}
+            values={styles?.card?.tag?.padding}
             onChange={(value) =>
               setAttributes({
-                themeSevenStyles: updateData(themeSevenStyles, value, "card", "tag", "padding"),
+                styles: updateData(styles, value, "card", "tag", "padding"),
               })
             }
           />
@@ -661,11 +655,11 @@ onChange={(value)=>setAttributes({styles:updateData(styles,value,"card","variant
           <Label>TranslateX </Label>
           <RangeControl
             max={300}
-            value={themeSevenStyles?.card?.tag?.position?.left}
+            value={styles?.card?.tag?.position?.left}
             onChange={(value) =>
               setAttributes({
-                themeSevenStyles: updateData(
-                  themeSevenStyles,
+                styles: updateData(
+                  styles,
                   value,
                   "card",
                   "tag",
@@ -678,11 +672,11 @@ onChange={(value)=>setAttributes({styles:updateData(styles,value,"card","variant
           <Label>TranslateY </Label>
           <RangeControl
             max={300}
-            value={themeSevenStyles?.card?.tag?.position?.top}
+            value={styles?.card?.tag?.position?.top}
             onChange={(value) =>
               setAttributes({
-                themeSevenStyles: updateData(
-                  themeSevenStyles,
+                styles: updateData(
+                  styles,
                   value,
                   "card",
                   "tag",
@@ -695,29 +689,29 @@ onChange={(value)=>setAttributes({styles:updateData(styles,value,"card","variant
 
           <ColorControl
             label={__("Name Color ", "info-cards")}
-            value={themeSevenStyles?.card?.tag?.color}
+            value={styles?.card?.tag?.color}
             onChange={(value) =>
               setAttributes({
-                themeSevenStyles: updateData(themeSevenStyles, value, "card", "tag", "color"),
+                styles: updateData(styles, value, "card", "tag", "color"),
               })
             }
           />
           <Typography
             label={__("Name Typography ", "info-cards")}
-            value={themeSevenStyles?.card?.tag?.typo}
+            value={styles?.card?.tag?.typo}
             onChange={(value) =>
               setAttributes({
-                themeSevenStyles: updateData(themeSevenStyles, value, "card", "tag", "typo"),
+                styles: updateData(styles, value, "card", "tag", "typo"),
               })
             }
           />
           <ColorControl
             label={__("Value Color ", "info-cards")}
-            value={themeSevenStyles?.card?.tag?.value?.color}
+            value={styles?.card?.tag?.value?.color}
             onChange={(value) =>
               setAttributes({
-                themeSevenStyles: updateData(
-                  themeSevenStyles,
+                styles: updateData(
+                  styles,
                   value,
                   "card",
                   "tag",
@@ -729,11 +723,11 @@ onChange={(value)=>setAttributes({styles:updateData(styles,value,"card","variant
           />
           <Typography
             label={__("Value Typography ", "info-cards")}
-            value={themeSevenStyles?.card?.tag?.value?.typo}
+            value={styles?.card?.tag?.value?.typo}
             onChange={(value) =>
               setAttributes({
-                themeSevenStyles: updateData(
-                  themeSevenStyles,
+                styles: updateData(
+                  styles,
                   value,
                   "card",
                   "tag",
@@ -753,19 +747,19 @@ onChange={(value)=>setAttributes({styles:updateData(styles,value,"card","variant
       >
         <ColorControl
           label={__("Color ", "info-cards")}
-          value={themeSevenStyles?.card?.title?.color}
+          value={styles?.card?.title?.color}
           onChange={(value) =>
             setAttributes({
-              themeSevenStyles: updateData(themeSevenStyles, value, "card", "title", "color"),
+              styles: updateData(styles, value, "card", "title", "color"),
             })
           }
         />
         <Typography
           label={__("Typography ", "info-cards")}
-          value={themeSevenStyles?.card?.title?.typo}
+          value={styles?.card?.title?.typo}
           onChange={(value) =>
             setAttributes({
-              themeSevenStyles: updateData(themeSevenStyles, value, "card", "title", "typo"),
+              styles: updateData(styles, value, "card", "title", "typo"),
             })
           }
         />
@@ -777,19 +771,19 @@ onChange={(value)=>setAttributes({styles:updateData(styles,value,"card","variant
       >
         <ColorControl
           label={__("Color ", "info-cards")}
-          value={themeSevenStyles?.card?.description?.color}
+          value={styles?.card?.description?.color}
           onChange={(value) =>
             setAttributes({
-              themeSevenStyles: updateData(themeSevenStyles, value, "card", "description", "color"),
+              styles: updateData(styles, value, "card", "description", "color"),
             })
           }
         />
         <Typography
           label={__("Typography ", "info-cards")}
-          value={themeSevenStyles?.card?.description?.typo}
+          value={styles?.card?.description?.typo}
           onChange={(value) =>
             setAttributes({
-              themeSevenStyles: updateData(themeSevenStyles, value, "card", "description", "typo"),
+              styles: updateData(styles, value, "card", "description", "typo"),
             })
           }
         />
@@ -803,19 +797,19 @@ onChange={(value)=>setAttributes({styles:updateData(styles,value,"card","variant
         >
           <ColorControl
             label={__("Color ", "info-cards")}
-            value={themeSevenStyles?.card?.button?.color}
+            value={styles?.card?.button?.color}
             onChange={(value) =>
               setAttributes({
-                themeSevenStyles: updateData(themeSevenStyles, value, "card", "button", "color"),
+                styles: updateData(styles, value, "card", "button", "color"),
               })
             }
           />
           <Typography
             label={__("Typography ", "info-cards")}
-            value={themeSevenStyles?.card?.button?.typo}
+            value={styles?.card?.button?.typo}
             onChange={(value) =>
               setAttributes({
-                themeSevenStyles: updateData(themeSevenStyles, value, "card", "button", "typo"),
+                styles: updateData(styles, value, "card", "button", "typo"),
               })
             }
           />
