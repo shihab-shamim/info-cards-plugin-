@@ -29,7 +29,7 @@ import { themeSwitch } from "../../../../utils/function";
 import { updateData } from "../../../../../../bpl-tools/utils/functions";
 import ProductInfoSetting from "../../../Common/theme6/ProductInfoSetting";
 import SevenInfoCardSetting from "../../../Common/theme7/SevenInfoCardSetting";
-// import ProductInfoSetting from "../../../Common/theme6/ProductInfoSetting";
+import ThemeEightInfoSetting from "../../../Common/theme8/ThemeEightInfoSetting";
 
 const General = ({ attributes, setAttributes, updateCard,editDevice }) => {
   const {
@@ -44,12 +44,15 @@ const General = ({ attributes, setAttributes, updateCard,editDevice }) => {
     imgHeight,
     isTab,
     options,
-    themeSevenStyles,
-    styles
+    styles,
+    productsInfo
   } = attributes;
+
+
+
  
   const [device, setDevice] = useState("desktop");
-   const newProduct = {
+   const themeSixNewCard = {
     title: "Alienware Gaming Laptop",
     description:
       "Alienware Laptop is one of the best Gaming Laptops. Every gamer loves it.",
@@ -61,7 +64,7 @@ const General = ({ attributes, setAttributes, updateCard,editDevice }) => {
       link: "#",
     },
   };
- const cardData = {
+ const themeSevenNewCard = {
     title: "Serotonin",
     content:
       "Progressively seize enabled experiences through sticky web-readiness. Proactively facilitate one-to-one.",
@@ -118,6 +121,48 @@ const General = ({ attributes, setAttributes, updateCard,editDevice }) => {
         isInset: false,
       },
     ],
+  };
+   const themeEightNewCard = {
+    id: 1,
+    name: "Demo Name",
+    title: "Demo Title ",
+    company: "Demo Company",
+    status: "Online",
+    bio: "Developing effective marketing strategies for brands. Specializing in digital marketing and growth.",
+    state: [
+      { name: "posts", quantity: 70 },
+      { name: "followers", quantity: 5640 },
+      { name: "following", quantity: 5010 },
+    ],
+    profileImg:
+      "https://plus.unsplash.com/premium_photo-1689568126014-06fea9d5d341?q=80&w=2070",
+    social: [
+      {
+        name: "twitter",
+        link: "#",
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>`,
+      },
+      {
+        name: "instagram",
+        link: "#",
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>`,
+      },
+      {
+        name: "linkedin",
+        link: "#",
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>`,
+      },
+      {
+        name: "email",
+        link: "#",
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path></svg>`,
+      },
+    ],
+    button: {
+      text: "Message",
+      link: "#",
+      icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="message-icon"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>`,
+    },
   };
 
   const onAddCard = () => {
@@ -653,7 +698,7 @@ const General = ({ attributes, setAttributes, updateCard,editDevice }) => {
         initialOpen={false}
       >
         <ItemsPanel
-          newItem={newProduct}
+          newItem={themeSixNewCard}
           design="sortable"
           attributes={attributes}
           setAttributes={setAttributes}
@@ -771,7 +816,7 @@ const General = ({ attributes, setAttributes, updateCard,editDevice }) => {
         initialOpen={false}
       >
         <ItemsPanel
-          newItem={cardData}
+          newItem={themeSevenNewCard}
           design="sortable"
           attributes={attributes}
           setAttributes={setAttributes}
@@ -850,11 +895,11 @@ const General = ({ attributes, setAttributes, updateCard,editDevice }) => {
           }
         />
 
-        <Label>Row Gap Gap</Label>
+        <Label>Row Gap </Label>
         <UnitControl
-          value={themeSevenStyles?.gap?.row}
+          value={styles?.rowGap}
           onChange={(value) =>
-            setAttributes({ themeSevenStyles: updateData(themeSevenStyles, value, "gap", "row") })
+            setAttributes({ styles: updateData(styles, value, "rowGap") })
           }
         />
       </PanelBody>
@@ -929,6 +974,178 @@ const General = ({ attributes, setAttributes, updateCard,editDevice }) => {
         </Label>
       </PanelBody>
 
+    </>
+      }
+
+      {
+        theme==="theme8" &&  <>
+      <PanelBody
+        className="bPlPanelBody"
+        title={__(" Cards", "info-cards")}
+        initialOpen={false}
+      >
+        <ItemsPanel
+          newItem={themeEightNewCard}
+          design="sortable"
+          attributes={attributes}
+          setAttributes={setAttributes}
+          arrKey="productsInfo"
+          itemLabel="Card"
+          ItemSettings={ThemeEightInfoSetting}
+        />
+      </PanelBody>
+
+ 
+      <PanelBody
+        className="bPlPanelBody"
+        title={__("Layout", "info-cards")}
+        initialOpen={false}
+      >
+         <BoxControl
+          label={__("Margin", "info-cards")}
+          values={styles?.margin}
+          onChange={(value) =>
+            setAttributes({ styles: updateData(styles, value, "margin") })
+          }
+        />
+        <BoxControl
+          label={__("Padding", "info-cards")}
+          values={styles?.padding}
+          onChange={(value) =>
+            setAttributes({ styles: updateData(styles, value, "padding") })
+          }
+        />
+        <PanelRow>
+          <Label>Columns</Label>
+          <Device />
+        </PanelRow>
+        <RangeControl
+          value={styles?.columns[device]}
+          onChange={(value) =>
+            setAttributes({
+              styles: updateData(styles, value, "columns", device),
+            })
+          }
+        />
+
+        <PanelRow>
+          <Label>Column Gap</Label> <Device />{" "}
+        </PanelRow>
+
+        <UnitControl
+          value={styles?.columnGap?.[device]}
+          onChange={(value) =>
+            setAttributes({
+              styles: updateData(styles, value, "columnGap", device),
+            })
+          }
+        />
+
+        <PanelRow>
+          <Label>Row Gap</Label> <Device />{" "}
+        </PanelRow>
+
+        <UnitControl
+          value={styles?.rowGap?.[device]}
+          onChange={(value) =>
+            setAttributes({
+              styles: updateData(styles, value, "rowGap", device),
+            })
+          }
+        />
+      </PanelBody>
+
+      {/* options  */}
+      <PanelBody
+        className="bPlPanelBody"
+        title={__("Options", "info-cards")}
+        initialOpen={false}
+      >
+        <Label>
+          {" "}
+          <FormToggle
+            checked={options?.isStatusShow}
+            onChange={() =>
+              setAttributes({
+                options: updateData(
+                  options,
+                  !options?.isStatusShow,
+                  "isStatusShow"
+                ),
+              })
+            }
+          />{" "}
+          <strong>Show Status</strong>
+        </Label>
+
+        <Label>
+          {" "}
+          <FormToggle
+            checked={options?.isStateShow}
+            onChange={() =>
+              setAttributes({
+                options: updateData(
+                  options,
+                  !options?.isStateShow,
+                  "isStateShow"
+                ),
+              })
+            }
+          />{" "}
+          <strong>Show State</strong>
+        </Label>
+
+        <Label>
+          {" "}
+          <FormToggle
+            checked={options?.isSocialMediaShow}
+            onChange={() =>
+              setAttributes({
+                options: updateData(
+                  options,
+                  !options?.isSocialMediaShow,
+                  "isSocialMediaShow"
+                ),
+              })
+            }
+          />{" "}
+          <strong>Show Social Media</strong>
+        </Label>
+
+        <Label>
+          {" "}
+          <FormToggle
+            checked={options?.isButtonShow}
+            onChange={() =>
+              setAttributes({
+                options: updateData(
+                  options,
+                  !options?.isButtonShow,
+                  "isButtonShow"
+                ),
+              })
+            }
+          />{" "}
+          <strong>Show Button</strong>
+        </Label>
+
+        <Label>
+          {" "}
+          <FormToggle
+            checked={options?.isOpenUrlNewTab}
+            onChange={() =>
+              setAttributes({
+                options: updateData(
+                  options,
+                  !options?.isOpenUrlNewTab,
+                  "isOpenUrlNewTab"
+                ),
+              })
+            }
+          />{" "}
+          <strong>Open the URL in a new tab</strong>
+        </Label>
+      </PanelBody>
     </>
       }
     </>

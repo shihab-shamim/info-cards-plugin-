@@ -85,4 +85,4 @@ const SevenInfoCardSetting = (props) => {
     );
 };
 
-export default SevenInfoCardSetting;
+export default SevenInfoCardSetting;  
