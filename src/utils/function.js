@@ -2,11 +2,12 @@ import { produce } from "immer";
 import Cards from "../Components/Backend/Cards";
 import Theme6 from "../Components/Common/theme6/Theme6";
 import SevenInfoCard from "../Components/Common/theme7/SevenInfoCard";
+import ThemeEightInfoProfile from "../Components/Common/theme8/ThemeEightInfoProfile";
 export const getBoxValue = (object) => Object.values(object).join(" ");
 
 export const themeSwitch = (theme = "default", attributes) =>
   produce(attributes, (draft) => {
-    console.log(theme);
+
     // setAttributes({theme:theme})
     draft["theme"] = theme;
     draft["align"] = "full";
@@ -1248,4 +1249,34 @@ export function getCardContentEdit(
       />
     );
   }
+  if(theme ==="theme8"){
+
+    return(  <div className="infoProfileMain">
+        
+         {
+          attributes?.productsInfo?.map((infoProfile,index)=> <ThemeEightInfoProfile  isBackend={isBacked} infoProfile={infoProfile} index={index} key={index} attributes={attributes} setAttributes={setAttributes} />)
+         }
+
+        </div>)
+  }
 }
+
+
+
+export const updateData = (attr, value, ...props) => {
+  if (props.length === 0) {
+    return value;
+  }
+  const [currentProp, ...remainingProps] = props;
+  if (remainingProps.length === 0) {
+    return produce(attr, draft => {
+      draft[currentProp] = value;
+    });
+  }
+  return produce(attr, draft => {
+    if (!Object.prototype.hasOwnProperty.call(draft, currentProp)) {
+      draft[currentProp] = {};
+    }
+    draft[currentProp] = updateData(draft[currentProp], value, ...remainingProps);
+  });
+};

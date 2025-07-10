@@ -17,7 +17,7 @@ const SevenCard = ({
   isBackend,
 }) => {
 
-  const { options, themeSevenInfo } = attributes;
+  const { options, productsInfo } = attributes;
 
     return (
         <div onClick={() => setActiveIndex(index - 1)} className={`infoParent`}>
@@ -36,7 +36,7 @@ const SevenCard = ({
               value={title}
               onChange={(value) =>
                 setAttributes({
-                  themeSevenInfo: updateData(themeSevenInfo, value, index - 1, "title"),
+                  productsInfo: updateData(productsInfo, value, index - 1, "title"),
                 })
               }
             />
@@ -51,7 +51,7 @@ const SevenCard = ({
               value={content}
               onChange={(value) =>
                 setAttributes({
-                  themeSevenInfo: updateData(themeSevenInfo, value, index - 1, "content"),
+                  productsInfo: updateData(productsInfo, value, index - 1, "content"),
                 })
               }
             />
@@ -66,8 +66,8 @@ const SevenCard = ({
               tagName="div"
               onChange={(value) =>
                 setAttributes({
-                  themeSevenInfo: updateData(
-                    themeSevenInfo,
+                  productsInfo: updateData(
+                    productsInfo,
                     value,
                     index - 1,
                     "button",
@@ -97,8 +97,8 @@ const SevenCard = ({
               value={tag?.name}
               onChange={(value) =>
                 setAttributes({
-                  themeSevenInfo: updateData(
-                    themeSevenInfo,
+                  productsInfo: updateData(
+                    productsInfo,
                     value,
                     index - 1,
                     "tag",
@@ -113,8 +113,8 @@ const SevenCard = ({
               value={tag?.value}
               onChange={(value) =>
                 setAttributes({
-                  themeSevenInfo: updateData(
-                    themeSevenInfo,
+                  productsInfo: updateData(
+                    productsInfo,
                     value,
                     index - 1,
                     "tag",

@@ -1,5 +1,6 @@
 import {
   getBackgroundCSS,
+  getBorderCSS,
   getBoxCSS,
   getColorsCSS,
   getMultiShadowCSS,
@@ -36,7 +37,8 @@ const Style = ({ attributes, id }) => {
     btnHovColors,
     styles,
     alignment,
-    productsInfo,options
+    productsInfo,options,
+	theme
   } = attributes;
 
 
@@ -98,6 +100,37 @@ const Style = ({ attributes, id }) => {
     .join("\n");
 
 	// theme 8 theke selector 
+
+	const themeEightInfoContainer = `${mainSl} .infoProfileMain`;
+  const themeEightCardSl = `${themeEightInfoContainer} .themeEightCard`;
+  const themeEightNameSl = `${themeEightCardSl} .themeEightInfoProfileName`;
+
+  const themeEightTitleSl = `${themeEightCardSl} .themeEightInfoProfileTitle`;
+  const themeEightBoiSl = `${themeEightCardSl} .themeEightBio`;
+  const themeEightStatusSl = `${themeEightCardSl} .themeEightStatus-text`;
+  const themeEightDotSl = `${themeEightCardSl} .themeEightStatus-dot`;
+  const themeEightStatSl = `${themeEightCardSl} .themeEightStat`;
+  const themeEightStatNumberSl = `${themeEightCardSl} .themeEightStat-number`;
+  const themeEightStatLabelSl = `${themeEightCardSl} .themeEightStat-label`;
+  const themeEightMessageBtnlSl = `${themeEightCardSl} .themeEightMessage-btn`;
+  const themeEightInfoProfileCompanySl = `${themeEightCardSl} .themeEightInfoProfileCompany`;
+  const themeEightProfileImageSl = `${themeEightCardSl} .themeEightProfile-img`;
+
+  const dynamicIconColor = () => {
+  return productsInfo
+    ?.map((card, index) => {
+      return card?.social
+        .map((icon, i) => {
+          return `
+            .themeEightContain-card-${index} .themeEightSocial-icon${i} {
+              color: ${icon?.color};
+            }
+          `;
+        })
+        .join("");
+    })
+    .join("");
+};
  
 
   return (
@@ -115,6 +148,14 @@ const Style = ({ attributes, id }) => {
 		${getTypoCSS("", styles?.card?.title?.typo)?.googleFontLink}
 		${getTypoCSS("", styles?.card?.description?.typo)?.googleFontLink}
 		${getTypoCSS("", styles?.card?.button?.typo)?.googleFontLink}
+		${getTypoCSS("", styles?.card?.header?.name?.typo)?.googleFontLink}
+		 ${getTypoCSS("", styles?.card?.header?.title?.typo)?.googleFontLink}
+		 ${getTypoCSS("", styles?.card?.header?.status?.typo)?.googleFontLink}
+		 ${getTypoCSS("", styles?.card?.header?.description?.typo)?.googleFontLink}
+		 ${getTypoCSS("", styles?.card?.states?.number?.typo)?.googleFontLink}
+		 ${getTypoCSS("", styles?.card?.states?.text?.typo)?.googleFontLink}
+		 ${getTypoCSS("", styles?.card?.messageButton?.typo)?.googleFontLink}
+		 ${getTypoCSS("", styles?.card?.company?.color)?.googleFontLink}
 		
 		
 
@@ -146,6 +187,15 @@ const Style = ({ attributes, id }) => {
 		${getTypoCSS(titleSl, styles?.card?.title?.typo)?.styles} 
 		${getTypoCSS(cardContentSl, styles?.card?.description?.typo)?.styles} 
 		${getTypoCSS(buttonSl, styles?.card?.button?.typo)?.styles} 
+
+		${getTypoCSS(themeEightNameSl, styles?.card?.header?.name?.typo)?.styles}
+        ${getTypoCSS(themeEightTitleSl, styles?.card?.header?.title?.typo)?.styles}
+        ${getTypoCSS(themeEightStatusSl, styles?.card?.header?.status?.typo)?.styles}
+        ${getTypoCSS(themeEightBoiSl, styles?.card?.header?.description?.typo)?.styles}
+        ${getTypoCSS(themeEightStatNumberSl, styles?.card?.states?.number?.typo)?.styles}
+        ${getTypoCSS(themeEightStatLabelSl, styles?.card?.states?.text?.typo)?.styles}
+        ${getTypoCSS(themeEightMessageBtnlSl, styles?.card?.messageButton?.typo)?.styles}
+        ${getTypoCSS(themeEightInfoProfileCompanySl, styles?.card?.company?.typo)?.styles}
 		
 
         
@@ -309,7 +359,7 @@ const Style = ({ attributes, id }) => {
 
 
 
-            ${dynamicCardStyle}
+            ${theme==="theme7"&&dynamicCardStyle}
 		${containerWrapperrSl}{
 		display:flex;
 		justify-content:${alignment};
@@ -412,6 +462,105 @@ const Style = ({ attributes, id }) => {
 		 }
 		
 		}
+
+
+
+
+
+
+
+
+		${themeEightInfoContainer} {
+		grid-template-columns: repeat(${styles?.columns?.desktop}, 1fr);
+		${getBackgroundCSS(styles?.bg)}
+		padding:${getBoxCSS(styles?.padding)};
+		margin:${getBoxCSS(styles?.margin)};
+		column-gap:${styles?.columnGap?.desktop};
+		row-gap:${styles?.rowGap?.desktop};
+		border-radius:${getBoxCSS(styles?.radius)};
+		}
+		${themeEightCardSl}{
+           ${getBackgroundCSS(styles?.card?.bg)}
+		   padding:${getBoxCSS(styles?.card?.padding)};
+		   margin:${getBoxCSS(styles?.card?.margin)};
+		   border-radius:${getBoxCSS(styles?.card?.radius)};
+		    box-shadow:${getMultiShadowCSS(styles?.card?.shadow)};
+		   
+	}
+			${themeEightNameSl}{
+			 color:${styles?.card?.header?.name?.color};
+			}
+			 ${themeEightTitleSl}{
+			 color:${styles?.card?.header?.title?.color};
+			 }
+
+
+			 ${themeEightStatusSl}{
+			 color:${styles?.card?.header?.status?.color};
+			 
+			 }
+			 ${themeEightDotSl}{
+			 background-color:${styles?.card?.header?.status?.color};
+			 }
+			 ${themeEightBoiSl}{
+			 color:${styles?.card?.header?.description?.color};
+			 text-align:${styles?.card?.header?.description?.alignment};
+			 
+			 }
+
+			 ${themeEightStatSl}{
+			 background-color:${styles?.card?.states?.bg};
+			 padding:${getBoxCSS(styles?.card?.states?.padding)};
+			 border-radius:${getBoxCSS(styles?.card?.states?.radius)}
+			
+			 }
+			 ${themeEightStatNumberSl}{
+			 color:${styles?.card?.states?.number?.color};
+			 }
+			 ${themeEightStatLabelSl}{
+			 color:${styles?.card?.states?.text?.color}
+			 }
+			 ${themeEightMessageBtnlSl}{
+			 background-color:${styles?.card?.messageButton?.bg};
+			 
+			 color:${styles?.card?.messageButton?.color};
+			 border-radius:${getBoxCSS(styles?.card?.messageButton?.radius)};
+			 padding:${getBoxCSS(styles?.card?.messageButton?.padding)};
+			 }
+
+			 ${themeEightMessageBtnlSl} svg{
+			 width:${styles?.card?.messageButton?.size};
+			 height:${styles?.card?.messageButton?.size};
+			 color:${styles?.card?.messageButton?.color};
+			 } 
+			 ${theme==="theme8"&&dynamicIconColor()}
+
+			 ${themeEightInfoProfileCompanySl}{
+			   
+			 	color:${styles?.card?.company?.color};
+			 }
+				${themeEightProfileImageSl}{
+				width: ${styles?.card?.profileImage?.width};
+               height: ${styles?.card?.profileImage?.height};
+			   border-radius:${getBoxCSS(styles?.card?.profileImage?.radius)} !important;
+			   ${getBorderCSS(styles?.card?.profileImage?.border)};
+				}
+
+			 ${tabBreakpoint}{
+			 ${themeEightInfoContainer} {
+		     grid-template-columns: repeat(${styles?.columns?.tablet}, 1fr);
+			 column-gap:${styles?.columnGap?.tablet};
+		row-gap:${styles?.rowGap?.tablet};
+	              }
+			 }
+             
+			 ${mobileBreakpoint}{
+			  ${themeEightInfoContainer} {
+		     grid-template-columns: repeat(${styles?.columns?.mobile}, 1fr);
+			 column-gap:${styles?.columnGap?.mobile};
+		row-gap:${styles?.rowGap?.mobile};
+	              }
+			 }
 
         
     `;

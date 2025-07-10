@@ -2,6 +2,7 @@
   
   import Theme6 from '../Common/theme6/Theme6';
 import SevenInfoCard from '../Common/theme7/SevenInfoCard';
+import ThemeEightInfoProfile from '../Common/theme8/ThemeEightInfoProfile';
 import Cards from './Cards';
   
   
@@ -24,6 +25,16 @@ import Cards from './Cards';
           attributes={attributes}
          />
 
+  }
+  if(theme ==="theme8"){
+
+    return(  <div className="infoProfileMain">
+        
+         {
+          attributes?.productsInfo?.map((infoProfile,index)=> <ThemeEightInfoProfile  isBackend={false} infoProfile={infoProfile} index={index} key={index} attributes={attributes} />)
+         }
+
+        </div>)
   }
 }
 
