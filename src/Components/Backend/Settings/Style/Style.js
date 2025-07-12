@@ -8,7 +8,8 @@ import {
   __experimentalUnitControl as UnitControl,
   SelectControl,
   contentAlign,
-  BorderControl 
+  BorderControl, 
+  BorderBoxControl
 } from "@wordpress/components";
 
 import {
@@ -1177,6 +1178,78 @@ onChange={(value)=>setAttributes({styles:updateData(styles,value,"card","variant
            <Label><span>Icon size </span> <span style={{width:"180px"}}><UnitControl onChange={(value)=>setAttributes({styles:updateData(styles,value,"card","messageButton","size")})} value={styles?.card?.messageButton?.size}   /></span></Label>
          </PanelBody>}
         
+    </>
+      }
+
+
+      {
+        theme==="theme9" &&<>
+      <PanelBody
+      
+        className="bPlPanelBody"
+        title={__("Section", "info-cards")}
+        initialOpen={false}
+      >  
+
+         <Background label={__("Background", "info-cards")} value={styles?.bg}  onChange={(value)=>setAttributes({styles:updateData(styles,value,"bg")})} />
+
+              <BoxControls  style={{marginTop:"10px"}} label={__("Radius", "info-cards")}   values={styles?.radius} onChange={(value)=>setAttributes({styles:updateData(styles,value,"radius")})} />
+
+
+
+     
+
+        
+      </PanelBody>
+
+      <PanelBody 
+      className="bPlPanelBody"
+        title={__("View", "info-cards")}
+        initialOpen={false}
+        > 
+        
+        <Background label={__("Overly", "info-cards")} value={styles?.overlay} onChange={(value)=>setAttributes({styles:updateData(styles,value,"overlay")})} />
+        <BoxControls label={__("Padding", "info-cards")} values={styles?.view?.padding} onChange={(value)=>setAttributes({styles:updateData(styles,value,"view","padding")})} />
+        <BoxControls style={{marginTop:"10px"}} label={__("Rounded", "info-cards")} values={styles?.view?.radius} onChange={(value)=>setAttributes({styles:updateData(styles,value,"view","radius")})} />
+        <BoxControls style={{marginTop:"10px"}} label={__("Content Padding", "info-cards")} values={styles?.view?.contentPadding} onChange={(value)=>setAttributes({styles:updateData(styles,value,"view","contentPadding")})} />
+
+
+    
+      </PanelBody>
+
+      <PanelBody    className="bPlPanelBody"
+        title={__("Title", "info-cards")}
+        initialOpen={false}>
+          <ColorControl label={__("Color", "info-cards")} value={styles?.title?.color} onChange={(value)=>setAttributes({styles:updateData(styles,value,"title","color")})} />
+
+        <Typography label={__("Typography", "info-cards")} value={styles?.title?.typo} onChange={(value)=>setAttributes({styles:updateData(styles,value,"title","typo")})} />
+
+      </PanelBody>
+
+      <PanelBody
+       className="bPlPanelBody"
+        title={__("Description", "info-cards")}
+        initialOpen={false}
+      >
+        {/* description */}
+        <ColorControl label={__("Color", "info-cards")} value={styles?.description?.color} onChange={(value)=>setAttributes({styles:updateData(styles,value,"description","color")})} />
+
+        <Typography label={__("Typography", "info-cards")} value={styles?.description?.typo} onChange={(value)=>setAttributes({styles:updateData(styles,value,"description","typo")})} />
+
+      </PanelBody>
+
+      <PanelBody className="bPlPanelBody"
+        title={__("Button", "info-cards")}
+        initialOpen={false}>
+
+          <ColorsControl value={styles?.button?.colors} onChange={(value)=>setAttributes({styles:updateData(styles,value,"button","colors")})} />
+          <ColorsControl label={__("Hover Colors", "info-cards")}  value={styles?.button?.hover} onChange={(value)=>setAttributes({styles:updateData(styles,value,"button","hover")})} />
+          <Typography label={__("Typography", "info-cards")}  value={styles?.button?.typo} onChange={(value)=>setAttributes({styles:updateData(styles,value,"button","typo")})}  />
+          <BoxControls  label={__("Padding", "info-cards")} values={styles?.button?.padding} onChange={(value)=>setAttributes({styles:updateData(styles,value,"button","padding")})} />
+
+            <BorderBoxControl  label={__("Focus Outline", "info-cards")} value={styles?.button?.border} onChange={(value)=>setAttributes({styles:updateData(styles,value,"button","border")})} />
+
+      </PanelBody>
     </>
       }
 

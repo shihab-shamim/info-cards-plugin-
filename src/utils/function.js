@@ -3,11 +3,11 @@ import Cards from "../Components/Backend/Cards";
 import Theme6 from "../Components/Common/theme6/Theme6";
 import SevenInfoCard from "../Components/Common/theme7/SevenInfoCard";
 import ThemeEightInfoProfile from "../Components/Common/theme8/ThemeEightInfoProfile";
+import ThemeNineTexOverly from "../Components/Common/theme9/ThemeNineTexOverly";
 export const getBoxValue = (object) => Object.values(object).join(" ");
 
 export const themeSwitch = (theme = "default", attributes) =>
   produce(attributes, (draft) => {
-
     // setAttributes({theme:theme})
     draft["theme"] = theme;
     draft["align"] = "full";
@@ -1041,165 +1041,380 @@ export const themeSwitch = (theme = "default", attributes) =>
           },
         };
 
-        draft["productsInfo"]=[
-        {
-          "id": 1,
-          "name": "Aisha Patel",
-          "title": "Marketing Strategist",
-          "company": "GrowthBoost",
-          "status": "Online",
-          "bio": "Developing effective marketing strategies for brands. Specializing in digital marketing and growth.",
-          "state": [
-            { "name": "posts", "quantity": 70 },
-            { "name": "followers", "quantity": 5640 },
-            { "name": "following", "quantity": 5010 }
-          ],
-          "profileImg": "https://plus.unsplash.com/premium_photo-1689568126014-06fea9d5d341?q=80&w=2070",
-          "social": [
-            {
-              "name": "twitter",
-              "link": "#",
-              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" strokeWidth=\"2\" strokeLinecap=\"round\" strokeLinejoin=\"round\"><path d=\"M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z\"></path></svg>",
-              "color":"#1da1f2",
-              "show":true
+        draft["productsInfo"] = [
+          {
+            id: 1,
+            name: "Aisha Patel",
+            title: "Marketing Strategist",
+            company: "GrowthBoost",
+            status: "Online",
+            bio: "Developing effective marketing strategies for brands. Specializing in digital marketing and growth.",
+            state: [
+              { name: "posts", quantity: 70 },
+              { name: "followers", quantity: 5640 },
+              { name: "following", quantity: 5010 },
+            ],
+            profileImg:
+              "https://plus.unsplash.com/premium_photo-1689568126014-06fea9d5d341?q=80&w=2070",
+            social: [
+              {
+                name: "twitter",
+                link: "#",
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>',
+                color: "#1da1f2",
+                show: true,
+              },
+              {
+                name: "instagram",
+                link: "#",
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>',
+                color: "#e1306c",
+                show: true,
+              },
+              {
+                name: "linkedin",
+                link: "#",
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>',
+                color: "#666",
+                show: true,
+              },
+              {
+                name: "email",
+                link: "#",
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path></svg>',
+                color: "#0077b5",
+                show: true,
+              },
+            ],
+            button: {
+              text: "Message",
+              link: "#",
+              icon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="message-icon"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>',
             },
-            {
-              "name": "instagram",
-              "link": "#",
-              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" strokeWidth=\"2\" strokeLinecap=\"round\" strokeLinejoin=\"round\"><rect x=\"2\" y=\"2\" width=\"20\" height=\"20\" rx=\"5\" ry=\"5\"></rect><path d=\"M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z\"></path><line x1=\"17.5\" y1=\"6.5\" x2=\"17.51\" y2=\"6.5\"></line></svg>",
-              "color":"#e1306c",
-              "show":true
+          },
+          {
+            id: 2,
+            name: "John Doe",
+            title: "Product Manager",
+            company: "InnovateX",
+            status: "Online",
+            bio: "Leading product development and improving user experiences.",
+            state: [
+              { name: "posts", quantity: 120 },
+              { name: "followers", quantity: 8920 },
+              { name: "following", quantity: 540 },
+            ],
+            profileImg: "https://randomuser.me/api/portraits/men/75.jpg",
+            social: [
+              {
+                name: "twitter",
+                link: "#",
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>',
+                color: "#1da1f2",
+                show: true,
+              },
+              {
+                name: "instagram",
+                link: "#",
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>',
+                color: "#e1306c",
+                show: true,
+              },
+              {
+                name: "linkedin",
+                link: "#",
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>',
+                color: "#666",
+                show: true,
+              },
+              {
+                name: "email",
+                link: "#",
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path></svg>',
+                color: "#0077b5",
+                show: true,
+              },
+            ],
+            button: {
+              text: "Message",
+              link: "#",
+              icon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="message-icon"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>',
             },
-            {
-              "name": "linkedin",
-              "link": "#",
-              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" strokeWidth=\"2\" strokeLinecap=\"round\" strokeLinejoin=\"round\"><path d=\"M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z\"></path><rect x=\"2\" y=\"9\" width=\"4\" height=\"12\"></rect><circle cx=\"4\" cy=\"4\" r=\"2\"></circle></svg>",
-              "color":"#666",
-              "show":true
+          },
+          {
+            id: 3,
+            name: "Sara Lee",
+            title: "UX Designer",
+            company: "Creatives",
+            status: "Online",
+            bio: "Passionate about creating intuitive and beautiful user interfaces.",
+            state: [
+              { name: "posts", quantity: 45 },
+              { name: "followers", quantity: 3200 },
+              { name: "following", quantity: 120 },
+            ],
+            profileImg: "https://randomuser.me/api/portraits/women/68.jpg",
+            social: [
+              {
+                name: "twitter",
+                link: "#",
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>',
+                color: "#1da1f2",
+                show: true,
+              },
+              {
+                name: "instagram",
+                link: "#",
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>',
+                color: "#e1306c",
+                show: true,
+              },
+              {
+                name: "linkedin",
+                link: "#",
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>',
+                color: "#666",
+                show: true,
+              },
+              {
+                name: "email",
+                link: "#",
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path></svg>',
+                color: "#0077b5",
+                show: true,
+              },
+            ],
+            button: {
+              text: "Message",
+              link: "#",
+              icon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="message-icon"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>',
             },
-            {
-              "name": "email",
-              "link": "#",
-              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" strokeWidth=\"2\" strokeLinecap=\"round\" strokeLinejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"4\"></circle><path d=\"M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94\"></path></svg>",
-              "color":"#0077b5",
-              "show":true
-            }
-          ],
-          "button": {
-            "text": "Message",
-            "link": "#",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"message-icon\"><path d=\"M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z\"></path></svg>"
-          }
-        },
-        {
-          "id": 2,
-          "name": "John Doe",
-          "title": "Product Manager",
-          "company": "InnovateX",
-          "status": "Online",
-          "bio": "Leading product development and improving user experiences.",
-          "state": [
-            { "name": "posts", "quantity": 120 },
-            { "name": "followers", "quantity": 8920 },
-            { "name": "following", "quantity": 540 }
-          ],
-          "profileImg": "https://randomuser.me/api/portraits/men/75.jpg",
-          "social": [
-            {
-              "name": "twitter",
-              "link": "#",
-              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" strokeWidth=\"2\" strokeLinecap=\"round\" strokeLinejoin=\"round\"><path d=\"M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z\"></path></svg>",
-              "color":"#1da1f2",
-              "show":true
-            },
-            {
-              "name": "instagram",
-              "link": "#",
-              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" strokeWidth=\"2\" strokeLinecap=\"round\" strokeLinejoin=\"round\"><rect x=\"2\" y=\"2\" width=\"20\" height=\"20\" rx=\"5\" ry=\"5\"></rect><path d=\"M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z\"></path><line x1=\"17.5\" y1=\"6.5\" x2=\"17.51\" y2=\"6.5\"></line></svg>",
-              "color":"#e1306c",
-              "show":true
-            },
-            {
-              "name": "linkedin",
-              "link": "#",
-              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" strokeWidth=\"2\" strokeLinecap=\"round\" strokeLinejoin=\"round\"><path d=\"M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z\"></path><rect x=\"2\" y=\"9\" width=\"4\" height=\"12\"></rect><circle cx=\"4\" cy=\"4\" r=\"2\"></circle></svg>",
-              "color":"#666",
-              "show":true
-            },
-            {
-              "name": "email",
-              "link": "#",
-              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" strokeWidth=\"2\" strokeLinecap=\"round\" strokeLinejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"4\"></circle><path d=\"M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94\"></path></svg>",
-              "color":"#0077b5",
-              "show":true
-            }
-          ],
-          "button": {
-            "text": "Message",
-            "link": "#",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"message-icon\"><path d=\"M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z\"></path></svg>"
-            
-          }
-        },
-        {
-          "id": 3,
-          "name": "Sara Lee",
-          "title": "UX Designer",
-          "company": "Creatives",
-          "status": "Online",
-          "bio": "Passionate about creating intuitive and beautiful user interfaces.",
-          "state": [
-            { "name": "posts", "quantity": 45 },
-            { "name": "followers", "quantity": 3200 },
-            { "name": "following", "quantity": 120 }
-          ],
-          "profileImg": "https://randomuser.me/api/portraits/women/68.jpg",
-         "social": [
-            {
-              "name": "twitter",
-              "link": "#",
-              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" strokeWidth=\"2\" strokeLinecap=\"round\" strokeLinejoin=\"round\"><path d=\"M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z\"></path></svg>",
-              "color":"#1da1f2",
-              "show":true
-            },
-            {
-              "name": "instagram",
-              "link": "#",
-              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" strokeWidth=\"2\" strokeLinecap=\"round\" strokeLinejoin=\"round\"><rect x=\"2\" y=\"2\" width=\"20\" height=\"20\" rx=\"5\" ry=\"5\"></rect><path d=\"M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z\"></path><line x1=\"17.5\" y1=\"6.5\" x2=\"17.51\" y2=\"6.5\"></line></svg>",
-              "color":"#e1306c",
-              "show":true
-            },
-            {
-              "name": "linkedin",
-              "link": "#",
-              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" strokeWidth=\"2\" strokeLinecap=\"round\" strokeLinejoin=\"round\"><path d=\"M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z\"></path><rect x=\"2\" y=\"9\" width=\"4\" height=\"12\"></rect><circle cx=\"4\" cy=\"4\" r=\"2\"></circle></svg>",
-              "color":"#666",
-              "show":true
-            },
-            {
-              "name": "email",
-              "link": "#",
-              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" strokeWidth=\"2\" strokeLinecap=\"round\" strokeLinejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"4\"></circle><path d=\"M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94\"></path></svg>",
-              "color":"#0077b5",
-              "show":true
-            }
-          ],
-          "button": {
-            "text": "Message",
-            "link": "#",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"message-icon\"><path d=\"M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z\"></path></svg>"
-          }
-        }
-      ];
+          },
+        ];
 
-      draft["options"]={
-			"isSocialMediaShow":true,
-			"isStateShow":true,
-			"isButtonShow":true,
-			"isStatusShow":true,
-			"isOpenUrlNewTab":true,
-      "messageButtonIcon":"<svg xmlns=\"http://www.w3.org/2000/svg\"  viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"message-icon\"><path d=\"M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z\"></path></svg>"
-		}
+        draft["options"] = {
+          isSocialMediaShow: true,
+          isStateShow: true,
+          isButtonShow: true,
+          isStatusShow: true,
+          isOpenUrlNewTab: true,
+          messageButtonIcon:
+            '<svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="message-icon"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>',
+        };
+
+        break;
+
+        case "theme9":
+          draft["styles"]={
+				"bg":{"type":"solid","color":""},
+				"width":"1024px",
+				"padding":{
+					"desktop":{
+						"top":"16px",
+						"left":"16px",
+						"right":"16px",
+						"bottom":"16px"
+					},
+					"tablet":{
+						"top":"16px",
+						"left":"16px",
+						"right":"16px",
+						"bottom":"16px"
+
+					},
+					"mobile":{
+						"top":"16px",
+						"left":"16px",
+						"right":"16px",
+						"bottom":"16px"
+					}
+				},
+				"margin":{
+					"desktop":{
+						"top":"0px",
+						"left":"0px",
+						"right":"0px",
+						"bottom":"0px"
+					},
+					"tablet":{
+						"top":"0px",
+						"left":"0px",
+						"right":"0px",
+						"bottom":"0px"
+
+					},
+					"mobile":{
+						"top":"0px",
+						"left":"0px",
+						"right":"0px",
+						"bottom":"0px"
+					}
+				},
+				"radius":{
+				
+						"top":"0px",
+						"left":"0px",
+						"right":"0px",
+						"bottom":"0px"
+					
+				},
+				"gap":{
+					"column":"16px",
+					"row":"16px"
+				},
+				"alignment":"center",
+				"columns":{
+					"desktop":4,
+					"tablet":2,
+					"mobile":1
+				},
+			
+				"overlay": {
+					"type": "gradient",
+					"gradient": "linear-gradient( to bottom, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, 0.009) 11.7%, hsla(0, 0%, 0%, 0.034) 22.1%, hsla(0, 0%, 0%, 0.072) 31.2%, hsla(0, 0%, 0%, 0.123) 39.4%, hsla(0, 0%, 0%, 0.182) 46.6%, hsla(0, 0%, 0%, 0.249) 53.1%, hsla(0, 0%, 0%, 0.320) 58.9%, hsla(0, 0%, 0%, 0.394) 64.3%, hsla(0, 0%, 0%, 0.468) 69.3%, hsla(0, 0%, 0%, 0.540) 74.1%, hsla(0, 0%, 0%, 0.607) 78.8%, hsla(0, 0%, 0%, 0.668) 83.6%, hsla(0, 0%, 0%, 0.721) 88.7%, hsla(0, 0%, 0%, 0.762) 94.1%, hsla(0, 0%, 0%, 0.790) 100%)"
+				},
+				"title":{
+					"typo":{
+						"fontFamily": "Cardo, serif",
+              "fontCategory": "sans-serif",
+              "fontWeight":700,
+              "fontVariant": "700",
+              "isUploadFont": true,
+              "fontSize": {
+                "desktop": 21,
+                "tablet": 21,
+                "mobile": 21
+              },
+              "fontStyle": "normal",
+              "textTransform": "none",
+              "textDecoration": "none",
+              "lineHeight": "120%",
+              "letterSpace": "0px"
+					},
+					"color":"#F5F5F5"
+				},
+				"description":{
+					"typo":{
+						"fontFamily": "Cardo, serif",
+              "fontCategory": "sans-serif",
+              "fontWeight":400,
+              "fontVariant": "400",
+              "isUploadFont": true,
+              "fontSize": {
+                "desktop": 18,
+                "tablet": 18,
+                "mobile": 18
+              },
+              "fontStyle": "italic",
+              "textTransform": "none",
+              "textDecoration": "none",
+              "lineHeight": "135%",
+              "letterSpace": "0px"
+					},
+					"color":"#F5F5F5"
+				},
+				"button":{
+					"padding":{
+						
+							"top": "12px",
+							"right": "24px",
+							"bottom": "12px",
+							"left": "24px"
+
+					},
+					"colors":{
+					"color": "#ffffff",
+					"bgType": "solid",
+					"bg": "#000000"
+               },
+				"hover":{
+					"color": "#ffffff",
+					"bgType": "solid",
+					"bg": "#1a1a1a"
+
+				},
+				"typo":{
+					"fontFamily": "Cardo, serif",
+              "fontCategory": "sans-serif",
+              "fontWeight":700,
+              "fontVariant": "700",
+              "isUploadFont": true,
+              "fontSize": {
+                "desktop": 10,
+                "tablet": 10,
+                "mobile": 10
+              },
+              "fontStyle": "normal",
+              "textTransform": "uppercase",
+              "textDecoration": "none",
+              "lineHeight": "120%",
+              "letterSpace": "0.4px"
+
+				},
+				"border":{
+					"color":"yellow","style":"dashed","width":"1px"
+				}
+
+				},
+				"view":{
+					"padding":{
+						"top":"16px",
+						"left":"16px",
+						"right":"16px",
+						"bottom":"16px"
+					},
+					"radius":{
+						"top":"0px",
+						"left":"0px",
+						"right":"0px",
+						"bottom":"0px"
+
+					},
+					"contentPadding":{
+						"top":"16px",
+						"left":"16px",
+						"right":"16px",
+						"bottom":"16px"
+					}
+				}
+
+
+			};
+
+      draft["productsInfo"]=[
+  {
+    "title": "Mountain View",
+    "description": "Check out all of these gorgeous mountain trips with beautiful views of, you guessed it, the mountains",
+    "buttonText": "View Trips",
+    "buttonLink": "",
+    "imageUrl": "https://images.unsplash.com/photo-1517021897933-0e0319cfbc28?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max",
+	"newTab":true
+  },
+  {
+    "title": "To The Beach",
+    "description": "Plan your next beach trip with these fabulous destinations",
+    "buttonText": "View Trips",
+    "buttonLink": "",
+    "imageUrl": "https://images.unsplash.com/photo-1533903345306-15d1c30952de?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max",
+	"newTab":true
+  },
+  {
+    "title": "Desert Destinations",
+    "description": "It's the desert you've always dreamed of",
+    "buttonText": "Book Now",
+    "buttonLink": "",
+    "imageUrl": "https://images.unsplash.com/photo-1545243424-0ce743321e11?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max",
+	"newTab":true
+  },
+  {
+    "title": "Explore The Galaxy",
+    "description": "Seriously, straight up, just blast off into outer space today",
+    "buttonText": "Book Now",
+    "buttonLink": "",
+    "imageUrl": "https://images.unsplash.com/photo-1531306728370-e2ebd9d7bb99?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max",
+	"newTab":true
+  }
+]
 
         break;
     }
@@ -1249,19 +1464,27 @@ export function getCardContentEdit(
       />
     );
   }
-  if(theme ==="theme8"){
+  if (theme === "theme8") {
+    return (
+      <div className="infoProfileMain">
+        {attributes?.productsInfo?.map((infoProfile, index) => (
+          <ThemeEightInfoProfile
+            isBackend={isBacked}
+            infoProfile={infoProfile}
+            index={index}
+            key={index}
+            attributes={attributes}
+            setAttributes={setAttributes}
+          />
+        ))}
+      </div>
+    );
+  }
 
-    return(  <div className="infoProfileMain">
-        
-         {
-          attributes?.productsInfo?.map((infoProfile,index)=> <ThemeEightInfoProfile  isBackend={isBacked} infoProfile={infoProfile} index={index} key={index} attributes={attributes} setAttributes={setAttributes} />)
-         }
-
-        </div>)
+  if(theme==="theme9"){
+    return <ThemeNineTexOverly attributes={attributes} setAttributes={setAttributes} isBackend={isBacked}/>
   }
 }
-
-
 
 export const updateData = (attr, value, ...props) => {
   if (props.length === 0) {
@@ -1269,14 +1492,18 @@ export const updateData = (attr, value, ...props) => {
   }
   const [currentProp, ...remainingProps] = props;
   if (remainingProps.length === 0) {
-    return produce(attr, draft => {
+    return produce(attr, (draft) => {
       draft[currentProp] = value;
     });
   }
-  return produce(attr, draft => {
+  return produce(attr, (draft) => {
     if (!Object.prototype.hasOwnProperty.call(draft, currentProp)) {
       draft[currentProp] = {};
     }
-    draft[currentProp] = updateData(draft[currentProp], value, ...remainingProps);
+    draft[currentProp] = updateData(
+      draft[currentProp],
+      value,
+      ...remainingProps
+    );
   });
 };

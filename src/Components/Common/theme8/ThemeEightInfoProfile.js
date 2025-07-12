@@ -206,3 +206,4 @@ const ThemeEightInfoProfile = ({
 };
 
 export default ThemeEightInfoProfile;
+

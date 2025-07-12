@@ -45,8 +45,8 @@ const General = ({ attributes, setAttributes, updateCard,editDevice }) => {
     isTab,
     options,
     styles,
-    productsInfo
   } = attributes;
+
 
 
 
@@ -981,7 +981,7 @@ const General = ({ attributes, setAttributes, updateCard,editDevice }) => {
         theme==="theme8" &&  <>
       <PanelBody
         className="bPlPanelBody"
-        title={__(" Cards", "info-cards")}
+        title={__(" Add or Remove Cards", "info-cards")}
         initialOpen={false}
       >
         <ItemsPanel
@@ -1147,6 +1147,71 @@ const General = ({ attributes, setAttributes, updateCard,editDevice }) => {
         </Label>
       </PanelBody>
     </>
+      }
+
+      {
+        theme ==="theme9" &&   <>
+    <PanelBody className='bPlPanelBody' title={__('Add or Remove Cards', 'info-cards')} initialOpen={false}>
+
+        {/* <ItemsPanel
+          newItem={voyageView}
+          design="sortable"
+          attributes={attributes}
+          setAttributes={setAttributes}
+          arrKey="voyageDetails"
+          itemLabel="View"
+          ItemSettings={VoyageViewSetting}
+        /> */}
+    
+
+
+    
+    </PanelBody>
+
+    <PanelBody className='bPlPanelBody' title={__('Layout', 'info-cards')} initialOpen={false}>
+       <UnitControl  label={__("Width", "info-cards")} value={styles?.width} onChange={(value)=>setAttributes({styles:updateData(styles,value,"width")})} />
+        
+        <PanelRow><Label>Padding</Label> <Device/> </PanelRow>
+
+      <BoxControl   values={styles?.padding[editDevice]} onChange={(value)=>setAttributes({styles:updateData(styles,value,"padding",editDevice)})} />
+
+        
+        <PanelRow><Label>Margin</Label> <Device/> </PanelRow>
+
+      <BoxControl   values={styles?.margin[editDevice]} onChange={(value)=>setAttributes({styles:updateData(styles,value,"margin",editDevice)})} />
+
+
+  
+
+
+ 
+  
+         <PanelRow><Label>Column</Label> <Device/> </PanelRow>
+        <RangeControl  value={styles?.columns[editDevice]} onChange={(value)=>setAttributes({styles:updateData(styles,value,"columns",editDevice)})} />
+
+
+
+        <UnitControl style={{marginTop:"10px"}}  label={__("Column Gap", "info-cards")} value={styles?.gap?.column} onChange={(value)=>setAttributes({styles:updateData(styles,value,"gap","column")})} />
+
+        <UnitControl style={{marginTop:"10px"}} label={__("Row Gap", "info-cards")} value={styles?.gap?.row} onChange={(value)=>setAttributes({styles:updateData(styles,value,"gap","row")})} />
+
+       
+       <BButtonGroup style={{marginTop:"15px"}} label={__("Alignment", "info-cards")} value={styles?.alignment} options={[
+        {label:"Left",value:"left"},
+        {label:"Center",value:"center"},
+        {label:"right",value:"right"},
+       ]} 
+       onChange={(value)=>setAttributes({styles:updateData(styles,value,"alignment")})}
+        />
+      
+        
+      
+    </PanelBody>
+
+   
+
+
+   </>
       }
     </>
   );

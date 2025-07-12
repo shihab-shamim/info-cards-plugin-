@@ -439,138 +439,248 @@
     }
   }
 
-  //theme 8 ar style 
+  //theme 8 ar style
 
- .infoProfileMain{
-	display: grid;
+  .infoProfileMain {
+    display: grid;
 
-  .themeEightCard {
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 250px; 
-  overflow: hidden;
+    .themeEightCard {
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 250px;
+      overflow: hidden;
 
-  .themeEightCard-top{
-  padding: 24px;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+      .themeEightCard-top {
+        padding: 24px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
 
-  .themeEightHeader {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 16px;
+        .themeEightHeader {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          margin-bottom: 16px;
 
-  .themeEightProfile-img {
+          .themeEightProfile-img {
+            object-fit: cover;
+          }
 
-  object-fit: cover;
+          .themeEightProfile-info {
+            flex: 1;
+            .themeEightInfoProfileName {
+              margin-bottom: 4px;
+            }
+            .themeEightInfoProfileTitle {
+              margin: 0 !important;
+            }
+            .themeEightInfoProfileCompany {
+              // font-size: 14px;
+              // color: #666;
+              margin: 0 !important;
+            }
+          }
+          .themeEightStatus {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            .themeEightStatus-dot {
+              width: 10px;
+              height: 10px;
+              border-radius: 50%;
+            }
+          }
+        }
+        .themeEightBio {
+          margin-bottom: 24px;
+          flex-grow: 1;
+        }
+        .themeEightStats {
+          display: flex;
 
-}
+          justify-content: center;
+          flex-wrap: wrap;
+          text-align: center;
+          gap: 10px;
+          .themeEightStat {
+            flex: content;
+          }
+          .themeEightStat-number {
+            // font-size: 18px;
+            // font-weight: 700;
+            // color: #222;
+            margin-bottom: 2px;
+          }
+        }
+      }
 
-.themeEightProfile-info {
-  flex: 1;
-  .themeEightInfoProfileName{
-  margin-bottom: 4px;
+      .themeEightCard-bottom {
+        padding: 24px;
+        .themeEightSocial-icons {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 24px;
+          margin-bottom: 20px;
+          .themeEightSocial-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            outline: none;
+          }
+        }
+        .themeEightMessage-btn {
+          border: none;
+          outline: none;
 
-}
-.themeEightInfoProfileTitle {
-  margin: 0 !important;
+          width: 100%;
 
-}
-.themeEightInfoProfileCompany {
-  // font-size: 14px;
-  // color: #666;
-  margin: 0 !important;
-}
-
-}
-.themeEightStatus {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  .themeEightStatus-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
-}
-
-
-}
-.themeEightBio {
-  margin-bottom: 24px;
-  flex-grow: 1; 
-}
-.themeEightStats {
-  display: flex;
- 
-  justify-content: center;
-  flex-wrap: wrap;
-  text-align: center;
-  gap: 10px;
-  .themeEightStat {
-  flex: content;
- 
-}
-.themeEightStat-number {
-  // font-size: 18px;
-  // font-weight: 700;
-  // color: #222;
-  margin-bottom: 2px;
-}
-
-}
-
-
-}
-
-.themeEightCard-bottom {
-  padding: 24px;
-  .themeEightSocial-icons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 24px;
-  margin-bottom: 20px;
-  .themeEightSocial-icon {
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  cursor: pointer;
-  outline: none;
-}
-}
-.themeEightMessage-btn{
- 
-  border: none;
-  outline: none;
-
-  width: 100%;
- 
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  transition: background-color 0.3s ease;
-
-}
-
-}
-
-}
-
-	
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+          transition: background-color 0.3s ease;
+        }
+      }
+    }
   }
 
-  
+  // theme 9 ar style
+  .themeNineVoyage-page-content {
+    display: grid;
+    width: 100%;
+    overflow: hidden;
 
+    .themeNineVoyage-card {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      width: 100%;
+      text-align: center;
+      background-position: center;
+      background-size: cover;
+      overflow: hidden;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-height: 110%;
+        background-size: cover;
+        background-position: center;
+        transition: transform 1050ms cubic-bezier(0.19, 1, 0.22, 1);
+        pointer-events: none;
+      }
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-height: 200%;
+        pointer-events: none;
+        transform: translateY(-50%);
+        transition: transform 1400ms cubic-bezier(0.19, 1, 0.22, 1);
+      }
+    }
+
+    .themeNinevoyage-content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      transition: transform 700ms cubic-bezier(0.19, 1, 0.22, 1);
+      z-index: 1;
+      .voyageLink {
+        border: none;
+        text-decoration: none;
+        outline: none;
+      }
+      .voyage-btn {
+        cursor: pointer;
+        text-transform: uppercase;
+
+        text-decoration: none;
+        border: none;
+      }
+
+      .voyage-btn:focus {
+        outline-offset: 3px;
+      }
+    }
+    .themeNinevoyage-content > * + * {
+      margin-top: 1rem;
+    }
+
+    @media (hover: hover) and (min-width: 600px) {
+      .themeNineVoyage-card::after {
+        transform: translateY(0);
+      }
+
+      .themeNinevoyage-content {
+        transform: translateY(calc(100% - 4.5rem));
+      }
+
+      .themeNinevoyage-content > *:not(.voyage-title) {
+        opacity: 0;
+        transform: translateY(1rem);
+        transition:
+          transform 700ms cubic-bezier(0.19, 1, 0.22, 1),
+          opacity 700ms cubic-bezier(0.19, 1, 0.22, 1);
+      }
+
+      .themeNineVoyage-card:hover,
+      .themeNineVoyage-card:focus-within {
+        align-items: center;
+      }
+
+      .themeNineVoyage-card:hover::before,
+      .themeNineVoyage-card:focus-within::before {
+        transform: translateY(-4%);
+      }
+
+      .themeNineVoyage-card:hover::after,
+      .themeNineVoyage-card:focus-within::after {
+        transform: translateY(-50%);
+      }
+
+      .themeNineVoyage-card:hover .themeNinevoyage-content,
+      .themeNineVoyage-card:focus-within .themeNinevoyage-content {
+        transform: translateY(0);
+      }
+
+      .themeNineVoyage-card:hover
+        .themeNinevoyage-content
+        > *:not(.voyage-title),
+      .themeNineVoyage-card:focus-within
+        .themeNinevoyage-content
+        > *:not(.voyage-title) {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 87.5ms;
+      }
+
+      .themeNineVoyage-card:focus-within::before,
+      .themeNineVoyage-card:focus-within::after,
+      .themeNineVoyage-card:focus-within .themeNinevoyage-content,
+      .themeNineVoyage-card:focus-within
+        .themeNinevoyage-content
+        > *:not(.voyage-title) {
+        transition-duration: 0s;
+      }
+    }
+  }
 }
