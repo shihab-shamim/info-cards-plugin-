@@ -3,6 +3,7 @@
   import Theme6 from '../Common/theme6/Theme6';
 import SevenInfoCard from '../Common/theme7/SevenInfoCard';
 import ThemeEightInfoProfile from '../Common/theme8/ThemeEightInfoProfile';
+import ThemeNineTexOverly from '../Common/theme9/ThemeNineTexOverly';
 import Cards from './Cards';
   
   
@@ -35,6 +36,9 @@ import Cards from './Cards';
          }
 
         </div>)
+  }
+  if(theme==="theme9"){
+     return <ThemeNineTexOverly attributes={attributes}  isBackend={false}/>
   }
 }
 

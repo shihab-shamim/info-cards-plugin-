@@ -133,6 +133,25 @@ const Style = ({ attributes, id }) => {
 };
  
 
+//  theme nine (9)  selector 
+
+	const themeNineVoyageViewCardContainer = `${mainSl} .themeNineVoyageViewCardContainer`;
+	const themeNinevoyageContent = `${themeNineVoyageViewCardContainer} .themeNineVoyage-page-content`;
+	const themeNineCardSl = `${themeNinevoyageContent} .themeNineVoyage-card`;
+
+	const themeNineCardContentSl = `${themeNineCardSl} .themeNinevoyage-content`;
+	const themeNineTitleSl = `${themeNineCardContentSl} .voyage-title`;
+	const themeNineDescriptionSl = `${themeNineCardContentSl} .voyage-copy`;
+	const themeNineBtnSl = `${themeNineCardContentSl} .voyage-btn`;
+
+
+
+
+	const themeNineAlignment=styles?.alignment
+  let marginValue = '0 auto'; 
+  if (themeNineAlignment === 'left') marginValue = '0 auto 0 0';
+  else if (themeNineAlignment === 'right') marginValue = '0 0 0 auto';
+
   return (
     <style>
       {`
@@ -156,6 +175,10 @@ const Style = ({ attributes, id }) => {
 		 ${getTypoCSS("", styles?.card?.states?.text?.typo)?.googleFontLink}
 		 ${getTypoCSS("", styles?.card?.messageButton?.typo)?.googleFontLink}
 		 ${getTypoCSS("", styles?.card?.company?.color)?.googleFontLink}
+
+		 ${getTypoCSS("", styles?.title?.typo)?.googleFontLink}
+		${getTypoCSS("", styles?.description?.typo)?.googleFontLink}
+		${getTypoCSS("", styles?.button?.typo)?.googleFontLink}
 		
 		
 
@@ -196,6 +219,10 @@ const Style = ({ attributes, id }) => {
         ${getTypoCSS(themeEightStatLabelSl, styles?.card?.states?.text?.typo)?.styles}
         ${getTypoCSS(themeEightMessageBtnlSl, styles?.card?.messageButton?.typo)?.styles}
         ${getTypoCSS(themeEightInfoProfileCompanySl, styles?.card?.company?.typo)?.styles}
+
+		${getTypoCSS(themeNineTitleSl,styles?.title?.typo)?.styles}
+      ${getTypoCSS(themeNineDescriptionSl,styles?.description?.typo)?.styles}
+      ${getTypoCSS(themeNineBtnSl,styles?.button?.typo)?.styles}
 		
 
         
@@ -561,6 +588,87 @@ const Style = ({ attributes, id }) => {
 		row-gap:${styles?.rowGap?.mobile};
 	              }
 			 }
+
+
+
+
+
+
+
+			 ${themeNineVoyageViewCardContainer}{
+	  margin:${getBoxCSS(styles?.margin?.desktop)};
+	  }
+
+
+          ${themeNinevoyageContent}{
+		 ${getBackgroundCSS(styles?.bg)}
+		 margin: ${marginValue};
+		 max-width:${styles?.width};
+		 padding:${getBoxCSS(styles?.padding?.desktop)};
+		 border-radius:${getBoxCSS(styles?.radius)};
+		 column-gap: ${styles?.gap?.column};
+         row-gap: ${styles?.gap?.row};
+		  grid-template-columns: repeat(${styles?.columns?.desktop}, 1fr);
+		  
+		  }
+		  ${themeNineCardSl}{
+		  padding:${getBoxCSS(styles?.view?.padding)};
+		  border-radius:${getBoxCSS(styles?.view?.radius)};
+		  }
+		  ${themeNineCardContentSl}{
+		  padding:${getBoxCSS(styles?.view?.contentPadding)};
+		  }
+
+		  ${themeNineCardSl}::after{
+		  ${getBackgroundCSS(styles?.overlay)}
+          	}
+
+
+
+		 ${themeNineTitleSl}{
+		 color:${styles?.title?.color};
+		 
+		 }
+		 ${themeNineDescriptionSl}{
+		  color:${styles?.description?.color};
+		 }
+		  ${themeNineBtnSl}{
+		  padding:${getBoxCSS(styles?.button?.padding)};
+		  ${getColorsCSS(styles?.button?.colors)}
+		  }
+		  ${themeNineBtnSl}:hover {
+           ${getColorsCSS(styles?.button?.hover)}
+         }
+         
+		  ${themeNineBtnSl}:focus{
+		outline: ${styles?.button?.border?.width} ${styles?.button?.border?.style} ${styles?.button?.border?.color};
+
+		  }
+
+
+
+		  ${tabBreakpoint}{
+		    ${themeNineVoyageViewCardContainer}{
+	  margin:${getBoxCSS(styles?.margin?.tablet)};
+	  }
+		  ${themeNinevoyageContent}{
+		  padding:${getBoxCSS(styles?.padding?.tablet)};
+		  grid-template-columns: repeat(${styles?.columns?.tablet}, 1fr);
+
+		  }
+		
+		  }
+		  ${mobileBreakpoint}{
+		    ${themeNineVoyageViewCardContainer}{
+	  margin:${getBoxCSS(styles?.margin?.mobile)};
+	  }
+		   ${themeNinevoyageContent}{
+		  padding:${getBoxCSS(styles?.padding?.mobile)};
+		  grid-template-columns: repeat(${styles?.columns?.mobile}, 1fr);
+
+		  }
+		  
+		  }
 
         
     `;

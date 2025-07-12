@@ -30,6 +30,7 @@ import { updateData } from "../../../../../../bpl-tools/utils/functions";
 import ProductInfoSetting from "../../../Common/theme6/ProductInfoSetting";
 import SevenInfoCardSetting from "../../../Common/theme7/SevenInfoCardSetting";
 import ThemeEightInfoSetting from "../../../Common/theme8/ThemeEightInfoSetting";
+import ThemeNineTextOverlySetting from "../../../Common/theme9/ThemeNineTextOverlySetting";
 
 const General = ({ attributes, setAttributes, updateCard,editDevice }) => {
   const {
@@ -164,6 +165,21 @@ const General = ({ attributes, setAttributes, updateCard,editDevice }) => {
       icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="message-icon"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>`,
     },
   };
+
+
+
+  const themeNineNewCard={
+  
+    title: "Mountain View",
+    description: "Check out all of these gorgeous mountain trips with beautiful views of, you guessed it, the mountains",
+    buttonText: "View Trips",
+    buttonLink: "https://example.com/mountain-view",
+    imageUrl: "https://images.unsplash.com/photo-1517021897933-0e0319cfbc28?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max"
+  
+
+
+}
+
 
   const onAddCard = () => {
     const newCards = [
@@ -1153,15 +1169,15 @@ const General = ({ attributes, setAttributes, updateCard,editDevice }) => {
         theme ==="theme9" &&   <>
     <PanelBody className='bPlPanelBody' title={__('Add or Remove Cards', 'info-cards')} initialOpen={false}>
 
-        {/* <ItemsPanel
-          newItem={voyageView}
+        <ItemsPanel
+          newItem={themeNineNewCard}
           design="sortable"
           attributes={attributes}
           setAttributes={setAttributes}
-          arrKey="voyageDetails"
-          itemLabel="View"
-          ItemSettings={VoyageViewSetting}
-        /> */}
+          arrKey="productsInfo"
+          itemLabel="Card"
+          ItemSettings={ThemeNineTextOverlySetting}
+        /> 
     
 
 
