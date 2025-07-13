@@ -21,6 +21,7 @@ class BPICB_Info_Cards{
     {
         $this->constants_define();
         add_action( 'init', [$this, 'onInit'] );
+        add_action('enqueue_block_assets', [$this,'load_unicorn_studio_script']);
     }
 
     public static function get_instance(){
@@ -41,6 +42,15 @@ class BPICB_Info_Cards{
     public function onInit(){
         register_block_type( __DIR__ . '/build' );
     }
+    function load_unicorn_studio_script() {
+			 wp_enqueue_script(
+        'unicorn-studio',
+        'https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.25/dist/unicornStudio.umd.js',
+        array(), 
+        '1.4.25',     
+        true     
+    );
+		}
 
 }
 BPICB_Info_Cards::get_instance();

@@ -8,7 +8,8 @@ import {
   Dashicon,
   SelectControl,
   ToggleControl,
-  FormToggle
+  FormToggle,
+  TextareaControl
 } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
 import {
@@ -46,6 +47,7 @@ const General = ({ attributes, setAttributes, updateCard,editDevice }) => {
     isTab,
     options,
     styles,
+    grabCardInfo
   } = attributes;
 
 
@@ -357,6 +359,19 @@ const General = ({ attributes, setAttributes, updateCard,editDevice }) => {
             { label: "Theme 10", value: "theme10" },
           ]}
         />
+
+      {theme ==="theme10"&&   <div
+      style={{
+        backgroundColor: "#e7f3fe",
+        color: "#084298",
+        padding: "10px",
+        borderLeft: "5px solid #2196F3",
+        borderRadius: "4px",
+        margin: "10px 0"
+      }}
+    >
+      💡 <strong>Note:</strong> This mouse animation works only on the frontend.
+    </div>}
 
 
     </PanelBody>
@@ -1228,6 +1243,138 @@ const General = ({ attributes, setAttributes, updateCard,editDevice }) => {
 
 
    </>
+      }
+
+      {
+        theme==="theme10" && <>
+      <PanelBody
+        className="bPlPanelBody"
+        title={__("Card", "info-cards")}
+        initialOpen={false}
+      >
+        <InlineMediaUpload
+          label={__("Upload Image or URL", "info-cards")}
+          value={grabCardInfo?.image}
+          type={["image"]}
+          onChange={(v) => {
+          
+            setAttributes({
+              grabCardInfo: updateData(grabCardInfo, v, "image"),
+            });
+          }}
+        />
+
+        <TextControl
+          placeholder="title..."
+          className="productInfoGeneralGap"
+          label={__("Title", "info-cards")}
+          value={grabCardInfo?.title}
+          onChange={(v) =>
+            setAttributes({
+              grabCardInfo: updateData(grabCardInfo, v, "title"),
+            })
+          }
+        />
+
+        <TextareaControl
+          placeholder="description..."
+          className="productInfoGeneralGap"
+          label={__("Description", "info-cards")}
+          value={grabCardInfo?.description}
+          onChange={(v) =>
+            setAttributes({
+              grabCardInfo: updateData(grabCardInfo, v, "description"),
+            })
+          }
+        />
+
+        <TextControl
+          placeholder="button text..."
+          className="productInfoGeneralGap"
+          label={__("Button Text", "info-cards")}
+          value={grabCardInfo?.button?.text}
+          onChange={(v) =>
+            setAttributes({
+              grabCardInfo: updateData(grabCardInfo, v, "button", "text"),
+            })
+          }
+        />
+
+        <TextControl
+          placeholder="button link..."
+          className="productInfoGeneralGap"
+          label={__("Button Link", "info-cards")}
+          value={grabCardInfo?.button?.link}
+          onChange={(v) =>
+            setAttributes({
+              grabCardInfo: updateData(grabCardInfo, v, "button", "link"),
+            })
+          }
+        />
+
+        <Label>
+          {" "}
+          Link open in new tab{" "}
+          <FormToggle
+            checked={options?.isOpenNewTab}
+            onChange={() =>
+              setAttributes({
+                options: updateData(
+                  options,
+                  !options?.isOpenNewTab,
+                  "isOpenNewTab"
+                ),
+              })
+            }
+          />
+        </Label>
+      </PanelBody>
+
+      <PanelBody
+        className="bPlPanelBody"
+        title={__("Layout", "info-cards")}
+        initialOpen={false}
+      >
+        <PanelRow>
+          {" "}
+          <Label className = 'mt0'>Section Width</Label>
+          <Device></Device>
+        </PanelRow>
+          <UnitControl value={styles?.width[device]} onChange={(v)=>setAttributes({styles:updateData(styles,v,"width",device)})} />
+
+
+               <PanelRow>
+          {" "}
+          <Label className = 'mt0'>Section Height</Label>
+          <Device></Device>
+        </PanelRow>
+          <UnitControl value={styles?.height[device]} onChange={(v)=>setAttributes({styles:updateData(styles,v,"height",device)})} />
+
+
+   <PanelRow>
+          {" "}
+          <Label className = 'mt0'>Section Margin</Label>
+          <Device></Device>
+        </PanelRow>
+          <BoxControl values={styles?.margin[device]} onChange={(v)=>setAttributes({styles:updateData(styles,v,"margin",device)})} />
+
+
+              <PanelRow>
+          {" "}
+          <Label className = 'mt0'>Section Padding</Label>
+          <Device></Device>
+        </PanelRow>
+          <BoxControl values={styles?.padding[device]} onChange={(v)=>setAttributes({styles:updateData(styles,v,"padding",device)})} />
+
+
+        <BoxControl style={{marginTop:"8px"}} label={__("Section Radius","info-cards")} values={styles?.radius} onChange={(v)=>setAttributes({styles:updateData(styles,v,"radius")})} />
+          
+            
+
+
+
+      </PanelBody>
+    </>
       }
     </>
   );

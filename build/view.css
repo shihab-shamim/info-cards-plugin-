@@ -619,6 +619,100 @@
     transition-duration: 0s;
   }
 }
+.wp-block-icb-cards .themeTenProductInfoGrab {
+  display: flex;
+  justify-content: center;
+}
+.wp-block-icb-cards .themeTenProductInfoGrab .themeTenGrabMouseMoveSection {
+  position: relative;
+  background: black;
+  overflow: hidden;
+}
+.wp-block-icb-cards .themeTenProductInfoGrab .themeTenGrabMouseMoveSection .themeTenGrabMouseMoveContent {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+.wp-block-icb-cards .themeTenProductInfoGrab .themeTenGrabMouseMoveSection .themeTenProductInfoCard {
+  will-change: transform;
+  margin-top: 0px;
+  padding: 0;
+  max-width: 100%;
+  position: relative;
+  border: 2px solid transparent;
+  background: none;
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  cursor: grab;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  transform-style: preserve-3d;
+  overflow: visible;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+.wp-block-icb-cards .themeTenProductInfoGrab .themeTenGrabMouseMoveSection .themeTenProductInfoCard:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+.wp-block-icb-cards .themeTenProductInfoGrab .themeTenGrabMouseMoveSection .themeTenProductInfoCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+.wp-block-icb-cards .themeTenProductInfoGrab .themeTenGrabMouseMoveSection .themeTenProductInfoCard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+.wp-block-icb-cards .themeTenProductInfoGrab .themeTenGrabMouseMoveSection .themeTenProductInfoCard .themeTenCardQuest {
+  position: absolute;
+  transform: translateX(-50%);
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  z-index: 3;
+}
+.wp-block-icb-cards .themeTenProductInfoGrab .themeTenGrabMouseMoveSection .themeTenProductInfoCard .themeTenCardQuest .grabImg {
+  transform: translateZ(50px);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  pointer-events: none;
+  display: block;
+}
+.wp-block-icb-cards .themeTenProductInfoGrab .themeTenGrabMouseMoveSection .themeTenProductInfoCard .themeTenCardText {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+.wp-block-icb-cards .themeTenProductInfoGrab .themeTenGrabMouseMoveSection .themeTenProductInfoCard .themeTenCardText .themeTenGrabTitle {
+  margin: 0;
+  transform: translateZ(50px);
+}
+.wp-block-icb-cards .themeTenProductInfoGrab .themeTenGrabMouseMoveSection .themeTenProductInfoCard .themeTenCardText .themeTenGrabDescription {
+  max-width: 70%;
+  transform: translateZ(50px);
+}
+.wp-block-icb-cards .themeTenProductInfoGrab .themeTenGrabMouseMoveSection .themeTenProductInfoCard .themeTenCardText .themeTenGrabButton {
+  border-radius: 12px;
+  transform: translateZ(50px);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+.wp-block-icb-cards .themeTenProductInfoGrab .themeTenGrabMouseMoveSection .themeTenProductInfoCard .themeTenCardText .themeTenGrabButton:hover {
+  background: #005ecb;
+}
 /*!*********************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!../bpl-tools/Components/style.scss ***!
   \*********************************************************************************************************************************************************************************************************************************************************/

@@ -1,6 +1,6 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 3,
+	"apiVersion": 2,
 	"name": "icb/cards",
 	"version": "0.1.0",
 	"title": "Info Cards",
@@ -501,6 +501,17 @@
               "letterSpace": "0px"
 			}
           }
+        }
+      }
+    }, "grabCardInfo": {
+      "type": "object",
+      "default": {
+        "image": "https://templates.bplugins.com/wp-content/uploads/2025/06/quest.webp",
+        "title": "Grab A Device",
+        "description": "Your journey into spatial starts now. Get Meta Horizon OS for yourself or power up your entire team.",
+        "button": {
+          "text": "Purchase a Meta Quest",
+          "link": "#"
         }
       }
     },

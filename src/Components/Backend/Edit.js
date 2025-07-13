@@ -31,7 +31,7 @@ const Edit = ({ attributes, setAttributes, clientId ,device}) => {
       <Settings attributes={attributes} setAttributes={setAttributes} updateCard={updateCard} clientId={clientId} device={device} activeIndex={activeIndex} />
 
       <div id={`icbCards-${clientId}`}>
-        <Style attributes={attributes} id={`icbCards-${clientId}`} />
+        <Style isBack = {true} attributes={attributes} id={`icbCards-${clientId}`} />
 
       {
         getCardContentEdit(theme,attributes,updateCard,setAttributes,isBacked,activeIndex,setActiveIndex)

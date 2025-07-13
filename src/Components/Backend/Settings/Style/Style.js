@@ -26,6 +26,7 @@ import {
 } from "../../../../../../bpl-tools/Components";
 import { updateData } from "../../../../../../bpl-tools/utils/functions";
 import { RangeControl } from "@wordpress/components";
+import { perUnit, pxUnit } from "../../../../../../bpl-tools/utils/options";
 
 const Style = ({ attributes, setAttributes ,editDevice,activeIndex}) => {
   const {
@@ -1248,6 +1249,100 @@ onChange={(value)=>setAttributes({styles:updateData(styles,value,"card","variant
           <BoxControls  label={__("Padding", "info-cards")} values={styles?.button?.padding} onChange={(value)=>setAttributes({styles:updateData(styles,value,"button","padding")})} />
 
             <BorderBoxControl  label={__("Focus Outline", "info-cards")} value={styles?.button?.border} onChange={(value)=>setAttributes({styles:updateData(styles,value,"button","border")})} />
+
+      </PanelBody>
+    </>
+      }
+
+      {
+        theme === "theme10" && <>
+      <PanelBody
+      
+        className="bPlPanelBody"
+        title={__("Card", "info-cards")}
+        initialOpen={false}
+      >
+       <PanelRow  ><Label className = 'mt0'>Width</Label> <Device/> </PanelRow>
+     <UnitControl value={styles?.card?.width[editDevice]} onChange={(v)=>setAttributes({styles:updateData(styles,v,"card","width",editDevice)})}  />
+        
+        <PanelRow ><Label className = 'mt0' >Height</Label> <Device/> </PanelRow>
+     <UnitControl value={styles?.card?.height[editDevice]} onChange={(v)=>setAttributes({styles:updateData(styles,v,"card","height",editDevice)})}  />
+
+      <Label className = 'mt8'>Info Box Translate (X)</Label>
+     
+      <UnitControl units={[perUnit()]}  step={1}  value={styles?.card?.translateX} onChange={(v)=>setAttributes({styles:updateData(styles,v,"card","translateX")})} />
+
+     <Label className = 'mt8'>Info Box Translate (y)</Label>
+
+
+        <UnitControl units={[perUnit()]}  step={1} value={styles?.card?.translateY} onChange={(v)=>setAttributes({styles:updateData(styles,v,"card","translateY")})} />
+
+      <Background value={styles?.card?.bg} onChange={(v)=>setAttributes({styles:updateData(styles,v,"card","bg")})} />
+
+
+
+      <Background  label={__("Overlay", "info-cards")} value={styles?.card?.overlay} onChange={(v)=>setAttributes({styles:updateData(styles,v,"card","overlay")})} />
+
+        <BoxControls label={__(" Border Radius","info-cards")} values={styles?.card?.radius} onChange={(v)=>setAttributes({styles:updateData(styles,v,"card","radius")})} />
+
+            <PanelRow  ><Label className = 'mt0'>Image Width</Label> <Device/> </PanelRow>
+     <UnitControl   units={[pxUnit()]} value={styles?.card?.image?.width[editDevice]} onChange={(v)=>setAttributes({styles:updateData(styles,v,"card","image","width",editDevice)})}  />
+
+      <PanelRow  ><Label className = 'mt0'>Image Height</Label> <Device/> </PanelRow>
+     <UnitControl units={[pxUnit()]} value={styles?.card?.image?.height[editDevice]} onChange={(v)=>setAttributes({styles:updateData(styles,v,"card","image","height",editDevice)})}  />
+
+   
+    
+     <Label className = 'mt8'>Image Translate (X)</Label>
+     
+      <UnitControl units={[perUnit()]}  step={1}  value={styles?.card?.image?.translateX} onChange={(v)=>setAttributes({styles:updateData(styles,v,"card","image","translateX")})} />
+
+     <Label className = 'mt8'>Image Translate (y)</Label>
+
+
+        <UnitControl units={[perUnit()]}  step={1} value={styles?.card?.image?.translateY} onChange={(v)=>setAttributes({styles:updateData(styles,v,"card","image","translateY")})} />
+      
+ 
+        
+        
+
+      </PanelBody>
+
+      <PanelBody className="bPlPanelBody"
+        title={__("Card Content", "info-cards")}
+           initialOpen={false}
+        >  
+         <PanelRow><Label className="mt0" >Padding</Label> <Device/> </PanelRow>
+
+          <BoxControls title={__("Padding", "info-cards")} values={styles?.card?.content?.padding?.[editDevice]} 
+          onChange={(v)=>setAttributes({styles:updateData(styles,v,"card","content","padding",editDevice)})}
+           />
+
+           <BButtonGroup style={{marginTop:"8px"}} label="Alignment" options={[
+            {label:"Left",value:"left"},
+            {label:"Center",value:"center"},
+            {label:"Right",value:"right"}
+           ]} value={styles?.card?.content?.alignment} 
+           onChange={(v)=>setAttributes({styles:updateData(styles,v,"card","content","alignment")})}
+             />
+        {/* <Label className = 'mt8'>Gap</Label> */}
+             <UnitControl label="Gap" value={styles?.card?.content?.gap} onChange={(v)=>setAttributes({styles:updateData(styles,v,"card","content","gap")})} />
+
+            <ColorControl value={styles?.card?.content?.title?.color} label={__("Title Color", "info-cards")} onChange={(v)=>setAttributes({styles:updateData(styles,v,"card","content","title","color")})} />
+
+            <Typography label={__("Title Typography", "info-cards")} value={styles?.card?.content?.title?.typo} onChange={(v)=>setAttributes({styles:updateData(styles,v,"card","content","title","typo")})}  />
+
+              <ColorControl value={styles?.card?.content?.description?.color} label={__("Description Color", "info-cards")} onChange={(v)=>setAttributes({styles:updateData(styles,v,"card","content","description","color")})} />
+
+                  <Typography label={__("Description Typography", "info-cards")} value={styles?.card?.content?.description?.typo} onChange={(v)=>setAttributes({styles:updateData(styles,v,"card","content","description","typo")})}  />
+
+
+                    <BoxControls label={__("Button Padding", "info-cards")}  values={styles?.card?.content?.button?.padding} onChange={(v)=>setAttributes({styles:updateData(styles,v,"card","content","button","padding")})} />
+
+                      <ColorsControl value={styles?.card?.content?.button?.colors} label={__("Button Colors", "info-cards")} onChange={(v)=>setAttributes({styles:updateData(styles,v,"card","content","button","colors")})}  />
+
+                      <Typography value={styles?.card?.content?.button?.typo} label={__("Button Typography", "info-cards")} onChange={(v)=>setAttributes({styles:updateData(styles,v,"card","content","button","typo")})}/>
+
 
       </PanelBody>
     </>

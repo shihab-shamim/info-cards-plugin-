@@ -12,7 +12,7 @@ import {
   tabBreakpoint,
 } from "../../../../bpl-tools/utils/data";
 
-const Style = ({ attributes, id }) => {
+const Style = ({ attributes, id,isBack }) => {
   const {
     cards,
     background,
@@ -152,6 +152,44 @@ const Style = ({ attributes, id }) => {
   if (themeNineAlignment === 'left') marginValue = '0 auto 0 0';
   else if (themeNineAlignment === 'right') marginValue = '0 0 0 auto';
 
+
+
+//   theme 10 ar selector 
+
+ const themeTenProductInfoGrab = `${mainSl} .themeTenProductInfoGrab`;
+  const themeTenGrabMouseMoveSectionSl = `${themeTenProductInfoGrab} .themeTenGrabMouseMoveSection`;
+  const themeTenGrabMouseMoveContentSl = `${themeTenGrabMouseMoveSectionSl} .themeTenGrabMouseMoveContent`;
+  const themeTenInfocardsl = `${themeTenGrabMouseMoveSectionSl} .themeTenProductInfoCard`;
+  const themeTenQuestsl = `${themeTenInfocardsl} .themeTenCardQuest`;
+  const  themeTenGrabImgSl= `${themeTenQuestsl} .grabImg`;
+  const  themeTenTextSl= `${themeTenInfocardsl} .themeTenCardText`;
+  const  themeTenGrabTitleSl= `${themeTenTextSl} .themeTenGrabTitle`;
+  const  themeTenGrabDescriptionSl= `${themeTenTextSl} .themeTenGrabDescription`;
+  const  themeTenGrabButtonSl= `${themeTenTextSl} .themeTenGrabButton`;
+
+  // const jsonWitdh = "552";
+  const themeTenDesktopImagWidth= styles?.card?.image?.width?.desktop?.split("px")[0]
+  const themeTenTabletImagWidth= styles?.card?.image?.width?.tablet?.split("px")[0]
+  const themeTenMobileImagwidth= styles?.card?.image?.width?.mobile?.split("px")[0]
+
+  const themeTenDesktopImagHeight= styles?.card?.image?.height?.desktop?.split("px")[0]
+  const themeTenTabletImagHeight= styles?.card?.image?.height?.tablet?.split("px")[0]
+  const themeTenMobileImagHeight= styles?.card?.image?.height?.mobile?.split("px")[0]
+
+ const themeTenContentAlignment = () => {
+  const value = styles?.card?.content?.alignment;
+
+  if (value === "left") {
+    return `margin: ${styles?.card?.content?.gap} auto ${styles?.card?.content?.gap} 0;`; // top:0, right:auto, bottom:0, left:0
+  }
+  if (value === "center") {
+    return `margin: ${styles?.card?.content?.gap}  auto;`; // top:0, bottom:0, left/right:auto
+  }
+  if (value === "right") {
+    return `margin:  ${styles?.card?.content?.gap} 0 ${styles?.card?.content?.gap} auto;`; // top:0, right:0, bottom:0, left:auto
+  }
+}
+
   return (
     <style>
       {`
@@ -179,6 +217,10 @@ const Style = ({ attributes, id }) => {
 		 ${getTypoCSS("", styles?.title?.typo)?.googleFontLink}
 		${getTypoCSS("", styles?.description?.typo)?.googleFontLink}
 		${getTypoCSS("", styles?.button?.typo)?.googleFontLink}
+
+		   ${getTypoCSS('', styles?.card?.content?.title?.typo)?.googleFontLink}
+        ${getTypoCSS('', styles?.card?.content?.description?.typo)?.googleFontLink}
+        ${getTypoCSS('', styles?.card?.content?.button?.typo)?.googleFontLink}
 		
 		
 
@@ -223,6 +265,10 @@ const Style = ({ attributes, id }) => {
 		${getTypoCSS(themeNineTitleSl,styles?.title?.typo)?.styles}
       ${getTypoCSS(themeNineDescriptionSl,styles?.description?.typo)?.styles}
       ${getTypoCSS(themeNineBtnSl,styles?.button?.typo)?.styles}
+
+	   ${getTypoCSS(themeTenGrabTitleSl, styles?.card?.content?.title?.typo)?.styles}
+         ${getTypoCSS(themeTenGrabDescriptionSl, styles?.card?.content?.description?.typo)?.styles}
+         ${getTypoCSS(themeTenGrabButtonSl, styles?.card?.content?.button?.typo)?.styles}
 		
 
         
@@ -669,6 +715,195 @@ const Style = ({ attributes, id }) => {
 		  }
 		  
 		  }
+
+
+
+
+
+
+
+		  ${
+      isBack
+        ? `
+			.block-editor__container .grabImg {
+				max-width: ${themeTenDesktopImagWidth}px;
+				aspect-ratio: ${themeTenDesktopImagWidth} / ${themeTenDesktopImagHeight};
+        height:${themeTenDesktopImagHeight}px;
+       
+			}
+		`
+        : `
+		
+			${themeTenGrabImgSl} {
+				width: ${themeTenDesktopImagWidth}px;
+				aspect-ratio: ${themeTenDesktopImagWidth} / ${themeTenDesktopImagHeight};
+        height:${themeTenDesktopImagHeight}px;
+         
+
+			}
+
+		`
+    }
+    ${themeTenGrabImgSl} {
+				width: ${themeTenDesktopImagWidth}px;
+				aspect-ratio: ${themeTenDesktopImagWidth} / ${themeTenDesktopImagHeight};
+        height:${themeTenDesktopImagHeight}px;
+        
+
+			}
+    	${themeTenQuestsl}{
+      top: ${styles?.card?.image?.translateY};
+        left: ${styles?.card?.image?.translateX};
+      }
+
+
+    ${themeTenGrabMouseMoveSectionSl}{
+     width: ${styles?.width?.desktop};
+      height: ${styles?.height?.desktop};
+      margin:${getBoxCSS(styles?.margin?.desktop)};
+      padding:${getBoxCSS(styles?.padding?.desktop)};
+      border-radius:${getBoxCSS(styles?.radius)};
+
+    }
+      ${themeTenInfocardsl}{
+      width:${styles?.card?.width?.desktop};
+      height:${styles?.card?.height?.desktop};
+      border-radius:${getBoxCSS(styles?.card?.radius)};
+      
+      }
+
+      ${themeTenInfocardsl}::before{
+      ${getBackgroundCSS(styles?.card?.bg)}
+      border-radius:${getBoxCSS(styles?.card?.radius)};
+      }
+
+      ${themeTenInfocardsl}::after{
+      ${getBackgroundCSS(styles?.card?.overlay)}
+      border-radius:${getBoxCSS(styles?.card?.radius)};
+      }
+
+      ${themeTenTextSl}{
+      padding:${getBoxCSS(styles?.card?.content?.padding?.desktop)};
+      text-align: ${styles?.card?.content?.alignment};
+
+      }
+
+      ${themeTenGrabDescriptionSl}{
+      ${themeTenContentAlignment()}
+      color:${styles?.card?.content?.description?.color};
+      }
+    
+      ${themeTenGrabTitleSl}{
+      color:${styles?.card?.content?.title?.color};
+      }
+     
+      ${themeTenGrabButtonSl}{
+      padding:${getBoxCSS(styles?.card?.content?.button?.padding)};
+      ${getColorsCSS(styles?.card?.content?.button?.colors)}
+      }
+
+
+      ${themeTenGrabMouseMoveContentSl}{
+          top: ${styles?.card?.translateY};
+          left:  ${styles?.card?.translateX};
+      }
+
+
+
+
+
+
+
+
+
+  
+    ${tabBreakpoint}{
+    ${themeTenGrabMouseMoveSectionSl}{
+     width: ${styles?.width?.tablet};
+      height: ${styles?.height?.tablet};
+      margin:${getBoxCSS(styles?.margin?.tablet)}
+      padding:${getBoxCSS(styles?.padding?.tablet)}
+
+    }
+        ${themeTenInfocardsl}{
+      width:${styles?.card?.width?.tablet};
+      height:${styles?.card?.height?.tablet};
+      }
+      ${
+      isBack
+        ? `
+			.block-editor__container .grabImg {
+				max-width: ${themeTenTabletImagWidth}px;
+				aspect-ratio: ${themeTenTabletImagWidth} / ${themeTenTabletImagHeight};
+			}
+		`
+        : `
+		
+			${themeTenGrabImgSl} {
+				width: ${themeTenTabletImagWidth}px;
+				aspect-ratio: ${themeTenTabletImagWidth} / ${themeTenTabletImagHeight};
+
+			}
+
+		`
+    }
+    ${themeTenGrabImgSl} {
+				width: ${themeTenTabletImagWidth}px;
+				aspect-ratio: ${themeTenTabletImagWidth} / ${themeTenTabletImagHeight};
+
+			}
+        ${themeTenTextSl}{
+      padding:${getBoxCSS(styles?.card?.content?.padding?.tablet)};
+      
+
+      }
+    
+    }
+
+
+    ${mobileBreakpoint}{
+    ${themeTenGrabMouseMoveSectionSl}{
+     width: ${styles?.width?.mobile};
+      height: ${styles?.height?.mobile};
+      margin:${getBoxCSS(styles?.margin?.mobile)}
+      padding:${getBoxCSS(styles?.padding?.mobile)}
+
+    }
+         ${themeTenInfocardsl}{
+      width:${styles?.card?.width?.mobile};
+      height:${styles?.card?.height?.mobile};
+      }
+      ${
+      isBack
+        ? `
+			.block-editor__container .grabImg {
+				max-width: ${themeTenMobileImagwidth}px;
+				aspect-ratio: ${themeTenMobileImagwidth} / ${themeTenMobileImagHeight};
+			}
+		`
+        : `
+		
+			${themeTenGrabImgSl} {
+				width: ${themeTenMobileImagwidth}px;
+				aspect-ratio: ${themeTenMobileImagwidth} / ${themeTenMobileImagHeight};
+
+			}
+
+		`
+    }
+    ${themeTenGrabImgSl} {
+				width: ${themeTenMobileImagwidth}px;
+				aspect-ratio: ${themeTenMobileImagwidth} / ${themeTenMobileImagHeight};
+
+			}
+          ${themeTenTextSl}{
+      padding:${getBoxCSS(styles?.card?.content?.padding?.mobile)};
+      
+
+      }
+
+    }
+
 
         
     `;

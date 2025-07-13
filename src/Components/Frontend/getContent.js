@@ -1,6 +1,7 @@
   
   
-  import Theme6 from '../Common/theme6/Theme6';
+  import ThemeTenMouseMove from '../Common/theme10/ThemeTenMouseMove';
+import Theme6 from '../Common/theme6/Theme6';
 import SevenInfoCard from '../Common/theme7/SevenInfoCard';
 import ThemeEightInfoProfile from '../Common/theme8/ThemeEightInfoProfile';
 import ThemeNineTexOverly from '../Common/theme9/ThemeNineTexOverly';
@@ -40,5 +41,11 @@ import Cards from './Cards';
   if(theme==="theme9"){
      return <ThemeNineTexOverly attributes={attributes}  isBackend={false}/>
   }
+
+   if(theme === "theme10"){
+        return(<div className="themeTenProductInfoGrab">
+          <ThemeTenMouseMove isEditor={false}  attributes={attributes} />
+        </div>)
+      }
 }
 
