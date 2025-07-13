@@ -13,7 +13,8 @@ const ThemeTenMouseMove = ({ attributes, setAttributes, isEditor }) => {
           UnicornStudio.init();
           UnicornStudio.isInitialized = true;
         } catch (error) {
-          console.error("UnicornStudio init failed:", error);
+          error
+        
         }
       }
     }

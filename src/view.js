@@ -1,9 +1,7 @@
 import { createRoot } from "react-dom/client";
 import "./style.scss";
 
-import Cards from "./Components/Frontend/Cards";
 import Style from './Components/Common/Style';
-import { getCardContent } from "./utils/function";
 import { getCardContentFront } from "./Components/Frontend/getContent";
 
 window.addEventListener("DOMContentLoaded", () => {

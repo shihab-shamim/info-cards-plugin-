@@ -10,23 +10,18 @@ import { TabPanel } from "@wordpress/components";
 
 import General from "./General/General";
 import Style from "./Style/Style";
-import { BplBlockPreview } from "../../../../../bpl-tools/Components";
-import themes from "./Style/themes.json"
-import { updateData } from "../../../utils/function";
 
-export default function ({ attributes, setAttributes, updateCard, device,activeIndex,clientId }) {
-  const {alignment,theme}=attributes;
-  //   const updateAllCard = (property, value) => {
-  //     // const cardsCopy = produce(cards, (draft) => {
-  //     // 	draft[index][property] = value;
-  //     //   });
-  //     //   setAttributes({ cards: cardsCopy });
-  //     const newCards = [...cards];
-  //     newCards.map((social, index) => {
-  //       newCards[index][property] = value;
-  //     });
-  //     setAttributes({ cards: newCards });
-  //   };
+import { themeSwitch, toolTipPresets, } from "../../../utils/function";
+import BlockPreview from "./panel/BlockPreview";
+
+export default function ({ attributes, setAttributes, updateCard, device,activeIndex }) {
+  const {
+    cards,
+    theme,
+    columns,
+
+    alignment
+  } = attributes;
 
   return (
     <>
@@ -88,14 +83,135 @@ export default function ({ attributes, setAttributes, updateCard, device,activeI
         />
 
 
-        <BplBlockPreview
-          blocks={themes}
-          clientId={clientId}
+      
+         <BlockPreview
+          options={toolTipPresets}
           value={theme}
-          onChange={(v) =>
-            setAttributes({ theme: v})
-          }
-        />
+             onChange={(val) => {
+                      const newCards = cards.map((card) => ({
+                        ...card,
+                        background: ["default", "theme1", "theme2", "theme3"].includes(
+                          val
+                        )
+                          ? { color: "#fff" }
+                          : { color: "#570DF8" },
+                      }));
+          
+                      "default" === val &&
+                        setAttributes({
+                          cards: newCards,
+                          theme: val,
+                          columns: { ...columns, desktop: 3 },
+                          layout: "vertical",
+                          titleColor: "#000",
+                          descColor: "#000",
+                          isImg: true,
+                          imgPos: "first",
+                          cardPadding: { top: "0", right: "0", bottom: "0", left: "0" },
+                          btnColors: { color: "#fff", bg: "#4527a4" },
+                          btnHovColors: { color: "#fff", bg: "#fe6601" },
+                        });
+                      // updateAllCard("background", { color: "#fff" })
+          
+                      "theme1" === val &&
+                        setAttributes({
+                          cards: newCards,
+                          theme: val,
+                          columns: { ...columns, desktop: 3 },
+                          layout: "vertical",
+                          titleColor: "#000",
+                          descColor: "#000",
+                          isImg: true,
+                          imgPos: "last",
+                          cardPadding: { top: "0", right: "0", bottom: "0", left: "0" },
+                          btnColors: { color: "#fff", bg: "#4527a4" },
+                          btnHovColors: { color: "#fff", bg: "#fe6601" },
+                        });
+                      // updateAllCard("background", { color: "#fff" })
+          
+                      "theme2" === val &&
+                        setAttributes({
+                          cards: newCards,
+                          theme: val,
+                          columns: { ...columns, desktop: 3 },
+                          layout: "vertical",
+                          titleColor: "#000",
+                          descColor: "#000",
+                          isImg: true,
+                          imgPos: "first",
+                          cardPadding: {
+                            top: "15px",
+                            right: "15px",
+                            bottom: "15px",
+                            left: "15px",
+                          },
+                          btnColors: { color: "#fff", bg: "#4527a4" },
+                          btnHovColors: { color: "#fff", bg: "#fe6601" },
+                        });
+                      // updateAllCard("background", { color: "#fff" })
+          
+                      "theme3" === val &&
+                        setAttributes({
+                          cards: newCards,
+                          theme: val,
+                          columns: { ...columns, desktop: 2 },
+                          layout: "horizontal",
+                          titleColor: "#000",
+                          descColor: "#000",
+                          isImg: true,
+                          imgPos: "first",
+                          cardPadding: { top: "0", right: "0", bottom: "0", left: "0" },
+                          btnColors: { color: "#fff", bg: "#4527a4" },
+                          btnHovColors: { color: "#fff", bg: "#fe6601" },
+                        });
+                      // updateAllCard("background", { color: "#fff" })
+          
+                      "theme4" === val &&
+                        setAttributes({
+                          cards: newCards,
+                          theme: val,
+                          columns: { ...columns, desktop: 3 },
+                          layout: "vertical",
+                          isImg: true,
+                          imgPos: "first",
+                          titleColor: "#fff",
+                          descColor: "#fff",
+                          cardPadding: { top: "0", right: "0", bottom: "0", left: "0" },
+                          btnColors: { color: "#fff", bg: "#000" },
+                          btnHovColors: { color: "#ffffffb3", bg: "#000000b3" },
+                        });
+                      // updateAllCard("background", { color: "#570DF8" }));
+          
+                      "theme5" === val &&
+                        setAttributes({
+                          cards: newCards,
+                          theme: val,
+                          columns: { ...columns, desktop: 3 },
+                          layout: "vertical",
+                          isImg: true,
+                          imgPos: "first",
+                          titleColor: "#fff",
+                          descColor: "#fff",
+                          cardPadding: { top: "0", right: "0", bottom: "0", left: "0" },
+                          btnColors: { color: "#fff", bg: "#000" },
+                          btnHovColors: { color: "#ffffffb3", bg: "#000000b3" },
+                        });
+          
+                      // updateAllCard("background", { color: "#570DF8" })
+          
+                      if (
+                        val === "theme6" ||
+                        val === "theme7" ||
+                        val === "theme8" ||
+                        val === "theme9" ||
+                        val === "theme10"
+                      ) {
+                        setAttributes(themeSwitch(val, attributes, setAttributes));
+                      }
+                    }}
+
+
+        ></BlockPreview>
 
       </BlockControls>
     </>

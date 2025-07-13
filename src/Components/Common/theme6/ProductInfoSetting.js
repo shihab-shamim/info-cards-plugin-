@@ -1,5 +1,4 @@
 import {
-  HelpPanel,
   InlineDetailMediaUpload,
   Label,
 } from "../../../../../bpl-tools/Components";

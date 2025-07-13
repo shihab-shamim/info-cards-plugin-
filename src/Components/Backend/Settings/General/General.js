@@ -21,7 +21,7 @@ import {
   BoxControl,
   BButtonGroup,
    BoxControl as BoxControls,
-   ShadowControl
+   
 } from "../../../../../../bpl-tools/Components";
 import { useState } from "react";
 import { BDevice } from "../../../../../../bpl-tools/Components/Deprecated";
