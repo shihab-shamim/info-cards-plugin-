@@ -10,9 +10,12 @@ import { TabPanel } from "@wordpress/components";
 
 import General from "./General/General";
 import Style from "./Style/Style";
+import { BplBlockPreview } from "../../../../../bpl-tools/Components";
+import themes from "./Style/themes.json"
+import { updateData } from "../../../utils/function";
 
-export default function ({ attributes, setAttributes, updateCard, device,activeIndex }) {
-  const {alignment}=attributes;
+export default function ({ attributes, setAttributes, updateCard, device,activeIndex,clientId }) {
+  const {alignment,theme}=attributes;
   //   const updateAllCard = (property, value) => {
   //     // const cardsCopy = produce(cards, (draft) => {
   //     // 	draft[index][property] = value;
@@ -83,6 +86,17 @@ export default function ({ attributes, setAttributes, updateCard, device,activeI
             },
           ]}
         />
+
+
+        <BplBlockPreview
+          blocks={themes}
+          clientId={clientId}
+          value={theme}
+          onChange={(v) =>
+            setAttributes({ theme: v})
+          }
+        />
+
       </BlockControls>
     </>
   );
