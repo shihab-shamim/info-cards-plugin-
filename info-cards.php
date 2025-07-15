@@ -14,6 +14,8 @@
 
 if ( !defined( 'ABSPATH' ) ) { exit; }
 
+
+
 class BPICB_Info_Cards{
     private static $instance;
 
