@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Popover } from "@wordpress/components";
 import "./style.scss";
-const BlockPreview = ({ options, value, onChange }) => {
+const BlockPreview = ({ options, value, onChange,isPremium }) => {
   const [activeIndex, setActiveIndex] = useState(null);
   const handleButtonClick = (blockValue, idx) => {
     onChange(blockValue);
@@ -14,6 +14,8 @@ const BlockPreview = ({ options, value, onChange }) => {
   const handleBlockReplace = (blockContent) => {
     onChange(blockContent);
   };
+
+  console.log(isPremium,"preview");
   return (
     <div className="bPlBlockPreviewWrapper">
       {options?.map((theme, idx) => (
@@ -27,7 +29,8 @@ const BlockPreview = ({ options, value, onChange }) => {
               onMouseEnter={() => handleMouseInteraction(idx, true)}
               onMouseLeave={() => handleMouseInteraction(idx, false)}
             >
-              {theme.label}
+              <span className="bplOpacity75">{theme.label}</span>
+                {theme?.isPro && !isPremium && <span className="labelPro">Pro</span>}
             </Button>
           </div>
           {activeIndex === idx && (

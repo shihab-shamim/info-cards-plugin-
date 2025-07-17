@@ -99,6 +99,7 @@ export default function ({ attributes, setAttributes, updateCard, device,activeI
       
          <BlockPreview
           options={toolTipPresets}
+          isPremium={isPremium}
           value={theme}
              onChange={(val) => {
                       const newCards = cards.map((card) => ({

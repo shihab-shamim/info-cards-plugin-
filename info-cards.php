@@ -108,6 +108,7 @@ if ( !defined( 'ABSPATH' ) ) { exit; }
 		
 					wp_send_json_success([
 						'isPipe' => ssbIsPremium()
+						
 					]);
 				}
 		

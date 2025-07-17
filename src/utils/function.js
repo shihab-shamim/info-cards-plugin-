@@ -1750,6 +1750,7 @@ export const toolTipPresets = [
     img: "https://templates.bplugins.com/wp-content/uploads/2025/07/image-5.png",
     height: "auto",
     width: "160px",
+    isPro:false
   },
   {
     label: "Theme-1",
@@ -1757,6 +1758,7 @@ export const toolTipPresets = [
     img: "https://templates.bplugins.com/wp-content/uploads/2025/07/image-6.png",
     height: "auto",
     width: "160px",
+    isPro:false
   },
   {
     label: "Theme-2",
@@ -1764,6 +1766,7 @@ export const toolTipPresets = [
     img: "https://templates.bplugins.com/wp-content/uploads/2025/07/image-7.png",
     height: "auto",
     width: "160px",
+    isPro:false
   },
   {
     label: "Theme-3",
@@ -1771,6 +1774,7 @@ export const toolTipPresets = [
     img: "https://templates.bplugins.com/wp-content/uploads/2025/07/image-8.png",
     height: "auto",
     width: "160px",
+    isPro:false
   },
   {
     label: "Theme-4",
@@ -1778,6 +1782,7 @@ export const toolTipPresets = [
     img: "https://templates.bplugins.com/wp-content/uploads/2025/07/image-9.png",
     height: "auto",
     width: "160px",
+    isPro:false
   },
   {
     label: "Theme-5",
@@ -1785,6 +1790,7 @@ export const toolTipPresets = [
     img: "https://templates.bplugins.com/wp-content/uploads/2025/07/image-10.png",
     height: "auto",
     width: "160px",
+    isPro:false
   },
   {
     label: "Theme-6",
@@ -1792,6 +1798,7 @@ export const toolTipPresets = [
     img: "https://templates.bplugins.com/wp-content/uploads/2025/07/image-11.png",
     height: "auto",
     width: "160px",
+    isPro:true
   },
   {
     label: "Theme-7",
@@ -1799,6 +1806,7 @@ export const toolTipPresets = [
     img: "https://templates.bplugins.com/wp-content/uploads/2025/07/image-12.png",
     height: "auto",
     width: "160px",
+    isPro:true
   },
   {
     label: "Theme-8",
@@ -1806,6 +1814,7 @@ export const toolTipPresets = [
     img: "https://templates.bplugins.com/wp-content/uploads/2025/07/image-13.png",
     height: "auto",
     width: "160px",
+    isPro:true
   },
   {
     label: "Theme-9",
@@ -1813,6 +1822,7 @@ export const toolTipPresets = [
     img: "https://templates.bplugins.com/wp-content/uploads/2025/07/image-14.png",
     height: "auto",
     width: "160px",
+    isPro:true
   },
   {
     label: "Theme-10",
@@ -1820,5 +1830,6 @@ export const toolTipPresets = [
     img: "https://templates.bplugins.com/wp-content/uploads/2025/07/image-15.png",
     height: "auto",
     width: "160px",
+    isPro:true
   }
 ];

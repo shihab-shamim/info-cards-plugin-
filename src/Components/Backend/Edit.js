@@ -29,6 +29,7 @@ const Edit = ({ attributes, setAttributes, clientId ,device}) => {
     setAttributes({ cards: cardsCopy });
   }
  const premiumProps = { isPremium, setIsProModalOpen };
+ 
 
   return (
     <div {...useBlockProps()}>
