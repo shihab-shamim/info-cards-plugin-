@@ -9,7 +9,7 @@ import {
   SelectControl,
   ToggleControl,
   FormToggle,
-  TextareaControl
+  TextareaControl,
 } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
 import {
@@ -20,8 +20,7 @@ import {
   Device,
   BoxControl,
   BButtonGroup,
-   BoxControl as BoxControls,
-   
+  BoxControl as BoxControls,
 } from "../../../../../../bpl-tools/Components";
 import { useState } from "react";
 import { BDevice } from "../../../../../../bpl-tools/Components/Deprecated";
@@ -32,8 +31,15 @@ import ProductInfoSetting from "../../../Common/theme6/ProductInfoSetting";
 import SevenInfoCardSetting from "../../../Common/theme7/SevenInfoCardSetting";
 import ThemeEightInfoSetting from "../../../Common/theme8/ThemeEightInfoSetting";
 import ThemeNineTextOverlySetting from "../../../Common/theme9/ThemeNineTextOverlySetting";
+import { BControlPro } from "../../../../../../bpl-tools/ProControls";
 
-const General = ({ attributes, setAttributes, updateCard,editDevice }) => {
+const General = ({
+  attributes,
+  setAttributes,
+  updateCard,
+  editDevice,
+  premiumProps,
+}) => {
   const {
     cards,
     layout,
@@ -47,15 +53,11 @@ const General = ({ attributes, setAttributes, updateCard,editDevice }) => {
     isTab,
     options,
     styles,
-    grabCardInfo
+    grabCardInfo,
   } = attributes;
 
-
-
-
- 
   const [device, setDevice] = useState("desktop");
-   const themeSixNewCard = {
+  const themeSixNewCard = {
     title: "Alienware Gaming Laptop",
     description:
       "Alienware Laptop is one of the best Gaming Laptops. Every gamer loves it.",
@@ -67,7 +69,7 @@ const General = ({ attributes, setAttributes, updateCard,editDevice }) => {
       link: "#",
     },
   };
- const themeSevenNewCard = {
+  const themeSevenNewCard = {
     title: "Serotonin",
     content:
       "Progressively seize enabled experiences through sticky web-readiness. Proactively facilitate one-to-one.",
@@ -125,7 +127,7 @@ const General = ({ attributes, setAttributes, updateCard,editDevice }) => {
       },
     ],
   };
-   const themeEightNewCard = {
+  const themeEightNewCard = {
     id: 1,
     name: "Demo Name",
     title: "Demo Title ",
@@ -168,20 +170,15 @@ const General = ({ attributes, setAttributes, updateCard,editDevice }) => {
     },
   };
 
-
-
-  const themeNineNewCard={
-  
+  const themeNineNewCard = {
     title: "Mountain View",
-    description: "Check out all of these gorgeous mountain trips with beautiful views of, you guessed it, the mountains",
+    description:
+      "Check out all of these gorgeous mountain trips with beautiful views of, you guessed it, the mountains",
     buttonText: "View Trips",
     buttonLink: "https://example.com/mountain-view",
-    imageUrl: "https://images.unsplash.com/photo-1517021897933-0e0319cfbc28?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max"
-  
-
-
-}
-
+    imageUrl:
+      "https://images.unsplash.com/photo-1517021897933-0e0319cfbc28?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max",
+  };
 
   const onAddCard = () => {
     const newCards = [
@@ -215,10 +212,12 @@ const General = ({ attributes, setAttributes, updateCard,editDevice }) => {
 
   return (
     <>
-    <PanelBody className="bPlPanelBody"
+      <PanelBody
+        className="bPlPanelBody"
         title={__("Themes ", "info-cards")}
-        initialOpen={true}>
-            <SelectControl
+        initialOpen={true}
+      >
+        <SelectControl
           className="mt20"
           label={__("Theme", "info-cards")}
           labelPosition="left"
@@ -360,64 +359,74 @@ const General = ({ attributes, setAttributes, updateCard,editDevice }) => {
           ]}
         />
 
-      {theme ==="theme10"&&   <div
-      style={{
-        backgroundColor: "#e7f3fe",
-        color: "#084298",
-        padding: "10px",
-        borderLeft: "5px solid #2196F3",
-        borderRadius: "4px",
-        margin: "10px 0"
-      }}
-    >
-      💡 <strong>Note:</strong> This mouse animation works only on the frontend.
-    </div>}
+        {theme === "theme10" && (
+          <div
+            style={{
+              backgroundColor: "#e7f3fe",
+              color: "#084298",
+              padding: "10px",
+              borderLeft: "5px solid #2196F3",
+              borderRadius: "4px",
+              margin: "10px 0",
+            }}
+          >
+            💡 <strong>Note:</strong> This mouse animation works only on the
+            frontend.
+          </div>
+        )}
+      </PanelBody>
 
-
-    </PanelBody>
-      
       {["default", "theme1", "theme2", "theme3", "theme4", "theme5"].includes(
         theme
       ) && (
         <>
-        <PanelBody
-        className="bPlPanelBody"
-        title={__("Add or Remove Cards", "info-cards")}
-      >
-        {cards.map((card, index) => {
-          const { background, img, btnLabal, btnUrl, isBtn, title, cardUrl } =
-            card;
+          <PanelBody
+            className="bPlPanelBody"
+            title={__("Add or Remove Cards", "info-cards")}
+          >
+            {cards.map((card, index) => {
+              const {
+                background,
+                img,
+                btnLabal,
+                btnUrl,
+                isBtn,
+                title,
+                cardUrl,
+              } = card;
 
-          return (
-            <PanelBody
-              key={index}
-              className="bPlPanelBody"
-              title={title}
-              initialOpen={false}
-            >
-              <Background
-                label={__("Background", "info-cards")}
-                value={background}
-                onChange={(val) => updateCard(index, "background", val)}
-                isImage={false}
-              />
+              return (
+                <PanelBody
+                  key={index}
+                  className="bPlPanelBody"
+                  title={title}
+                  initialOpen={false}
+                >
+                  <Background
+                    label={__("Background", "info-cards")}
+                    value={background}
+                    onChange={(val) => updateCard(index, "background", val)}
+                    isImage={false}
+                  />
 
-              <TextControl
-                className="mt10"
-                label={__("Card Url", "info-cards")}
-                value={cardUrl}
-                onChange={(content) => updateCard(index, "cardUrl", content)}
-              />
+                  <TextControl
+                    className="mt10"
+                    label={__("Card Url", "info-cards")}
+                    value={cardUrl}
+                    onChange={(content) =>
+                      updateCard(index, "cardUrl", content)
+                    }
+                  />
 
-              {isImg && (
-                <InlineMediaUpload
-                  value={img}
-                  onChange={(val) => updateCard(index, "img", val)}
-                  placeholder={__("Enter Image URL", "info-cards")}
-                />
-              )}
+                  {isImg && (
+                    <InlineMediaUpload
+                      value={img}
+                      onChange={(val) => updateCard(index, "img", val)}
+                      placeholder={__("Enter Image URL", "info-cards")}
+                    />
+                  )}
 
-              {/* <BColor
+                  {/* <BColor
                                         label={__("Description Color", "info-cards")}
                                         value={descColor}
                                         onChange={(val) =>
@@ -425,957 +434,1215 @@ const General = ({ attributes, setAttributes, updateCard,editDevice }) => {
                                         }
                                     /> */}
 
-              {btnLabal && <Label>{__("Button Url:", "info-cards")}</Label>}
-              {btnLabal && (
-                <TextControl
-                  value={btnUrl}
-                  onChange={(content) => updateCard(index, "btnUrl", content)}
-                />
-              )}
+                  {btnLabal && <Label>{__("Button Url:", "info-cards")}</Label>}
+                  {btnLabal && (
+                    <TextControl
+                      value={btnUrl}
+                      onChange={(content) =>
+                        updateCard(index, "btnUrl", content)
+                      }
+                    />
+                  )}
 
-              <ToggleControl
-                label={__("Button Show", "info-cards")}
-                className="mt10"
-                checked={isBtn}
-                onChange={(val) => updateCard(index, "isBtn", val)}
-              />
+                  <ToggleControl
+                    label={__("Button Show", "info-cards")}
+                    className="mt10"
+                    checked={isBtn}
+                    onChange={(val) => updateCard(index, "isBtn", val)}
+                  />
 
-              <PanelRow className="itemAction mt20">
-                {1 < cards?.length && (
-                  <Button
-                    className="removeItem"
-                    onClick={() => handleCardDelete(index)}
-                  >
-                    <Dashicon icon="no" /> Delete
-                  </Button>
-                )}
+                  <PanelRow className="itemAction mt20">
+                    {1 < cards?.length && (
+                      <Button
+                        className="removeItem"
+                        onClick={() => handleCardDelete(index)}
+                      >
+                        <Dashicon icon="no" /> Delete
+                      </Button>
+                    )}
 
-                <Button
-                  className="duplicateItem"
-                  onClick={(e) => onDuplicateCard(e, index)}
-                >
-                  {gearIcon} Duplicate
-                </Button>
-              </PanelRow>
-            </PanelBody>
-          );
-        })}
+                    <Button
+                      className="duplicateItem"
+                      onClick={(e) => onDuplicateCard(e, index)}
+                    >
+                      {gearIcon} Duplicate
+                    </Button>
+                  </PanelRow>
+                </PanelBody>
+              );
+            })}
 
-        <div className="addItem mt15">
-          <Button onClick={() => onAddCard()}>
-            <Dashicon icon="plus" /> Add New Card
-          </Button>
-        </div>
-      </PanelBody>
+            <div className="addItem mt15">
+              <Button onClick={() => onAddCard()}>
+                <Dashicon icon="plus" /> Add New Card
+              </Button>
+            </div>
+          </PanelBody>
 
-      <PanelBody
-        title={__("Layout", "info-cards")}
-        className="bPlPanelBody"
-        initialOpen={false}
-      >
-        <SelectControl
-          label={__("Layout", "info-cards")}
-          labelPosition="left"
-          value={layout}
-          onChange={(val) => {
-            let deskCol = 2;
-            if (val == "vertical") {
-              deskCol = 3;
-            }
-            setAttributes({
-              layout: val,
-              columns: { ...columns, desktop: deskCol },
-            });
-          }}
-          options={[
-            { label: "Vertical", value: "vertical" },
-            { label: "Horizontal", value: "horizontal" },
-          ]}
-        />
+          <PanelBody
+            title={__("Layout", "info-cards")}
+            className="bPlPanelBody"
+            initialOpen={false}
+          >
+            <SelectControl
+              label={__("Layout", "info-cards")}
+              labelPosition="left"
+              value={layout}
+              onChange={(val) => {
+                let deskCol = 2;
+                if (val == "vertical") {
+                  deskCol = 3;
+                }
+                setAttributes({
+                  layout: val,
+                  columns: { ...columns, desktop: deskCol },
+                });
+              }}
+              options={[
+                { label: "Vertical", value: "vertical" },
+                { label: "Horizontal", value: "horizontal" },
+              ]}
+            />
 
-        <SelectControl
-          className="mt20"
-          label={__("Theme", "info-cards")}
-          labelPosition="left"
-          value={theme}
-          onChange={(val) => {
-            const newCards = cards.map((card) => ({
-              ...card,
-              background: ["default", "theme1", "theme2", "theme3"].includes(
-                val
-              )
-                ? { color: "#fff" }
-                : { color: "#570DF8" },
-            }));
-
-            "default" === val &&
-              setAttributes({
-                cards: newCards,
-                theme: val,
-                columns: { ...columns, desktop: 3 },
-                layout: "vertical",
-                titleColor: "#000",
-                descColor: "#000",
-                isImg: true,
-                imgPos: "first",
-                cardPadding: { top: "0", right: "0", bottom: "0", left: "0" },
-                btnColors: { color: "#fff", bg: "#4527a4" },
-                btnHovColors: { color: "#fff", bg: "#fe6601" },
-              });
-            // updateAllCard("background", { color: "#fff" })
-
-            "theme1" === val &&
-              setAttributes({
-                cards: newCards,
-                theme: val,
-                columns: { ...columns, desktop: 3 },
-                layout: "vertical",
-                titleColor: "#000",
-                descColor: "#000",
-                isImg: true,
-                imgPos: "last",
-                cardPadding: { top: "0", right: "0", bottom: "0", left: "0" },
-                btnColors: { color: "#fff", bg: "#4527a4" },
-                btnHovColors: { color: "#fff", bg: "#fe6601" },
-              });
-            // updateAllCard("background", { color: "#fff" })
-
-            "theme2" === val &&
-              setAttributes({
-                cards: newCards,
-                theme: val,
-                columns: { ...columns, desktop: 3 },
-                layout: "vertical",
-                titleColor: "#000",
-                descColor: "#000",
-                isImg: true,
-                imgPos: "first",
-                cardPadding: {
-                  top: "15px",
-                  right: "15px",
-                  bottom: "15px",
-                  left: "15px",
-                },
-                btnColors: { color: "#fff", bg: "#4527a4" },
-                btnHovColors: { color: "#fff", bg: "#fe6601" },
-              });
-            // updateAllCard("background", { color: "#fff" })
-
-            "theme3" === val &&
-              setAttributes({
-                cards: newCards,
-                theme: val,
-                columns: { ...columns, desktop: 2 },
-                layout: "horizontal",
-                titleColor: "#000",
-                descColor: "#000",
-                isImg: true,
-                imgPos: "first",
-                cardPadding: { top: "0", right: "0", bottom: "0", left: "0" },
-                btnColors: { color: "#fff", bg: "#4527a4" },
-                btnHovColors: { color: "#fff", bg: "#fe6601" },
-              });
-            // updateAllCard("background", { color: "#fff" })
-
-            "theme4" === val &&
-              setAttributes({
-                cards: newCards,
-                theme: val,
-                columns: { ...columns, desktop: 3 },
-                layout: "vertical",
-                isImg: true,
-                imgPos: "first",
-                titleColor: "#fff",
-                descColor: "#fff",
-                cardPadding: { top: "0", right: "0", bottom: "0", left: "0" },
-                btnColors: { color: "#fff", bg: "#000" },
-                btnHovColors: { color: "#ffffffb3", bg: "#000000b3" },
-              });
-            // updateAllCard("background", { color: "#570DF8" }));
-
-            "theme5" === val &&
-              setAttributes({
-                cards: newCards,
-                theme: val,
-                columns: { ...columns, desktop: 3 },
-                layout: "vertical",
-                isImg: true,
-                imgPos: "first",
-                titleColor: "#fff",
-                descColor: "#fff",
-                cardPadding: { top: "0", right: "0", bottom: "0", left: "0" },
-                btnColors: { color: "#fff", bg: "#000" },
-                btnHovColors: { color: "#ffffffb3", bg: "#000000b3" },
-              });
-
-            // updateAllCard("background", { color: "#570DF8" })
-
-            if (
-              val === "theme6" ||
-              val === "theme7" ||
-              val === "theme8" ||
-              val === "theme9" ||
-              val === "theme10"
-            ) {
-              setAttributes(themeSwitch(val, attributes, setAttributes));
-            }
-          }}
-          options={[
-            { label: "Default", value: "default" },
-            { label: "Theme 1", value: "theme1" },
-            { label: "Theme 2", value: "theme2" },
-            { label: "Theme 3", value: "theme3" },
-            { label: "Theme 4", value: "theme4" },
-            { label: "Theme 5", value: "theme5" },
-            { label: "Theme 6", value: "theme6" },
-            { label: "Theme 7", value: "theme7" },
-            { label: "Theme 8", value: "theme8" },
-            { label: "Theme 9", value: "theme9" },
-            { label: "Theme 10", value: "theme10" },
-          ]}
-        />
-
-        <PanelRow className="mt20">
-          <Label className="mb5">{__("Columns:", "info-cards")}</Label>
-          <BDevice device={device} onChange={(val) => setDevice(val)} />
-        </PanelRow>
-
-        <RangeControl
-          value={columns[device]}
-          onChange={(val) => {
-            setAttributes({ columns: { ...columns, [device]: val } });
-          }}
-          min={1}
-          max={6}
-          step={1}
-          beforeIcon="grid-view"
-        />
-
-        <UnitControl
-          className="mt20"
-          label={__("Column Gap", "info-cards")}
-          labelPosition="left"
-          value={columnGap}
-          onChange={(val) => setAttributes({ columnGap: val })}
-        />
-
-        <UnitControl
-          className="mt20"
-          label={__("Row Gap", "info-cards")}
-          labelPosition="left"
-          value={rowGap}
-          onChange={(val) => setAttributes({ rowGap: val })}
-        />
-      </PanelBody>
-
-      <PanelBody
-        title={__("Elements", "info-cards")}
-        className="bPlPanelBody"
-        initialOpen={false}
-      >
-        <ToggleControl
-          help={__("Open Card Url In New Tab", "info-cards")}
-          label={__("Open In New Tab", "info-cards")}
-          checked={isTab}
-          onChange={(val) => setAttributes({ isTab: val })}
-        />
-
-        <ToggleControl
-          className="mt10"
-          label={__("Show Image", "info-cards")}
-          checked={isImg}
-          onChange={(val) => setAttributes({ isImg: val })}
-        />
-
-        {isImg && (
-          <>
             <SelectControl
               className="mt20"
-              label={__("Image Position", "info-cards")}
+              label={__("Theme", "info-cards")}
               labelPosition="left"
-              value={imgPos}
-              onChange={(val) => setAttributes({ imgPos: val })}
+              value={theme}
+              onChange={(val) => {
+                const newCards = cards.map((card) => ({
+                  ...card,
+                  background: [
+                    "default",
+                    "theme1",
+                    "theme2",
+                    "theme3",
+                  ].includes(val)
+                    ? { color: "#fff" }
+                    : { color: "#570DF8" },
+                }));
+
+                "default" === val &&
+                  setAttributes({
+                    cards: newCards,
+                    theme: val,
+                    columns: { ...columns, desktop: 3 },
+                    layout: "vertical",
+                    titleColor: "#000",
+                    descColor: "#000",
+                    isImg: true,
+                    imgPos: "first",
+                    cardPadding: {
+                      top: "0",
+                      right: "0",
+                      bottom: "0",
+                      left: "0",
+                    },
+                    btnColors: { color: "#fff", bg: "#4527a4" },
+                    btnHovColors: { color: "#fff", bg: "#fe6601" },
+                  });
+                // updateAllCard("background", { color: "#fff" })
+
+                "theme1" === val &&
+                  setAttributes({
+                    cards: newCards,
+                    theme: val,
+                    columns: { ...columns, desktop: 3 },
+                    layout: "vertical",
+                    titleColor: "#000",
+                    descColor: "#000",
+                    isImg: true,
+                    imgPos: "last",
+                    cardPadding: {
+                      top: "0",
+                      right: "0",
+                      bottom: "0",
+                      left: "0",
+                    },
+                    btnColors: { color: "#fff", bg: "#4527a4" },
+                    btnHovColors: { color: "#fff", bg: "#fe6601" },
+                  });
+                // updateAllCard("background", { color: "#fff" })
+
+                "theme2" === val &&
+                  setAttributes({
+                    cards: newCards,
+                    theme: val,
+                    columns: { ...columns, desktop: 3 },
+                    layout: "vertical",
+                    titleColor: "#000",
+                    descColor: "#000",
+                    isImg: true,
+                    imgPos: "first",
+                    cardPadding: {
+                      top: "15px",
+                      right: "15px",
+                      bottom: "15px",
+                      left: "15px",
+                    },
+                    btnColors: { color: "#fff", bg: "#4527a4" },
+                    btnHovColors: { color: "#fff", bg: "#fe6601" },
+                  });
+                // updateAllCard("background", { color: "#fff" })
+
+                "theme3" === val &&
+                  setAttributes({
+                    cards: newCards,
+                    theme: val,
+                    columns: { ...columns, desktop: 2 },
+                    layout: "horizontal",
+                    titleColor: "#000",
+                    descColor: "#000",
+                    isImg: true,
+                    imgPos: "first",
+                    cardPadding: {
+                      top: "0",
+                      right: "0",
+                      bottom: "0",
+                      left: "0",
+                    },
+                    btnColors: { color: "#fff", bg: "#4527a4" },
+                    btnHovColors: { color: "#fff", bg: "#fe6601" },
+                  });
+                // updateAllCard("background", { color: "#fff" })
+
+                "theme4" === val &&
+                  setAttributes({
+                    cards: newCards,
+                    theme: val,
+                    columns: { ...columns, desktop: 3 },
+                    layout: "vertical",
+                    isImg: true,
+                    imgPos: "first",
+                    titleColor: "#fff",
+                    descColor: "#fff",
+                    cardPadding: {
+                      top: "0",
+                      right: "0",
+                      bottom: "0",
+                      left: "0",
+                    },
+                    btnColors: { color: "#fff", bg: "#000" },
+                    btnHovColors: { color: "#ffffffb3", bg: "#000000b3" },
+                  });
+                // updateAllCard("background", { color: "#570DF8" }));
+
+                "theme5" === val &&
+                  setAttributes({
+                    cards: newCards,
+                    theme: val,
+                    columns: { ...columns, desktop: 3 },
+                    layout: "vertical",
+                    isImg: true,
+                    imgPos: "first",
+                    titleColor: "#fff",
+                    descColor: "#fff",
+                    cardPadding: {
+                      top: "0",
+                      right: "0",
+                      bottom: "0",
+                      left: "0",
+                    },
+                    btnColors: { color: "#fff", bg: "#000" },
+                    btnHovColors: { color: "#ffffffb3", bg: "#000000b3" },
+                  });
+
+                // updateAllCard("background", { color: "#570DF8" })
+
+                if (
+                  val === "theme6" ||
+                  val === "theme7" ||
+                  val === "theme8" ||
+                  val === "theme9" ||
+                  val === "theme10"
+                ) {
+                  setAttributes(themeSwitch(val, attributes, setAttributes));
+                }
+              }}
               options={[
-                {
-                  label: "vertical" === layout ? "Top" : "Left",
-                  value: "first",
-                },
-                {
-                  label: "vertical" === layout ? "Bottom" : "Right",
-                  value: "last",
-                },
+                { label: "Default", value: "default" },
+                { label: "Theme 1", value: "theme1" },
+                { label: "Theme 2", value: "theme2" },
+                { label: "Theme 3", value: "theme3" },
+                { label: "Theme 4", value: "theme4" },
+                { label: "Theme 5", value: "theme5" },
+                { label: "Theme 6", value: "theme6" },
+                { label: "Theme 7", value: "theme7" },
+                { label: "Theme 8", value: "theme8" },
+                { label: "Theme 9", value: "theme9" },
+                { label: "Theme 10", value: "theme10" },
               ]}
+            />
+
+            <PanelRow className="mt20">
+              <Label className="mb5">{__("Columns:", "info-cards")}</Label>
+              <BDevice device={device} onChange={(val) => setDevice(val)} />
+            </PanelRow>
+
+            <RangeControl
+              value={columns[device]}
+              onChange={(val) => {
+                setAttributes({ columns: { ...columns, [device]: val } });
+              }}
+              min={1}
+              max={6}
+              step={1}
+              beforeIcon="grid-view"
             />
 
             <UnitControl
               className="mt20"
-              label={__("Image Height", "info-cards")}
+              label={__("Column Gap", "info-cards")}
               labelPosition="left"
-              value={imgHeight}
-              onChange={(val) => setAttributes({ imgHeight: val })}
+              value={columnGap}
+              onChange={(val) => setAttributes({ columnGap: val })}
             />
-          </>
-        )}
-      </PanelBody>
-        
+
+            <UnitControl
+              className="mt20"
+              label={__("Row Gap", "info-cards")}
+              labelPosition="left"
+              value={rowGap}
+              onChange={(val) => setAttributes({ rowGap: val })}
+            />
+          </PanelBody>
+
+          <PanelBody
+            title={__("Elements", "info-cards")}
+            className="bPlPanelBody"
+            initialOpen={false}
+          >
+            <ToggleControl
+              help={__("Open Card Url In New Tab", "info-cards")}
+              label={__("Open In New Tab", "info-cards")}
+              checked={isTab}
+              onChange={(val) => setAttributes({ isTab: val })}
+            />
+
+            <ToggleControl
+              className="mt10"
+              label={__("Show Image", "info-cards")}
+              checked={isImg}
+              onChange={(val) => setAttributes({ isImg: val })}
+            />
+
+            {isImg && (
+              <>
+                <SelectControl
+                  className="mt20"
+                  label={__("Image Position", "info-cards")}
+                  labelPosition="left"
+                  value={imgPos}
+                  onChange={(val) => setAttributes({ imgPos: val })}
+                  options={[
+                    {
+                      label: "vertical" === layout ? "Top" : "Left",
+                      value: "first",
+                    },
+                    {
+                      label: "vertical" === layout ? "Bottom" : "Right",
+                      value: "last",
+                    },
+                  ]}
+                />
+
+                <UnitControl
+                  className="mt20"
+                  label={__("Image Height", "info-cards")}
+                  labelPosition="left"
+                  value={imgHeight}
+                  onChange={(val) => setAttributes({ imgHeight: val })}
+                />
+              </>
+            )}
+          </PanelBody>
         </>
       )}
 
-      {
-        theme ==="theme6" &&  <>
-      <PanelBody
-        className="bPlPanelBody"
-        title={__("Add or Remove Cards ", "info-cards")}
-        initialOpen={false}
-      >
-        <ItemsPanel
-          newItem={themeSixNewCard}
-          design="sortable"
-          attributes={attributes}
-          setAttributes={setAttributes}
-          arrKey="productsInfo"
-          itemLabel="Card"
-          ItemSettings={ProductInfoSetting}
-        />
-      </PanelBody >
+      {theme === "theme6" && (
+        <>
+          <PanelBody
+            className="bPlPanelBody"
+            title={__("Add or Remove Cards ", "info-cards")}
+            initialOpen={false}
+          >
+            <ItemsPanel
+              newItem={themeSixNewCard}
+              design="sortable"
+              attributes={attributes}
+              setAttributes={setAttributes}
+              arrKey="productsInfo"
+              itemLabel="Card"
+              ItemSettings={ProductInfoSetting}
+              premiumProps={premiumProps}
+            />
+          </PanelBody>
 
-      <PanelBody className="bPlPanelBody"
-        title={__("Layout ", "info-cards")}
-        initialOpen={false}>
-           <PanelRow><Label>Section Width</Label> <Device/> </PanelRow>
-                    <UnitControl step={1} label={__(" ", "info-cards")} value={styles?.width[editDevice]} onChange={(value)=>setAttributes({styles:updateData(styles,value,"width",editDevice)})} />
-          
-                     <PanelRow><Label>Section Padding</Label> <Device/> </PanelRow>
-                    <BoxControls label={__(" ", "info-cards")} values={styles?.padding[editDevice]} onChange={(value)=>setAttributes({styles:updateData(styles,value,"padding",editDevice)})} />
-          
-                     <PanelRow><Label>Section Margin</Label> <Device/> </PanelRow>
-                    <BoxControls label={__(" ", "info-cards")} values={styles?.margin[editDevice]} onChange={(value)=>setAttributes({styles:updateData(styles,value,"margin",editDevice)})} />
-          
-          
-                      <BButtonGroup  style={{marginTop:"10px"}}  value={styles?.contentAlignment}  label={__("Alignment ", "info-cards")} options={[
-                        {label:"Left",value:"left"},
-                        {label:"Center",value:"center"},
-                        {label:"Right",value:"right"}
-                      ]} 
-                      onChange={(value)=>setAttributes({styles:updateData(styles,value,"contentAlignment")})}
-                      />
-          
-                      <Label>Column Gap  </Label>
-                      <UnitControl step={1} value={styles?.columnGap} onChange={(value)=>setAttributes({styles:updateData(styles,value,"columnGap")})}   />
-                      <Label>Row Gap </Label>
-                      <UnitControl  step={1} value={styles?.rowGap} onChange={(value)=>setAttributes({styles:updateData(styles,value,"rowGap")})}   /> 
-                
-                </PanelBody>
-          
+          <PanelBody
+            className="bPlPanelBody"
+            title={__("Layout ", "info-cards")}
+            initialOpen={false}
+          >
+            <PanelRow>
+              <Label>Section Width</Label> <Device />{" "}
+            </PanelRow>
+            <BControlPro
+              step={1}
+              label={__(" ", "info-cards")}
+              value={styles?.width[editDevice]}
+              onChange={(value) =>
+                setAttributes({
+                  styles: updateData(styles, value, "width", editDevice),
+                })
+              }
+               Component={UnitControl}
+                                    {...premiumProps}
+            />
+
+            <PanelRow>
+              <Label>Section Padding</Label> <Device />{" "}
+            </PanelRow>
+            <BControlPro
+              label={__(" ", "info-cards")}
+              values={styles?.padding[editDevice]}
+              onChange={(value) =>
+                setAttributes({
+                  styles: updateData(styles, value, "padding", editDevice),
+                })
+              }
+               Component={BoxControls}
+                                    {...premiumProps}
+              
+            />
+
+            <PanelRow>
+              <Label>Section Margin</Label> <Device />{" "}
+            </PanelRow>
+            <BControlPro
+              label={__(" ", "info-cards")}
+              values={styles?.margin[editDevice]}
+              onChange={(value) =>
+                setAttributes({
+                  styles: updateData(styles, value, "margin", editDevice),
+                })
+              }
+               Component={BoxControls}
+                                    {...premiumProps}
+            />
+
+            <BControlPro
+              style={{ marginTop: "10px" }}
+              value={styles?.contentAlignment}
+              label={__("Alignment ", "info-cards")}
+              options={[
+                { label: "Left", value: "left" },
+                { label: "Center", value: "center" },
+                { label: "Right", value: "right" },
+              ]}
+              onChange={(value) =>
+                setAttributes({
+                  styles: updateData(styles, value, "contentAlignment"),
+                })
+              }
+               Component={BButtonGroup}
+                                    {...premiumProps}
+            />
+
+            <Label>Column Gap </Label>
+            <BControlPro
+              step={1}
+              value={styles?.columnGap}
+              onChange={(value) =>
+                setAttributes({
+                  styles: updateData(styles, value, "columnGap"),
+                })
+              }
+               Component={UnitControl}
+                                    {...premiumProps}
+            />
+            <Label>Row Gap </Label>
+            <BControlPro
+              step={1}
+              value={styles?.rowGap}
+              onChange={(value) =>
+                setAttributes({ styles: updateData(styles, value, "rowGap") })
+              }
+               Component={UnitControl}
+                                    {...premiumProps}
+            />
+          </PanelBody>
+
+          <PanelBody
+            className="bPlPanelBody"
+            title={__("Options", "info-cards")}
+            initialOpen={false}
+          >
+            <Label>
+              Open in a New Tab{" "}
+              <BControlPro
+                checked={options?.isOpenInNewTab}
+                onChange={() =>
+                  setAttributes({
+                    options: updateData(
+                      options,
+                      !options?.isOpenInNewTab,
+                      "isOpenInNewTab"
+                    ),
+                  })
+                }
+                 Component={ToggleControl}
+                                    {...premiumProps}
+              />
+            </Label>
+
+            <Label>
+              Show The Variant{" "}
+              <BControlPro
+                checked={options?.isVariantShow}
+                onChange={() =>
+                  setAttributes({
+                    options: updateData(
+                      options,
+                      !options?.isVariantShow,
+                      "isVariantShow"
+                    ),
+                  })
+                }
+                 Component={ToggleControl}
+                                    {...premiumProps}
+              />
+            </Label>
+
+            <Label>
+              Display the Button{" "}
+              <BControlPro
+                checked={options?.isButtonShow}
+                onChange={() =>
+                  setAttributes({
+                    options: updateData(
+                      options,
+                      !options?.isButtonShow,
+                      "isButtonShow"
+                    ),
+                  })
+                }
+                 Component={ToggleControl}
+                                    {...premiumProps}
+              />
+            </Label>
+            <Label>
+              Background Circle{" "}
+              <BControlPro
+                checked={options?.isVisibleCircle}
+                onChange={() =>
+                  setAttributes({
+                    options: updateData(
+                      options,
+                      !options?.isVisibleCircle,
+                      "isVisibleCircle"
+                    ),
+                  })
+                }
+                 Component={ToggleControl}
+                                    {...premiumProps}
+              />
+            </Label>
+          </PanelBody>
+        </>
+      )}
+      {theme === "theme7" && (
+        <>
+          <PanelBody
+            className="bPlPanelBody"
+            title={__("Add or Remove Cards", "info-cards")}
+            initialOpen={false}
+          >
+            <ItemsPanel
+              newItem={themeSevenNewCard}
+              design="sortable"
+              attributes={attributes}
+              setAttributes={setAttributes}
+              arrKey="productsInfo"
+              itemLabel="Card"
+              ItemSettings={SevenInfoCardSetting}
+              premiumProps={premiumProps}
+            />
+          </PanelBody>
+
+          <PanelBody
+            className="bPlPanelBody"
+            title={__("Layout", "info-cards")}
+            initialOpen={false}
+          >
+            <PanelRow>
+              <Label className="mt0">Section Width</Label>
+              <Device />
+            </PanelRow>
+            <BControlPro
+              value={styles?.width[editDevice]}
+              onChange={(value) =>
+                setAttributes({
+                  styles: updateData(styles, value, "width", editDevice),
+                })
+              }
+               Component={UnitControl}
+                                    {...premiumProps}
+            />
+            <PanelRow>
+              {" "}
+              <Label className="mt0"> Section Padding</Label> <Device />{" "}
+            </PanelRow>
+            <BControlPro
+              values={styles?.padding[editDevice]}
+              onChange={(value) =>
+                setAttributes({
+                  styles: updateData(styles, value, "padding", editDevice),
+                })
+              }
+               Component={BoxControl}
+                                    {...premiumProps}
+            />
+
+            <PanelRow>
+              {" "}
+              <Label className="mt0"> Section Margin</Label> <Device />{" "}
+            </PanelRow>
+            <BControlPro
+              values={styles?.margin[editDevice]}
+              onChange={(value) =>
+                setAttributes({
+                  styles: updateData(styles, value, "margin", editDevice),
+                })
+              }
+               Component={BoxControl}
+                                    {...premiumProps}
+            />
+
+            <BControlPro
+              value={styles?.contentAlignment}
+              style={{ marginTop: "5px" }}
+              label={__(" Alignment", "info-cards")}
+              options={[
+                { label: "Left", value: "left" },
+                { label: "Center", value: "center" },
+                { label: "Right", value: "right" },
+              ]}
+              onChange={(value) =>
+                setAttributes({
+                  styles: updateData(styles, value, "contentAlignment"),
+                })
+              }
+               Component={BButtonGroup}
+                                    {...premiumProps}
+            />
+
+            <Label>Column Gap</Label>
+            <BControlPro
+              value={styles?.columnGap}
+              onChange={(value) =>
+                setAttributes({
+                  styles: updateData(styles, value, "columnGap"),
+                })
+              }
+               Component={UnitControl}
+                                    {...premiumProps}
+            />
+
+            <Label>Row Gap </Label>
+            <BControlPro
+              value={styles?.rowGap}
+              onChange={(value) =>
+                setAttributes({ styles: updateData(styles, value, "rowGap") })
+              }
+               Component={UnitControl}
+                                    {...premiumProps}
+            />
+          </PanelBody>
+
+          <PanelBody
+            className="bPlPanelBody"
+            title={__("Options", "info-cards")}
+            initialOpen={false}
+          >
+            <Label>
+              {" "}
+              <strong>Enable Tag Visibility</strong>{" "}
+              <BControlPro
+                checked={options?.isTagShow}
+                onChange={() =>
+                  setAttributes({
+                    options: updateData(
+                      options,
+                      !options?.isTagShow,
+                      "isTagShow"
+                    ),
+                  })
+                }
+                 Component={ToggleControl}
+                                    {...premiumProps}
+              />
+            </Label>
+
+            <Label>
+              {" "}
+              <strong>Enable Button Visibility</strong>{" "}
+              <BControlPro
+                checked={options?.isButtonShow}
+                onChange={() =>
+                  setAttributes({
+                    options: updateData(
+                      options,
+                      !options?.isButtonShow,
+                      "isButtonShow"
+                    ),
+                  })
+                }
+                 Component={ToggleControl}
+                                    {...premiumProps}
+              />
+            </Label>
+
+            <Label>
+              {" "}
+              <strong>Link open in new tab</strong>{" "}
+              <BControlPro
+                checked={options?.isNewTabOpen}
+                onChange={() =>
+                  setAttributes({
+                    options: updateData(
+                      options,
+                      !options?.isNewTabOpen,
+                      "isNewTabOpen"
+                    ),
+                  })
+                }
+                 Component={ToggleControl}
+                                    {...premiumProps}
+              />
+            </Label>
+
+            <Label>
+              {" "}
+              <strong>The element rotates on hover</strong>{" "}
+              <BControlPro
+                checked={options?.isHoverRotated}
+                onChange={() =>
+                  setAttributes({
+                    options: updateData(
+                      options,
+                      !options?.isHoverRotated,
+                      "isHoverRotated"
+                    ),
+                  })
+                }
+                 Component={ToggleControl}
+                                    {...premiumProps}
+              />
+            </Label>
+          </PanelBody>
+        </>
+      )}
+
+      {theme === "theme8" && (
+        <>
+          <PanelBody
+            className="bPlPanelBody"
+            title={__(" Add or Remove Cards", "info-cards")}
+            initialOpen={false}
+          >
+            <ItemsPanel
+              newItem={themeEightNewCard}
+              design="sortable"
+              attributes={attributes}
+              setAttributes={setAttributes}
+              arrKey="productsInfo"
+              itemLabel="Card"
+              ItemSettings={ThemeEightInfoSetting}
+              premiumProps={premiumProps}
+            />
+          </PanelBody>
+
+          <PanelBody
+            className="bPlPanelBody"
+            title={__("Layout", "info-cards")}
+            initialOpen={false}
+          >
+            <BControlPro
+              label={__("Margin", "info-cards")}
+              values={styles?.margin}
+              onChange={(value) =>
+                setAttributes({ styles: updateData(styles, value, "margin") })
+              }
+              Component={BoxControl}
+                               {...premiumProps}
+            />
+            <BControlPro
+              label={__("Padding", "info-cards")}
+              values={styles?.padding}
+              onChange={(value) =>
+                setAttributes({ styles: updateData(styles, value, "padding") })
+              }
+               Component={BoxControl}
+                               {...premiumProps}
+            />
+            <PanelRow>
+              <Label>Columns</Label>
+              <Device />
+            </PanelRow>
+            <BControlPro
+              value={styles?.columns[device]}
+              onChange={(value) =>
+                setAttributes({
+                  styles: updateData(styles, value, "columns", device),
+                })
+              }
+               Component={RangeControl}
+                               {...premiumProps}
+            />
+
+            <PanelRow>
+              <Label>Column Gap</Label> <Device />{" "}
+            </PanelRow>
+
+            <BControlPro
+              value={styles?.columnGap?.[device]}
+              onChange={(value) =>
+                setAttributes({
+                  styles: updateData(styles, value, "columnGap", device),
+                })
+              }
+               Component={UnitControl}
+                               {...premiumProps}
+            />
+
+            <PanelRow>
+              <Label>Row Gap</Label> <Device />{" "}
+            </PanelRow>
+
+            <BControlPro
+              value={styles?.rowGap?.[device]}
+              onChange={(value) =>
+                setAttributes({
+                  styles: updateData(styles, value, "rowGap", device),
+                })
+              }
+               Component={UnitControl}
+                               {...premiumProps}
+            />
+          </PanelBody>
+
+          {/* options  */}
+          <PanelBody
+            className="bPlPanelBody"
+            title={__("Options", "info-cards")}
+            initialOpen={false}
+          >
+            <Label>
+              {" "}
+              <BControlPro
+                checked={options?.isStatusShow}
+                onChange={() =>
+                  setAttributes({
+                    options: updateData(
+                      options,
+                      !options?.isStatusShow,
+                      "isStatusShow"
+                    ),
+                  })
+                }
+                 Component={ToggleControl}
+                               {...premiumProps}
+              />{" "}
+              <strong>Show Status</strong>
+            </Label>
+
+            <Label>
+              {" "}
+              <BControlPro
+                checked={options?.isStateShow}
+                onChange={() =>
+                  setAttributes({
+                    options: updateData(
+                      options,
+                      !options?.isStateShow,
+                      "isStateShow"
+                    ),
+                  })
+                }
+                 Component={ToggleControl}
+                               {...premiumProps}
+              />{" "}
+              <strong>Show State</strong>
+            </Label>
+
+            <Label>
+              {" "}
+              <BControlPro
+                checked={options?.isSocialMediaShow}
+                onChange={() =>
+                  setAttributes({
+                    options: updateData(
+                      options,
+                      !options?.isSocialMediaShow,
+                      "isSocialMediaShow"
+                    ),
+                  })
+                }
+                 Component={ToggleControl}
+                               {...premiumProps}
+              />{" "}
+              <strong>Show Social Media</strong>
+            </Label>
+
+            <Label>
+              {" "}
+              <BControlPro
+                checked={options?.isButtonShow}
+                onChange={() =>
+                  setAttributes({
+                    options: updateData(
+                      options,
+                      !options?.isButtonShow,
+                      "isButtonShow"
+                    ),
+                  })
+                }
+                 Component={ToggleControl}
+                               {...premiumProps}
+              />{" "}
+              <strong>Show Button</strong>
+            </Label>
+
+            <Label>
+              {" "}
+              <BControlPro
+                checked={options?.isOpenUrlNewTab}
+                onChange={() =>
+                  setAttributes({
+                    options: updateData(
+                      options,
+                      !options?.isOpenUrlNewTab,
+                      "isOpenUrlNewTab"
+                    ),
+                  })
+                }
+                 Component={ToggleControl}
+                               {...premiumProps}
+              />{" "}
+              <strong>Open the URL in a new tab</strong>
+            </Label>
+          </PanelBody>
+        </>
+      )}
+
+      {theme === "theme9" && (
+        <>
+          <PanelBody
+            className="bPlPanelBody"
+            title={__("Add or Remove Cards", "info-cards")}
+            initialOpen={false}
+          >
+            <ItemsPanel
+              newItem={themeNineNewCard}
+              design="sortable"
+              attributes={attributes}
+              setAttributes={setAttributes}
+              arrKey="productsInfo"
+              itemLabel="Card"
+              ItemSettings={ThemeNineTextOverlySetting}
              
+         premiumProps={premiumProps}
+            />
+          </PanelBody>
 
-      <PanelBody
-        className="bPlPanelBody"
-        title={__("Options", "info-cards")}
-        initialOpen={false}
-      >
-        <Label>
-          Open in a New Tab{" "}
-          <FormToggle
-            checked={options?.isOpenInNewTab}
-            onChange={() =>
-              setAttributes({
-                options: updateData(
-                  options,
-                  !options?.isOpenInNewTab,
-                  "isOpenInNewTab"
-                ),
-              })
-            }
-          />
-        </Label>
+          <PanelBody
+            className="bPlPanelBody"
+            title={__("Layout", "info-cards")}
+            initialOpen={false}
+          >
+            <BControlPro
+              label={__("Width", "info-cards")}
+              value={styles?.width}
+              onChange={(value) =>
+                setAttributes({ styles: updateData(styles, value, "width") })
+              }
+               Component={UnitControl}
+          {...premiumProps}
+            />
 
-        <Label>
-          Show The Variant{" "}
-          <FormToggle
-            checked={options?.isVariantShow}
-            onChange={() =>
-              setAttributes({
-                options: updateData(
-                  options,
-                  !options?.isVariantShow,
-                  "isVariantShow"
-                ),
-              })
-            }
-          />
-        </Label>
-        
-        <Label>
-          Display the Button{" "}
-          <FormToggle
-            checked={options?.isButtonShow}
-            onChange={() =>
-              setAttributes({
-                options: updateData(
-                  options,
-                  !options?.isButtonShow,
-                  "isButtonShow"
-                ),
-              })
-            }
-          />
-        </Label>
-        <Label>
-            Background Circle {" "}
-          <FormToggle
-            checked={options?.isVisibleCircle}
-            onChange={() =>
-              setAttributes({
-                options: updateData(
-                  options,
-                  !options?.isVisibleCircle,
-                  "isVisibleCircle"
-                ),
-              })
-            }
-          />
-        </Label>
-      </PanelBody>
-    </>
-      }
-        {
-        theme ==="theme7" &&  <>
-      <PanelBody
-        className="bPlPanelBody"
-        title={__("Add or Remove Cards", "info-cards")}
-        initialOpen={false}
-      >
-        <ItemsPanel
-          newItem={themeSevenNewCard}
-          design="sortable"
-          attributes={attributes}
-          setAttributes={setAttributes}
-          arrKey="productsInfo"
-          itemLabel="Card"
-          ItemSettings={SevenInfoCardSetting}
-        />
-      </PanelBody>
+            <PanelRow>
+              <Label>Padding</Label> <Device />{" "}
+            </PanelRow>
 
-      <PanelBody
-        className="bPlPanelBody"
-        title={__("Layout", "info-cards")}
-        initialOpen={false}
-      >
-        <PanelRow>
-          <Label className="mt0">Section Width</Label>
-          <Device />
-        </PanelRow>
-        <UnitControl
-          value={styles?.width[editDevice]}
-          onChange={(value) =>
-            setAttributes({
-              styles: updateData(styles, value, "width", editDevice),
-            })
-          }
-        />
-        <PanelRow>
-          {" "}
-          <Label className="mt0"> Section Padding</Label> <Device />{" "}
-        </PanelRow>
-        <BoxControl
-          values={styles?.padding[editDevice]}
-          onChange={(value) =>
-            setAttributes({
-              styles: updateData(styles, value, "padding", editDevice),
-            })
-          }
-        />
+            <BControlPro
+              values={styles?.padding[editDevice]}
+              onChange={(value) =>
+                setAttributes({
+                  styles: updateData(styles, value, "padding", editDevice),
+                })
+              }
+               Component={BoxControl}
+          {...premiumProps}
+            />
 
-        <PanelRow>
-          {" "}
-          <Label className="mt0"> Section Margin</Label> <Device />{" "}
-        </PanelRow>
-        <BoxControl
-          values={styles?.margin[editDevice]}
-          onChange={(value) =>
-            setAttributes({
-              styles: updateData(styles, value, "margin", editDevice),
-            })
-          }
-        />
+            <PanelRow>
+              <Label>Margin</Label> <Device />{" "}
+            </PanelRow>
 
-       
+            <BControlPro
+              values={styles?.margin[editDevice]}
+              onChange={(value) =>
+                setAttributes({
+                  styles: updateData(styles, value, "margin", editDevice),
+                })
+              }
+               Component={BoxControl}
+          {...premiumProps}
+            />
 
-        <BButtonGroup
-          value={styles?.contentAlignment}
-          style={{ marginTop: "5px" }}
-          label={__(" Alignment", "info-cards")}
-          options={[
-            { label: "Left", value: "left" },
-            { label: "Center", value: "center" },
-            { label: "Right", value: "right" },
-          ]}
-          onChange={(value) =>
-            setAttributes({ styles: updateData(styles, value, "contentAlignment") })
-          }
-        />
+            <PanelRow>
+              <Label>Column</Label> <Device />{" "}
+            </PanelRow>
+            <BControlPro
+              value={styles?.columns[editDevice]}
+              onChange={(value) =>
+                setAttributes({
+                  styles: updateData(styles, value, "columns", editDevice),
+                })
+              }
+                 Component={RangeControl}
+          {...premiumProps}
+            />
 
-        <Label>Column Gap</Label>
-        <UnitControl
-          value={styles?.columnGap}
-          onChange={(value) =>
-            setAttributes({
-              styles: updateData(styles, value, "columnGap"),
-            })
-          }
-        />
+            <BControlPro
+              style={{ marginTop: "10px" }}
+              label={__("Column Gap", "info-cards")}
+              value={styles?.gap?.column}
+              onChange={(value) =>
+                setAttributes({
+                  styles: updateData(styles, value, "gap", "column"),
+                })
+              }
+                 Component={UnitControl}
+          {...premiumProps}
+            />
 
-        <Label>Row Gap </Label>
-        <UnitControl
-          value={styles?.rowGap}
-          onChange={(value) =>
-            setAttributes({ styles: updateData(styles, value, "rowGap") })
-          }
-        />
-      </PanelBody>
+            <BControlPro
+              style={{ marginTop: "10px" }}
+              label={__("Row Gap", "info-cards")}
+              value={styles?.gap?.row}
+              onChange={(value) =>
+                setAttributes({
+                  styles: updateData(styles, value, "gap", "row"),
+                })
+              }
+              Component={UnitControl}
+          {...premiumProps}
 
-      <PanelBody
-        className="bPlPanelBody"
-        title={__("Options", "info-cards")}
-        initialOpen={false}
-      >
-        <Label>
-          {" "}
-          <strong>Enable Tag Visibility</strong>{" "}
-          <FormToggle
-            checked={options?.isTagShow}
-            onChange={() =>
-              setAttributes({
-                options: updateData(options, !options?.isTagShow, "isTagShow"),
-              })
-            }
-          />
-        </Label>
+            />
 
-        <Label>
-          {" "}
-          <strong>Enable Button Visibility</strong>{" "}
-          <FormToggle
-            checked={options?.isButtonShow}
-            onChange={() =>
-              setAttributes({
-                options: updateData(
-                  options,
-                  !options?.isButtonShow,
-                  "isButtonShow"
-                ),
-              })
-            }
-          />
-        </Label>
+            <BControlPro
+              style={{ marginTop: "15px" }}
+              label={__("Alignment", "info-cards")}
+              value={styles?.alignment}
+              options={[
+                { label: "Left", value: "left" },
+                { label: "Center", value: "center" },
+                { label: "right", value: "right" },
+              ]}
+              onChange={(value) =>
+                setAttributes({
+                  styles: updateData(styles, value, "alignment"),
+                })
+              }
+               Component={BButtonGroup}
+          {...premiumProps}
+            />
+          </PanelBody>
+        </>
+      )}
 
-        <Label>
-          {" "}
-          <strong>Link open in new tab</strong>{" "}
-          <FormToggle
-            checked={options?.isNewTabOpen}
-            onChange={() =>
-              setAttributes({
-                options: updateData(
-                  options,
-                  !options?.isNewTabOpen,
-                  "isNewTabOpen"
-                ),
-              })
-            }
-          />
-        </Label>
+      {theme === "theme10" && (
+        <>
+          <PanelBody
+            className="bPlPanelBody"
+            title={__("Card", "info-cards")}
+            initialOpen={false}
+          >
+            <BControlPro
+              label={__("Upload Image or URL", "info-cards")}
+              value={grabCardInfo?.image}
+              type={["image"]}
+              onChange={(v) => {
+                setAttributes({
+                  grabCardInfo: updateData(grabCardInfo, v, "image"),
+                });
+              }}
+               Component={InlineMediaUpload}
+          {...premiumProps}
+            />
 
-        <Label>
-          {" "}
-          <strong>The element rotates on hover</strong>{" "}
-          <FormToggle
-            checked={options?.isHoverRotated}
-            onChange={() =>
-              setAttributes({
-                options: updateData(
-                  options,
-                  !options?.isHoverRotated,
-                  "isHoverRotated"
-                ),
-              })
-            }
-          />
-        </Label>
-      </PanelBody>
+            <BControlPro
+              placeholder="title..."
+              className="productInfoGeneralGap"
+              label={__("Title", "info-cards")}
+              value={grabCardInfo?.title}
+              onChange={(v) =>
+                setAttributes({
+                  grabCardInfo: updateData(grabCardInfo, v, "title"),
+                })
+              }
+                  Component={TextControl}
+          {...premiumProps}
+            />
 
-    </>
-      }
+            <BControlPro
+              placeholder="description..."
+              className="productInfoGeneralGap"
+              label={__("Description", "info-cards")}
+              value={grabCardInfo?.description}
+              onChange={(v) =>
+                setAttributes({
+                  grabCardInfo: updateData(grabCardInfo, v, "description"),
+                })
+              }
+              Component={TextareaControl}
+          {...premiumProps}
+            />
 
-      {
-        theme==="theme8" &&  <>
-      <PanelBody
-        className="bPlPanelBody"
-        title={__(" Add or Remove Cards", "info-cards")}
-        initialOpen={false}
-      >
-        <ItemsPanel
-          newItem={themeEightNewCard}
-          design="sortable"
-          attributes={attributes}
-          setAttributes={setAttributes}
-          arrKey="productsInfo"
-          itemLabel="Card"
-          ItemSettings={ThemeEightInfoSetting}
-        />
-      </PanelBody>
+            <BControlPro
+              placeholder="button text..."
+              className="productInfoGeneralGap"
+              label={__("Button Text", "info-cards")}
+              value={grabCardInfo?.button?.text}
+              onChange={(v) =>
+                setAttributes({
+                  grabCardInfo: updateData(grabCardInfo, v, "button", "text"),
+                })
+              }
 
- 
-      <PanelBody
-        className="bPlPanelBody"
-        title={__("Layout", "info-cards")}
-        initialOpen={false}
-      >
-         <BoxControl
-          label={__("Margin", "info-cards")}
-          values={styles?.margin}
-          onChange={(value) =>
-            setAttributes({ styles: updateData(styles, value, "margin") })
-          }
-        />
-        <BoxControl
-          label={__("Padding", "info-cards")}
-          values={styles?.padding}
-          onChange={(value) =>
-            setAttributes({ styles: updateData(styles, value, "padding") })
-          }
-        />
-        <PanelRow>
-          <Label>Columns</Label>
-          <Device />
-        </PanelRow>
-        <RangeControl
-          value={styles?.columns[device]}
-          onChange={(value) =>
-            setAttributes({
-              styles: updateData(styles, value, "columns", device),
-            })
-          }
-        />
+               Component={TextControl}
+          {...premiumProps}
+            />
 
-        <PanelRow>
-          <Label>Column Gap</Label> <Device />{" "}
-        </PanelRow>
+            <BControlPro
+              placeholder="button link..."
+              className="productInfoGeneralGap"
+              label={__("Button Link", "info-cards")}
+              value={grabCardInfo?.button?.link}
+              onChange={(v) =>
+                setAttributes({
+                  grabCardInfo: updateData(grabCardInfo, v, "button", "link"),
+                })
+              }
+               Component={TextControl}
+          {...premiumProps}
+            />
 
-        <UnitControl
-          value={styles?.columnGap?.[device]}
-          onChange={(value) =>
-            setAttributes({
-              styles: updateData(styles, value, "columnGap", device),
-            })
-          }
-        />
+            <Label >
+              {" "}
+              Link open in new tab{" "}
+              <BControlPro
+                checked={options?.isOpenNewTab}
+                onChange={() =>
+                  setAttributes({
+                    options: updateData(
+                      options,
+                      !options?.isOpenNewTab,
+                      "isOpenNewTab"
+                    ),
+                  })
+                }
+                 Component={ToggleControl}
+          {...premiumProps}
+              />
+            </Label>
+          </PanelBody>
 
-        <PanelRow>
-          <Label>Row Gap</Label> <Device />{" "}
-        </PanelRow>
+          <PanelBody
+            className="bPlPanelBody"
+            title={__("Layout", "info-cards")}
+            initialOpen={false}
+          >
+            <PanelRow>
+              {" "}
+              <Label className="mt0">Section Width</Label>
+              <Device></Device>
+            </PanelRow>
 
-        <UnitControl
-          value={styles?.rowGap?.[device]}
-          onChange={(value) =>
-            setAttributes({
-              styles: updateData(styles, value, "rowGap", device),
-            })
-          }
-        />
-      </PanelBody>
+            <BControlPro
+              value={styles?.width[device]}
+              onChange={(v) =>
+                setAttributes({
+                  styles: updateData(styles, v, "width", device),
+                })
+              }
 
-      {/* options  */}
-      <PanelBody
-        className="bPlPanelBody"
-        title={__("Options", "info-cards")}
-        initialOpen={false}
-      >
-        <Label>
-          {" "}
-          <FormToggle
-            checked={options?.isStatusShow}
-            onChange={() =>
-              setAttributes({
-                options: updateData(
-                  options,
-                  !options?.isStatusShow,
-                  "isStatusShow"
-                ),
-              })
-            }
-          />{" "}
-          <strong>Show Status</strong>
-        </Label>
+              Component={UnitControl}
+          {...premiumProps}
+            />
 
-        <Label>
-          {" "}
-          <FormToggle
-            checked={options?.isStateShow}
-            onChange={() =>
-              setAttributes({
-                options: updateData(
-                  options,
-                  !options?.isStateShow,
-                  "isStateShow"
-                ),
-              })
-            }
-          />{" "}
-          <strong>Show State</strong>
-        </Label>
+            <PanelRow>
+              {" "}
+              <Label className="mt0">Section Height</Label>
+              <Device></Device>
+            </PanelRow>
+            <BControlPro
+              value={styles?.height[device]}
+              onChange={(v) =>
+                setAttributes({
+                  styles: updateData(styles, v, "height", device),
+                })
+              }
+                 Component={UnitControl}
+          {...premiumProps}
+            />
 
-        <Label>
-          {" "}
-          <FormToggle
-            checked={options?.isSocialMediaShow}
-            onChange={() =>
-              setAttributes({
-                options: updateData(
-                  options,
-                  !options?.isSocialMediaShow,
-                  "isSocialMediaShow"
-                ),
-              })
-            }
-          />{" "}
-          <strong>Show Social Media</strong>
-        </Label>
+            <PanelRow>
+              {" "}
+              <Label className="mt0">Section Margin</Label>
+              <Device></Device>
+            </PanelRow>
+            <BControlPro
+              values={styles?.margin[device]}
+              onChange={(v) =>
+                setAttributes({
+                  styles: updateData(styles, v, "margin", device),
+                })
+              }
+                 Component={BoxControl}
+          {...premiumProps}
+            />
 
-        <Label>
-          {" "}
-          <FormToggle
-            checked={options?.isButtonShow}
-            onChange={() =>
-              setAttributes({
-                options: updateData(
-                  options,
-                  !options?.isButtonShow,
-                  "isButtonShow"
-                ),
-              })
-            }
-          />{" "}
-          <strong>Show Button</strong>
-        </Label>
+            <PanelRow>
+              {" "}
+              <Label className="mt0">Section Padding</Label>
+              <Device></Device>
+            </PanelRow>
+            <BControlPro
+              values={styles?.padding[device]}
+              onChange={(v) =>
+                setAttributes({
+                  styles: updateData(styles, v, "padding", device),
+                })
+              }
+                  Component={BoxControl}
+          {...premiumProps}
+            />
 
-        <Label>
-          {" "}
-          <FormToggle
-            checked={options?.isOpenUrlNewTab}
-            onChange={() =>
-              setAttributes({
-                options: updateData(
-                  options,
-                  !options?.isOpenUrlNewTab,
-                  "isOpenUrlNewTab"
-                ),
-              })
-            }
-          />{" "}
-          <strong>Open the URL in a new tab</strong>
-        </Label>
-      </PanelBody>
-    </>
-      }
-
-      {
-        theme ==="theme9" &&   <>
-    <PanelBody className='bPlPanelBody' title={__('Add or Remove Cards', 'info-cards')} initialOpen={false}>
-
-        <ItemsPanel
-          newItem={themeNineNewCard}
-          design="sortable"
-          attributes={attributes}
-          setAttributes={setAttributes}
-          arrKey="productsInfo"
-          itemLabel="Card"
-          ItemSettings={ThemeNineTextOverlySetting}
-        /> 
-    
-
-
-    
-    </PanelBody>
-
-    <PanelBody className='bPlPanelBody' title={__('Layout', 'info-cards')} initialOpen={false}>
-       <UnitControl  label={__("Width", "info-cards")} value={styles?.width} onChange={(value)=>setAttributes({styles:updateData(styles,value,"width")})} />
-        
-        <PanelRow><Label>Padding</Label> <Device/> </PanelRow>
-
-      <BoxControl   values={styles?.padding[editDevice]} onChange={(value)=>setAttributes({styles:updateData(styles,value,"padding",editDevice)})} />
-
-        
-        <PanelRow><Label>Margin</Label> <Device/> </PanelRow>
-
-      <BoxControl   values={styles?.margin[editDevice]} onChange={(value)=>setAttributes({styles:updateData(styles,value,"margin",editDevice)})} />
-
-
-  
-
-
- 
-  
-         <PanelRow><Label>Column</Label> <Device/> </PanelRow>
-        <RangeControl  value={styles?.columns[editDevice]} onChange={(value)=>setAttributes({styles:updateData(styles,value,"columns",editDevice)})} />
-
-
-
-        <UnitControl style={{marginTop:"10px"}}  label={__("Column Gap", "info-cards")} value={styles?.gap?.column} onChange={(value)=>setAttributes({styles:updateData(styles,value,"gap","column")})} />
-
-        <UnitControl style={{marginTop:"10px"}} label={__("Row Gap", "info-cards")} value={styles?.gap?.row} onChange={(value)=>setAttributes({styles:updateData(styles,value,"gap","row")})} />
-
-       
-       <BButtonGroup style={{marginTop:"15px"}} label={__("Alignment", "info-cards")} value={styles?.alignment} options={[
-        {label:"Left",value:"left"},
-        {label:"Center",value:"center"},
-        {label:"right",value:"right"},
-       ]} 
-       onChange={(value)=>setAttributes({styles:updateData(styles,value,"alignment")})}
-        />
-      
-        
-      
-    </PanelBody>
-
-   
-
-
-   </>
-      }
-
-      {
-        theme==="theme10" && <>
-      <PanelBody
-        className="bPlPanelBody"
-        title={__("Card", "info-cards")}
-        initialOpen={false}
-      >
-        <InlineMediaUpload
-          label={__("Upload Image or URL", "info-cards")}
-          value={grabCardInfo?.image}
-          type={["image"]}
-          onChange={(v) => {
-          
-            setAttributes({
-              grabCardInfo: updateData(grabCardInfo, v, "image"),
-            });
-          }}
-        />
-
-        <TextControl
-          placeholder="title..."
-          className="productInfoGeneralGap"
-          label={__("Title", "info-cards")}
-          value={grabCardInfo?.title}
-          onChange={(v) =>
-            setAttributes({
-              grabCardInfo: updateData(grabCardInfo, v, "title"),
-            })
-          }
-        />
-
-        <TextareaControl
-          placeholder="description..."
-          className="productInfoGeneralGap"
-          label={__("Description", "info-cards")}
-          value={grabCardInfo?.description}
-          onChange={(v) =>
-            setAttributes({
-              grabCardInfo: updateData(grabCardInfo, v, "description"),
-            })
-          }
-        />
-
-        <TextControl
-          placeholder="button text..."
-          className="productInfoGeneralGap"
-          label={__("Button Text", "info-cards")}
-          value={grabCardInfo?.button?.text}
-          onChange={(v) =>
-            setAttributes({
-              grabCardInfo: updateData(grabCardInfo, v, "button", "text"),
-            })
-          }
-        />
-
-        <TextControl
-          placeholder="button link..."
-          className="productInfoGeneralGap"
-          label={__("Button Link", "info-cards")}
-          value={grabCardInfo?.button?.link}
-          onChange={(v) =>
-            setAttributes({
-              grabCardInfo: updateData(grabCardInfo, v, "button", "link"),
-            })
-          }
-        />
-
-        <Label>
-          {" "}
-          Link open in new tab{" "}
-          <FormToggle
-            checked={options?.isOpenNewTab}
-            onChange={() =>
-              setAttributes({
-                options: updateData(
-                  options,
-                  !options?.isOpenNewTab,
-                  "isOpenNewTab"
-                ),
-              })
-            }
-          />
-        </Label>
-      </PanelBody>
-
-      <PanelBody
-        className="bPlPanelBody"
-        title={__("Layout", "info-cards")}
-        initialOpen={false}
-      >
-        <PanelRow>
-          {" "}
-          <Label className = 'mt0'>Section Width</Label>
-          <Device></Device>
-        </PanelRow>
-          <UnitControl value={styles?.width[device]} onChange={(v)=>setAttributes({styles:updateData(styles,v,"width",device)})} />
-
-
-               <PanelRow>
-          {" "}
-          <Label className = 'mt0'>Section Height</Label>
-          <Device></Device>
-        </PanelRow>
-          <UnitControl value={styles?.height[device]} onChange={(v)=>setAttributes({styles:updateData(styles,v,"height",device)})} />
-
-
-   <PanelRow>
-          {" "}
-          <Label className = 'mt0'>Section Margin</Label>
-          <Device></Device>
-        </PanelRow>
-          <BoxControl values={styles?.margin[device]} onChange={(v)=>setAttributes({styles:updateData(styles,v,"margin",device)})} />
-
-
-              <PanelRow>
-          {" "}
-          <Label className = 'mt0'>Section Padding</Label>
-          <Device></Device>
-        </PanelRow>
-          <BoxControl values={styles?.padding[device]} onChange={(v)=>setAttributes({styles:updateData(styles,v,"padding",device)})} />
-
-
-        <BoxControl style={{marginTop:"8px"}} label={__("Section Radius","info-cards")} values={styles?.radius} onChange={(v)=>setAttributes({styles:updateData(styles,v,"radius")})} />
-          
-            
-
-
-
-      </PanelBody>
-    </>
-      }
+            <BControlPro
+              style={{ marginTop: "8px" }}
+              label={__("Section Radius", "info-cards")}
+              values={styles?.radius}
+              onChange={(v) =>
+                setAttributes({ styles: updateData(styles, v, "radius") })
+              }
+                  Component={BoxControl}
+          {...premiumProps}
+            />
+          </PanelBody>
+        </>
+      )}
     </>
   );
 };

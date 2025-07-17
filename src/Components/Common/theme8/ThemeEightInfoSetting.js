@@ -1,8 +1,9 @@
 import { TextareaControl, TextControl } from "@wordpress/components";
 import { updateData } from "../../../../../bpl-tools/utils/functions";
 import { ColorControl, InlineMediaUpload, Label } from "../../../../../bpl-tools/Components";
+import { BControlPro } from "../../../../../bpl-tools/ProControls";
 const ThemeEightInfoSetting = (props) => {
-  const { attributes, setAttributes, index } = props;
+  const { attributes, setAttributes, index,premiumProps } = props;
   const { productsInfo } = attributes;
   const item = productsInfo[index];
 
@@ -32,7 +33,7 @@ const ThemeEightInfoSetting = (props) => {
 
   return (
     <div>
-      <InlineMediaUpload
+      <BControlPro
         label="Image"
         value={item?.profileImg}
         onChange={(value) =>
@@ -45,9 +46,11 @@ const ThemeEightInfoSetting = (props) => {
             ),
           })
         }
+        Component={InlineMediaUpload}
+                               {...premiumProps}
       />
 
-      <TextControl
+      <BControlPro
         label="Name"
         value={item?.name}
         onChange={(value) =>
@@ -60,8 +63,10 @@ const ThemeEightInfoSetting = (props) => {
             ),
           })
         }
+        Component={TextControl}
+                               {...premiumProps}
       />
-      <TextControl
+      <BControlPro
         label="Title"
         value={item?.title}
         onChange={(value) =>
@@ -74,8 +79,10 @@ const ThemeEightInfoSetting = (props) => {
             ),
           })
         }
+         Component={TextControl}
+                               {...premiumProps}
       />
-      <TextControl
+      <BControlPro
         label="Company Name"
         value={item?.company}
         onChange={(value) =>
@@ -88,8 +95,10 @@ const ThemeEightInfoSetting = (props) => {
             ),
           })
         }
+         Component={TextControl}
+                               {...premiumProps}
       />
-      <TextControl
+      <BControlPro
         label="Status"
         value={item?.status}
         onChange={(value) =>
@@ -102,8 +111,10 @@ const ThemeEightInfoSetting = (props) => {
             ),
           })
         }
+         Component={TextControl}
+                               {...premiumProps}
       />
-      <TextareaControl
+      <BControlPro
         label="Bio"
         rows={3}
         value={item?.bio}
@@ -112,6 +123,8 @@ const ThemeEightInfoSetting = (props) => {
             productsInfo: updateData(productsInfo, value, index, "bio"),
           })
         }
+         Component={TextareaControl}
+                               {...premiumProps}
       />
 
       <Label>States</Label>
@@ -126,7 +139,7 @@ const ThemeEightInfoSetting = (props) => {
             marginBottom: "10px",
           }}
         >
-          <TextControl
+          <BControlPro
             value={state?.name}
             onChange={(value) =>
               setAttributes({
@@ -140,8 +153,10 @@ const ThemeEightInfoSetting = (props) => {
                 ),
               })
             }
+             Component={TextControl}
+                               {...premiumProps}
           />
-          <TextControl
+          <BControlPro
             value={state?.quantity}
             onChange={(value) =>
               setAttributes({
@@ -155,6 +170,8 @@ const ThemeEightInfoSetting = (props) => {
                 ),
               })
             }
+             Component={TextControl}
+                               {...premiumProps}
           />
           <button
             onClick={() => handleDelete(i)}
@@ -186,7 +203,7 @@ const ThemeEightInfoSetting = (props) => {
               alignItems: "center",
             }}
           >
-            <TextControl
+            <BControlPro
               placeholder="link.."
               value={so?.link}
               onChange={(value) =>
@@ -201,11 +218,13 @@ const ThemeEightInfoSetting = (props) => {
                   ),
                 })
               }
+               Component={TextControl}
+                               {...premiumProps}
             />
 
             <span style={{ marginTop: "-7px" }}>
               {" "}
-              <ColorControl
+              <BControlPro
                 style={{ marginBottom: "30px" }}
                 label="   "
                 value={so?.color}
@@ -221,6 +240,8 @@ const ThemeEightInfoSetting = (props) => {
                     ),
                   })
                 }
+                 Component={ColorControl}
+                               {...premiumProps}
               />
             </span>
 
@@ -268,7 +289,7 @@ const ThemeEightInfoSetting = (props) => {
       ))}
 
       <div style={{ marginTop: "10px" }}>
-        <TextControl
+        <BControlPro
           label="Button Text"
           value={item?.button?.text}
           onChange={(value) =>
@@ -282,8 +303,10 @@ const ThemeEightInfoSetting = (props) => {
               ),
             })
           }
+           Component={TextControl}
+                               {...premiumProps}
         />
-        <TextControl
+        <BControlPro
           label="Button url"
           value={item?.button?.link}
           onChange={(value) =>
@@ -297,6 +320,8 @@ const ThemeEightInfoSetting = (props) => {
               ),
             })
           }
+           Component={TextControl}
+                               {...premiumProps}
         />
       </div>
     </div>

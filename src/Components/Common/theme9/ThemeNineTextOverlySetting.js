@@ -2,17 +2,20 @@ import {
   FormToggle,
   TextareaControl,
   TextControl,
+  ToggleControl,
 } from "@wordpress/components";
 import { InlineMediaUpload, Label } from "../../../../../bpl-tools/Components";
 import { updateData } from "../../../utils/function";
+import { BControlPro } from "../../../../../bpl-tools/ProControls";
 
 const ThemeNineTextOverlySetting = (props) => {
-  const { attributes, setAttributes, index } = props;
+  const { attributes, setAttributes, index,premiumProps } = props;
   const { productsInfo } = attributes;
   const item = productsInfo[index];
+  console.log(premiumProps);
   return (
     <div>
-      <InlineMediaUpload
+      <BControlPro
         label="Image"
         value={item?.imageUrl}
         onChange={(value) =>
@@ -20,9 +23,11 @@ const ThemeNineTextOverlySetting = (props) => {
             productsInfo: updateData(productsInfo, value, index, "imageUrl"),
           })
         }
+        Component={InlineMediaUpload}
+          {...premiumProps}
       />
 
-      <TextControl
+      <BControlPro
         placeholder="title..."
         label="Title"
         value={item?.title}
@@ -31,9 +36,11 @@ const ThemeNineTextOverlySetting = (props) => {
             productsInfo: updateData(productsInfo, value, index, "title"),
           })
         }
+        Component={TextControl}
+          {...premiumProps}
       />
 
-      <TextareaControl
+      <BControlPro
         placeholder="description..."
         label="Description"
         value={item?.description}
@@ -42,9 +49,12 @@ const ThemeNineTextOverlySetting = (props) => {
             productsInfo: updateData(productsInfo, value, index, "description"),
           })
         }
+        Component={TextareaControl}
+          {...premiumProps}
+
       />
 
-      <TextControl
+      <BControlPro
         placeholder="button text ..."
         label="Button Text"
         value={item?.buttonText}
@@ -53,8 +63,10 @@ const ThemeNineTextOverlySetting = (props) => {
             productsInfo: updateData(productsInfo, value, index, "buttonText"),
           })
         }
+        Component={TextControl}
+          {...premiumProps}
       />
-      <TextControl
+      <BControlPro
         placeholder="button URL ..."
         label="Button URL"
         value={item?.buttonLink}
@@ -63,11 +75,13 @@ const ThemeNineTextOverlySetting = (props) => {
             productsInfo: updateData(productsInfo, value, index, "buttonLink"),
           })
         }
+        Component={TextControl}
+          {...premiumProps}
       />
 
       <Label>
         Link Open in New Tab{" "}
-        <FormToggle
+        <BControlPro
           checked={item?.newTab}
           onChange={() =>
             setAttributes({
@@ -79,6 +93,8 @@ const ThemeNineTextOverlySetting = (props) => {
               ),
             })
           }
+          Component={ToggleControl}
+          {...premiumProps}
         />
       </Label>
     </div>

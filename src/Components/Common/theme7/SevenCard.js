@@ -1,5 +1,6 @@
 import { RichText } from "@wordpress/block-editor";
 import { updateData } from "../../../../../bpl-tools/utils/functions";
+import { BControlPro } from "../../../../../bpl-tools/ProControls";
 
 
 
@@ -15,6 +16,7 @@ const SevenCard = ({
   setActiveIndex,
   activeIndex,
   isBackend,
+  premiumProps
 }) => {
 
   const { options, productsInfo } = attributes;
@@ -29,7 +31,7 @@ const SevenCard = ({
       >
         <div className={`threeDinfoCardContentBox threeDinfoCardContentBox${index - 1} `}>
           {isBackend ? (
-            <RichText
+            <BControlPro
               placeholder="title.."
               className="threeDinfoCardTitle"
               tagName="h1"
@@ -39,12 +41,14 @@ const SevenCard = ({
                   productsInfo: updateData(productsInfo, value, index - 1, "title"),
                 })
               }
+              Component={RichText}
+                 {...premiumProps}
             />
           ) : (
             <h1 className="threeDinfoCardTitle">{title}</h1>
           )}
           {isBackend ? (
-            <RichText
+            <BControlPro
               placeholder="description..."
               className="threeDinfoCardDescription"
               tagName="p"
@@ -54,12 +58,14 @@ const SevenCard = ({
                   productsInfo: updateData(productsInfo, value, index - 1, "content"),
                 })
               }
+              Component={RichText}
+                 {...premiumProps}
             />
           ) : (
             <p className="threeDinfoCardDescription">{content}</p>
           )}
           {options?.isButtonShow && <>{isBackend ? (
-            <RichText
+            <BControlPro
               placeholder="button..."
               value={button?.text}
               className="threeDinfoSeeMore"
@@ -75,6 +81,8 @@ const SevenCard = ({
                   ),
                 })
               }
+              Component={RichText}
+                 {...premiumProps}
             />
           ) : (
             <a
@@ -91,7 +99,7 @@ const SevenCard = ({
           isBackend ? (
           <div className={`date-box date-box${index - 1}`}>
             {/* <span className="month">{tag?.name}</span> */}
-            <RichText
+            <BControlPro
               className="month"
               tagName="span"
               value={tag?.name}
@@ -106,8 +114,10 @@ const SevenCard = ({
                   ),
                 })
               }
+              Component={RichText}
+                 {...premiumProps}
             />
-            <RichText
+            <BControlPro
               className="date"
               tagName="span"
               value={tag?.value}
@@ -122,6 +132,8 @@ const SevenCard = ({
                   ),
                 })
               }
+              Component={RichText}
+                 {...premiumProps}
             />
             {/* <span className="date">{tag?.value}</span> */}
             

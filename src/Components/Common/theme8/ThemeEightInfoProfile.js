@@ -1,5 +1,6 @@
 import { RichText } from "@wordpress/block-editor";
 import { updateData } from "../../../utils/function";
+import { BControlPro } from "../../../../../bpl-tools/ProControls";
 
 const ThemeEightInfoProfile = ({
   infoProfile,
@@ -7,6 +8,7 @@ const ThemeEightInfoProfile = ({
   attributes,
   setAttributes,
   isBackend,
+  premiumProps
 }) => {
     const { options, productsInfo } = attributes;
 
@@ -29,7 +31,7 @@ const ThemeEightInfoProfile = ({
           <img src={profileImg} className="themeEightProfile-img" />
           <div className="themeEightProfile-info">
             {isBackend ? (
-              <RichText
+              <BControlPro
                 placeholder="type name..."
                 tagName="h2"
                 className="themeEightInfoProfileName"
@@ -44,12 +46,16 @@ const ThemeEightInfoProfile = ({
                   })
                 }
                 value={name}
+                 Component={RichText}
+                               {...premiumProps}
               />
             ) : (
               <h2 className="themeEightInfoProfileName">{name}</h2>
             )}
             {isBackend ? (
-              <RichText
+              <BControlPro
+               Component={RichText}
+                               {...premiumProps}
                 placeholder="type title ..."
                 tagName="p"
                 className="themeEightInfoProfileTitle"
@@ -69,7 +75,9 @@ const ThemeEightInfoProfile = ({
               <p className="themeEightInfoProfileTitle">{title}</p>
             )}
             {isBackend ? (
-              <RichText
+              <BControlPro
+               Component={RichText}
+                               {...premiumProps}
                 placeholder="type company name..."
                 tagName="p"
                 className="themeEightInfoProfileCompany"
@@ -93,7 +101,9 @@ const ThemeEightInfoProfile = ({
             <div className="themeEightStatus">
               <div className="themeEightStatus-dot"></div>
               {isBackend ? (
-                <RichText
+                <BControlPro 
+                 Component={RichText}
+                               {...premiumProps}
                   placeholder="type status ..."
                   tagName="span"
                   className="themeEightStatus-text"
@@ -117,7 +127,9 @@ const ThemeEightInfoProfile = ({
         </div>
 
         {isBackend ? (
-          <RichText
+          <BControlPro
+           Component={RichText}
+                               {...premiumProps}
             placeholder="type bio ..."
             tagName="p"
             className="themeEightBio"
@@ -144,14 +156,17 @@ const ThemeEightInfoProfile = ({
                 <div key={i} className="themeEightStat">
                   {isBackend ? (
                     <>
-                      <RichText
+                      <BControlPro 
+                       Component={RichText}
+                               {...premiumProps}
                       placeholder="type..."
                         tagName="div"
                         className="themeEightStat-number"
                         value={String(stat?.quantity || "")}
                         onChange={(value)=>setAttributes({productsInfo:updateData(productsInfo,value,index,"state",i,"quantity")})}
                       />
-                      <RichText onChange={(value)=>setAttributes({productsInfo:updateData(productsInfo,value,index,"state",i,"name")})} placeholder="type..." className="themeEightStat-label" value={stat?.name} />
+                      <BControlPro  Component={RichText}
+                               {...premiumProps}  onChange={(value)=>setAttributes({productsInfo:updateData(productsInfo,value,index,"state",i,"name")})} placeholder="type..." className="themeEightStat-label" value={stat?.name} />
                     </>
                   ) : (
                     <>
@@ -187,7 +202,8 @@ const ThemeEightInfoProfile = ({
         {options?.isButtonShow && (
         isBackend ? <button className="themeEightMessage-btn">
               <span dangerouslySetInnerHTML={{ __html: options?.messageButtonIcon }}></span>
-              <RichText tagName="span" onChange={(value)=>setAttributes({productsInfo:updateData(productsInfo,value,index,"button","text")})} value={button?.text}/>
+              <BControlPro  Component={RichText}
+                               {...premiumProps} tagName="span" onChange={(value)=>setAttributes({productsInfo:updateData(productsInfo,value,index,"button","text")})} value={button?.text}/>
             </button>  :<a
             href={button?.link}
             target={options?.isOpenUrlNewTab ? "_blank" : "_self"}

@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import ThemeTenGrabInfo from './ThemeTenGrabInfo';
 
-const ThemeTenMouseMove = ({ attributes, setAttributes, isEditor }) => {
+const ThemeTenMouseMove = ({ attributes, setAttributes, isEditor ,premiumProps}) => {
+
+
 
     useEffect(() => {
     // Only run in frontend
@@ -31,6 +33,7 @@ const ThemeTenMouseMove = ({ attributes, setAttributes, isEditor }) => {
             isEditor={isEditor}
             attributes={attributes}
             setAttributes={setAttributes}
+            premiumProps={premiumProps}
           />
         </div>
       </div>

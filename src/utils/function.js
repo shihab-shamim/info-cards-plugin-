@@ -1631,7 +1631,8 @@ export function getCardContentEdit(
   setAttributes,
   isBacked,
   activeIndex,
-  setActiveIndex
+  setActiveIndex,
+  premiumProps
 ) {
   if (
     ["default", "theme1", "theme2", "theme3", "theme4", "theme5"].includes(
@@ -1652,6 +1653,7 @@ export function getCardContentEdit(
         attributes={attributes}
         setAttributes={setAttributes}
         isBacked={isBacked}
+        premiumProps={premiumProps}
       />
     );
   }
@@ -1663,6 +1665,7 @@ export function getCardContentEdit(
         setActiveIndex={setActiveIndex}
         attributes={attributes}
         setAttributes={setAttributes}
+        premiumProps={premiumProps}
       />
     );
   }
@@ -1677,6 +1680,7 @@ export function getCardContentEdit(
             key={index}
             attributes={attributes}
             setAttributes={setAttributes}
+            premiumProps={premiumProps}
           />
         ))}
       </div>
@@ -1684,21 +1688,25 @@ export function getCardContentEdit(
   }
 
   if (theme === "theme9") {
+    
     return (
       <ThemeNineTexOverly
         attributes={attributes}
         setAttributes={setAttributes}
         isBackend={isBacked}
+        premiumProps={premiumProps}
       />
     );
   }
   if (theme === "theme10") {
+    
     return (
       <div className="themeTenProductInfoGrab">
         <ThemeTenMouseMove
           isEditor={isBacked}
           attributes={attributes}
           setAttributes={setAttributes}
+          premiumProps={premiumProps}
         />
       </div>
     );

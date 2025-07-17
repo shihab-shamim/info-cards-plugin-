@@ -13,8 +13,11 @@ import Style from "./Style/Style";
 
 import { themeSwitch, toolTipPresets, } from "../../../utils/function";
 import BlockPreview from "./panel/BlockPreview";
+import { useState } from "react";
+import { AboutProModal } from "../../../../../bpl-tools/ProControls";
 
-export default function ({ attributes, setAttributes, updateCard, device,activeIndex }) {
+
+export default function ({ attributes, setAttributes, updateCard, device,activeIndex,isPremium,isProModalOpen,setIsProModalOpen }) {
   const {
     cards,
     theme,
@@ -22,6 +25,14 @@ export default function ({ attributes, setAttributes, updateCard, device,activeI
 
     alignment
   } = attributes;
+  
+  // const [isProModalOpen, setIsProModalOpen] = useState(false);
+
+	const premiumProps = { isPremium, setIsProModalOpen };
+
+  const props={
+    premiumProps
+  }
 
   return (
     <>
@@ -38,6 +49,7 @@ export default function ({ attributes, setAttributes, updateCard, device,activeI
             <>
               {"general" === tab.name && (
                 <General
+                {...props}
                   attributes={attributes}
                   setAttributes={setAttributes}
                   updateCard={updateCard}
@@ -47,6 +59,7 @@ export default function ({ attributes, setAttributes, updateCard, device,activeI
 
               {"style" === tab.name && (
                 <Style
+                {...props}
                   attributes={attributes}
                   setAttributes={setAttributes}
                   updateCard={updateCard}
@@ -214,6 +227,20 @@ export default function ({ attributes, setAttributes, updateCard, device,activeI
         ></BlockPreview>
 
       </BlockControls>
+
+      <AboutProModal
+			isProModalOpen={isProModalOpen}
+			setIsProModalOpen={setIsProModalOpen}
+			link="https://shihabshamim.netlify.app"
+		>
+
+			<li>
+				<strong>
+					{__("Color: ", "info-cards")}
+				</strong>
+				{__("Add this block anywhere with shortcode.", "info-cards")}
+			</li>
+		</AboutProModal>
     </>
   );
 }

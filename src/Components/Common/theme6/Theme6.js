@@ -1,6 +1,6 @@
 import Card from "./Card";
 
-const Theme6 = ({setAttributes,attributes,isBacked}) => {
+const Theme6 = ({setAttributes,attributes,isBacked,premiumProps}) => {
     const {productsInfo}=attributes;
     
 
@@ -14,7 +14,7 @@ const Theme6 = ({setAttributes,attributes,isBacked}) => {
                 
             })} */}
             {
-                productsInfo.map((item,index)=><Card key={index} item={item} index={index} attributes={attributes} setAttributes={setAttributes} isBacked={isBacked} />)
+                productsInfo.map((item,index)=><Card key={index} item={item} index={index} attributes={attributes} setAttributes={setAttributes} isBacked={isBacked} premiumProps={premiumProps} />)
             }
 
            

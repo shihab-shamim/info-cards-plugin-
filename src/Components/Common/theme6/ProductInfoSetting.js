@@ -4,9 +4,10 @@ import {
 } from "../../../../../bpl-tools/Components";
 import {  TextareaControl, TextControl } from "@wordpress/components";
 import { updateData } from "../../../../../bpl-tools/utils/functions";
+import { BControlPro } from "../../../../../bpl-tools/ProControls";
 
 const ProductInfoSetting = (props) => {
-  const { attributes, setAttributes, index } = props;
+  const { attributes, setAttributes, index ,premiumProps} = props;
   const { productsInfo } = attributes;
   const item = productsInfo[index];
 
@@ -27,7 +28,7 @@ const ProductInfoSetting = (props) => {
 
   return (
     <div>
-      <InlineDetailMediaUpload
+      <BControlPro
         label="Image"
         value={{ url: item?.image }}
         onChange={(value) =>
@@ -35,9 +36,11 @@ const ProductInfoSetting = (props) => {
             productsInfo: updateData(productsInfo, value.url, index, "image"),
           })
         }
+        Component={InlineDetailMediaUpload}
+                      {...premiumProps}
       />
 
-      <TextControl
+      <BControlPro
         label="Title"
         value={item?.title}
         onChange={(value) =>
@@ -45,9 +48,11 @@ const ProductInfoSetting = (props) => {
             productsInfo: updateData(productsInfo, value, index, "title"),
           })
         }
+         Component={TextControl}
+                      {...premiumProps}
         type="text"
       />
-      <TextareaControl
+      <BControlPro
         label="Description"
         value={item?.description}
         onChange={(value) =>
@@ -55,6 +60,8 @@ const ProductInfoSetting = (props) => {
             productsInfo: updateData(productsInfo, value, index, "description"),
           })
         }
+         Component={TextareaControl}
+                      {...premiumProps}
       />
       <Label> Variant </Label>
 
@@ -67,9 +74,11 @@ const ProductInfoSetting = (props) => {
           }}
           key={i}
         >
-          <TextControl
+          <BControlPro
+           Component={TextControl}
+                      {...premiumProps}
           onChange={(value)=>setAttributes({productsInfo:updateData(productsInfo,value,index,"variant",i)})}
-           type="text" value={vari}></TextControl>
+           type="text" value={vari}></BControlPro>
           <svg
             onClick={() => handlaVariantDelete(i)}
             style={{ marginTop: "-12px", color: "red", cursor: "pointer" }}
@@ -111,7 +120,7 @@ const ProductInfoSetting = (props) => {
        <div  style={{marginTop:"10px"}}>
 
        
-      <TextControl
+      <BControlPro
      
         label="Button Text"
         value={item?.button?.text}
@@ -126,8 +135,10 @@ const ProductInfoSetting = (props) => {
             ),
           })
         }
+         Component={TextControl}
+                      {...premiumProps}
       />
-      <TextControl
+      <BControlPro
         label="Button URL"
         value={item?.button?.link}
         onChange={(value) =>
@@ -141,6 +152,8 @@ const ProductInfoSetting = (props) => {
             ),
           })
         }
+         Component={TextControl}
+                      {...premiumProps}
       />
       <small>Link Disable on Editor </small>
       </div>

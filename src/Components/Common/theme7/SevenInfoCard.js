@@ -7,6 +7,7 @@ const SevenInfoCard = ({
   setActiveIndex,
   activeIndex,
   isBackend,
+  premiumProps
 }) => {
 
     const cardsData = attributes?.productsInfo;
@@ -35,6 +36,7 @@ const SevenInfoCard = ({
       <div className=" infoThreeDContainer">
         {cardsData.map((card, index) => (
           <SevenCard
+          premiumProps={premiumProps}
             key={index}
             title={card.title}
             content={card.content}

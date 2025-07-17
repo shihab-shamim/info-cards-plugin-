@@ -7,13 +7,16 @@ import { withSelect } from "@wordpress/data";
 import Style from '../Common/Style';
 import Settings from "./Settings/Settings";
 import {  getCardContentEdit } from "../../utils/function";
+import { usePremiumInEditor } from "../../../../bpl-tools/hooks";
 
 
 
 const Edit = ({ attributes, setAttributes, clientId ,device}) => {
+  const { isPremium } = usePremiumInEditor("ssbUtils", "ssbPremiumChecker");
   const { cards,theme } = attributes;
  const isBacked=true;
  const [activeIndex, setActiveIndex] = useState(0);
+ const [isProModalOpen, setIsProModalOpen] = useState(false);
 
   useEffect(() => {
     clientId && setAttributes({ clientId });
@@ -25,16 +28,17 @@ const Edit = ({ attributes, setAttributes, clientId ,device}) => {
     });
     setAttributes({ cards: cardsCopy });
   }
+ const premiumProps = { isPremium, setIsProModalOpen };
 
   return (
     <div {...useBlockProps()}>
-      <Settings attributes={attributes} setAttributes={setAttributes} updateCard={updateCard} clientId={clientId} device={device} activeIndex={activeIndex} />
+      <Settings attributes={attributes} isProModalOpen={isProModalOpen} setIsProModalOpen={setIsProModalOpen} setAttributes={setAttributes} updateCard={updateCard} clientId={clientId} device={device} activeIndex={activeIndex} isPremium={isPremium} />
 
       <div id={`icbCards-${clientId}`}>
         <Style isBack = {true} attributes={attributes} id={`icbCards-${clientId}`} />
 
       {
-        getCardContentEdit(theme,attributes,updateCard,setAttributes,isBacked,activeIndex,setActiveIndex)
+        getCardContentEdit(theme,attributes,updateCard,setAttributes,isBacked,activeIndex,setActiveIndex,premiumProps)
       }
 
 

@@ -1,9 +1,10 @@
 import React, { useRef } from "react";
 import { RichText } from "@wordpress/block-editor";
 import { updateData } from "../../../../../bpl-tools/utils/functions";
+import { BControlPro } from "../../../../../bpl-tools/ProControls";
 // import { updateData } from "../utils/functions";
 
-const Card = ({ item, index, attributes, setAttributes, isBacked }) => {
+const Card = ({ item, index, attributes, setAttributes, isBacked,premiumProps }) => {
   const cardRef = useRef(null);
   const imgRef = useRef(null);
   const titleRef = useRef(null);
@@ -65,7 +66,7 @@ const Card = ({ item, index, attributes, setAttributes, isBacked }) => {
       </div>
       <div className="productDesc">
         {isBacked ? (
-          <RichText
+          <BControlPro
           className="productTitle"
             tagName="h1"
             ref={titleRef}
@@ -76,12 +77,14 @@ const Card = ({ item, index, attributes, setAttributes, isBacked }) => {
                 productsInfo: updateData(productsInfo, value, index, "title"),
               })
             }
+            Component={RichText}
+                 {...premiumProps}
           />
         ) : (
           <h1 ref={titleRef} className="productTitle" >{title}</h1>
         )}
         {isBacked ? (
-          <RichText
+          <BControlPro
           className="productDescription"
             tagName="h2"
             ref={descRef}
@@ -97,6 +100,8 @@ const Card = ({ item, index, attributes, setAttributes, isBacked }) => {
                 ),
               })
             }
+            Component={RichText}
+                 {...premiumProps}
           />
         ) : (
           <h2 ref={descRef} className="productDescription" >{description}</h2>
@@ -109,7 +114,7 @@ const Card = ({ item, index, attributes, setAttributes, isBacked }) => {
         <button>i9</button> */}
         {variant.map((v, i) =>
           isBacked ? (
-            <RichText
+            <BControlPro
               tagName="button"
               // className={v === "i9" ? "active" : ""}
             className={`productInfoBtn`} 
@@ -127,6 +132,8 @@ const Card = ({ item, index, attributes, setAttributes, isBacked }) => {
                   ),
                 })
               }
+              Component={RichText}
+                 {...premiumProps}
             />
           ) : (
             <button 
@@ -141,7 +148,7 @@ const Card = ({ item, index, attributes, setAttributes, isBacked }) => {
 
       {isBacked ? (
         options?.isButtonShow&& <span className="buybox">
-          <RichText
+          <BControlPro
           className="productBuyBtn"
             tagName="button"
             value={button?.text}
@@ -156,6 +163,8 @@ const Card = ({ item, index, attributes, setAttributes, isBacked }) => {
                 ),
               })
             }
+            Component={RichText}
+                 {...premiumProps}
           />
         </span>
       ) : (

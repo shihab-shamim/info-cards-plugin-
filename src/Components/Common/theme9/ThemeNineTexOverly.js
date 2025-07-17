@@ -1,6 +1,7 @@
 import { RichText } from "@wordpress/block-editor";
 import { updateData } from "../../../utils/function";
-const ThemeNineTexOverly = ({ attributes, setAttributes, isBackend }) => {
+import { BControlPro } from "../../../../../bpl-tools/ProControls";
+const ThemeNineTexOverly = ({ attributes, setAttributes, isBackend,premiumProps }) => {
   const { productsInfo } = attributes;
   return (
     <div className=" themeNineVoyageViewCardContainer">
@@ -15,7 +16,7 @@ const ThemeNineTexOverly = ({ attributes, setAttributes, isBackend }) => {
         >
           <div className="themeNinevoyage-content">
             {isBackend ? (
-              <RichText
+              <BControlPro
                 placeholder="title..."
                 className="voyage-title"
                 tagName="h2"
@@ -30,6 +31,8 @@ const ThemeNineTexOverly = ({ attributes, setAttributes, isBackend }) => {
                     ),
                   })
                 }
+                Component={RichText}
+                      {...premiumProps}
               />
             ) : (
               <RichText.Content
@@ -41,7 +44,7 @@ const ThemeNineTexOverly = ({ attributes, setAttributes, isBackend }) => {
               </RichText.Content>
             )}
             {isBackend ? (
-              <RichText
+              <BControlPro
                 placeholder="description..."
                 className="voyage-copy"
                 tagName="p"
@@ -56,6 +59,8 @@ const ThemeNineTexOverly = ({ attributes, setAttributes, isBackend }) => {
                     ),
                   })
                 }
+                Component={RichText}
+                      {...premiumProps}
               />
             ) : (
               <RichText.Content
@@ -68,7 +73,7 @@ const ThemeNineTexOverly = ({ attributes, setAttributes, isBackend }) => {
             )}
             {isBackend ? (
               <span className="voyageLink">
-                <RichText
+                <BControlPro
                   placeholder="button..."
                   className="voyage-btn"
                   tagName="a"
@@ -83,10 +88,12 @@ const ThemeNineTexOverly = ({ attributes, setAttributes, isBackend }) => {
                       ),
                     })
                   }
+                  Component={RichText}
+                      {...premiumProps}
                 />
               </span>
             ) : (
-              <a
+              <a style={{outline:"none"}}
                 className="voyageLink"
                 href={view?.buttonLink}
                 target={view?.newTab ? "_blank" : "_self"}

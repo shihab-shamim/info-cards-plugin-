@@ -579,7 +579,8 @@
     }
   },
   "editorScript": [
-    "file:./index.js"
+    "file:./index.js",
+    "wp-api"
   ],
   "editorStyle": [
     "file:./index.css"

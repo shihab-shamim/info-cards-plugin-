@@ -2,10 +2,11 @@ import React from 'react';
 import { Label } from '../../../../../bpl-tools/Components';
 import { TextControl } from "@wordpress/components";
 import { updateData } from '../../../../../bpl-tools/utils/functions';
+import { BControlPro } from '../../../../../bpl-tools/ProControls';
 
 
 const SevenInfoCardSetting = (props) => {
-      const { attributes, setAttributes, index } = props;
+      const { attributes, setAttributes, index ,premiumProps} = props;
   const { productsInfo } = attributes;
   const item = productsInfo[index];
     return (
@@ -13,7 +14,7 @@ const SevenInfoCardSetting = (props) => {
       <span>Tag</span>
       <Label className="mt5">
         {" "}
-        <TextControl
+        <BControlPro
           placeholder="name..."
           label="Name"
           value={item?.tag?.name}
@@ -22,8 +23,10 @@ const SevenInfoCardSetting = (props) => {
               productsInfo: updateData(productsInfo, value, index, "tag", "name"),
             })
           }
+           Component={TextControl}
+                                    {...premiumProps}
         />
-        <TextControl
+        <BControlPro
           placeholder="value..."
           label="Value"
           value={item?.tag?.value}
@@ -32,10 +35,12 @@ const SevenInfoCardSetting = (props) => {
               productsInfo: updateData(productsInfo, value, index, "tag", "value"),
             })
           }
+          Component={TextControl}
+                                    {...premiumProps}
         />
       </Label>
 
-      <TextControl
+      <BControlPro
         placeholder="title..."
         label="Title"
         value={item?.title}
@@ -44,9 +49,11 @@ const SevenInfoCardSetting = (props) => {
             productsInfo: updateData(productsInfo, value, index, "title"),
           })
         }
+        Component={TextControl}
+                                    {...premiumProps}
       />
 
-      <TextControl
+      <BControlPro
         placeholder="description..."
         label="Description"
         value={item?.content}
@@ -55,12 +62,14 @@ const SevenInfoCardSetting = (props) => {
             productsInfo: updateData(productsInfo, value, index, "content"),
           })
         }
+        Component={TextControl}
+                                    {...premiumProps}
       />
 
       <span>Button</span>
       <Label className="mt5">
         {" "}
-        <TextControl
+        <BControlPro
           placeholder="name..."
           label="Name"
           value={item?.button?.text}
@@ -69,8 +78,10 @@ const SevenInfoCardSetting = (props) => {
               productsInfo: updateData(productsInfo, value, index, "button", "text"),
             })
           }
+          Component={TextControl}
+                                    {...premiumProps}v
         />
-        <TextControl
+        <BControlPro
           placeholder="url..."
           label="URL"
           value={item?.button?.link}
@@ -79,6 +90,8 @@ const SevenInfoCardSetting = (props) => {
               productsInfo: updateData(productsInfo, value, index, "button", "link"),
             })
           }
+          Component={TextControl}
+                                    {...premiumProps}
         />
       </Label>
     </div>
