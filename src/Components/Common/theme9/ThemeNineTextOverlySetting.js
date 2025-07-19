@@ -1,5 +1,5 @@
 import {
-  FormToggle,
+  
   TextareaControl,
   TextControl,
   ToggleControl,
@@ -12,7 +12,7 @@ const ThemeNineTextOverlySetting = (props) => {
   const { attributes, setAttributes, index,premiumProps } = props;
   const { productsInfo } = attributes;
   const item = productsInfo[index];
-  console.log(premiumProps);
+
   return (
     <div>
       <BControlPro

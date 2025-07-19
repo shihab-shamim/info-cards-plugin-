@@ -8,7 +8,6 @@ import {
   Dashicon,
   SelectControl,
   ToggleControl,
-  FormToggle,
   TextareaControl,
 } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
@@ -359,7 +358,7 @@ const General = ({
           ]}
         />
 
-        {theme === "theme10" && (
+        {theme === "theme10" ?
           <div
             style={{
               backgroundColor: "#e7f3fe",
@@ -372,8 +371,19 @@ const General = ({
           >
             💡 <strong>Note:</strong> This mouse animation works only on the
             frontend.
+          </div>:<div
+            style={{
+              backgroundColor: "#e7f3fe",
+              color: "#084298",
+              padding: "10px",
+              borderLeft: "5px solid #2196F3",
+              borderRadius: "4px",
+              margin: "10px 0",
+            }}
+          >
+            💡 <strong>Note:</strong> If you change the theme now, certain settings will return to their default values
           </div>
-        )}
+        }
       </PanelBody>
 
       {["default", "theme1", "theme2", "theme3", "theme4", "theme5"].includes(
