@@ -10,8 +10,8 @@
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       info-cards
- * @fs_premium_only /freemius, 
- * @fs_free_only /freemius-lite,
+ * @fs_premium_only /freemius,
+ * @fs_free_only /freemius-lite, /inc/upgradePage.php
  */
 
 if ( !defined( 'ABSPATH' ) ) { exit; }
@@ -50,17 +50,23 @@ if ( !defined( 'ABSPATH' ) ) { exit; }
 							require_once dirname(__FILE__) . '/freemius-lite/start.php';
 						}
             $apbConfig = array(
-                'id'                  => '17727',
+                  'id'                  => '17727',
                 'slug'                => 'info-cards',
                 'type'                => 'plugin',
                 'public_key'          => 'pk_a98bc1d71dc1e0a8bf0aede3af3e0',
                 'is_premium'          => true,
                 'premium_suffix'      => 'Pro',
+                // If your plugin is a serviceware, set this option to false.
                 'has_premium_version' => true,
                 'has_addons'          => false,
                 'has_paid_plans'      => true,
+                'trial'               => array(
+                    'days'               => 7,
+                    'is_require_payment' => false,
+                ),
                 'menu'                => array(
-                    'first-path'     => 'plugins.php',
+                    'slug'           => 'info-cards-dashboard',
+                    'first-path'     => 'admin.php?page=info-cards-dashboard#/welcome',
                     'support'        => false,
                 ),
             );
@@ -84,11 +90,11 @@ if ( !defined( 'ABSPATH' ) ) { exit; }
 
         // my code  
 
-       class BPICB_Info_Cards{
-    private static $instance;
+    class BPICB_Info_Cards{
+        private static $instance;
 
-    private function __construct()
-    {
+    private function __construct(){
+
         $this->constants_define();
         add_action( 'init', [$this, 'onInit'] );
         add_action('enqueue_block_assets', [$this,'load_unicorn_studio_script']);
@@ -139,6 +145,7 @@ if ( !defined( 'ABSPATH' ) ) { exit; }
         // Constant
         define( 'ICB_VERSION', isset( $_SERVER['HTTP_HOST'] ) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.0.11' );
         define( 'ICB_DIR', plugin_dir_url( __FILE__ ) );
+         define('ICB_DIR_PATH', plugin_dir_path(__FILE__));
     }
 
     public function onInit(){
@@ -157,6 +164,12 @@ if ( !defined( 'ABSPATH' ) ) { exit; }
 }
 BPICB_Info_Cards::get_instance();
     }
+
+     require_once ICB_DIR_PATH . '/inc/adminMenu.php';
+
+    if( !INFO_CARDS_PRO ){
+		require_once ICB_DIR_PATH . '/inc/upgradePage.php';
+	}
 
 
 

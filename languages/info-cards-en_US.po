@@ -9,13 +9,15 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-07-19T08:15:39+02:00\n"
+"POT-Creation-Date: 2025-07-20T08:47:39+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: info-cards\n"
 
 #. Plugin Name of the plugin
 #: info-cards.php
+#: inc/adminMenu.php:36
+#: inc/adminMenu.php:37
 msgid "Info Cards"
 msgstr ""
 
@@ -32,6 +34,14 @@ msgstr ""
 #. Author URI of the plugin
 #: info-cards.php
 msgid "http://bplugins.com"
+msgstr ""
+
+#: inc/upgradePage.php:14
+msgid "Info Cards - Upgrade"
+msgstr ""
+
+#: inc/upgradePage.php:15
+msgid "Upgrade"
 msgstr ""
 
 #: build/block.json
