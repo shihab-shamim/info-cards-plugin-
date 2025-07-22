@@ -218,7 +218,7 @@ const General = ({
       >
         <SelectControl
           className="mt20"
-          label={__("Theme", "info-cards")}
+          label={__("Choose A Theme", "info-cards")}
           labelPosition="left"
           value={theme}
           onChange={(val) => {

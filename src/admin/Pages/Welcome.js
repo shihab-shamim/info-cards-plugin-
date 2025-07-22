@@ -17,6 +17,7 @@ const Welcome = ({ isPremium }) => {
         window.location.href = baseUrl + adminPath;
     };
 
+
     return (
         <>
             <Layout isPremium={isPremium}>

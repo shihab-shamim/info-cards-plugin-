@@ -11388,32 +11388,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   free_pro_feature_list: () => (/* binding */ free_pro_feature_list)
 /* harmony export */ });
 const free_pro_feature_list = [{
-  title: "Unlimited slides can be added",
+  title: "Unlimited Cards can be added",
   hot: true,
   new: true,
-  status: true
+  status: false
 }, {
-  title: "Slide duplicate",
+  title: "Card duplicate",
   hot: true,
   new: false,
   status: false
 }, {
-  title: "Slide Remove",
+  title: "Card Remove",
   hot: true,
   new: false,
   status: false
 }, {
-  title: "Title and description styles can be added",
+  title: "Title, description, button, and card styles can now be customized",
   hot: false,
   new: false,
   status: false
 }, {
-  title: "Right and Left button styles can be added",
-  hot: false,
-  new: false,
-  status: false
-}, {
-  title: "Slide indicator styles can be added",
+  title: "Button icon styles can be added",
   hot: false,
   new: false,
   status: false
@@ -11421,127 +11416,97 @@ const free_pro_feature_list = [{
   title: "Cards--- animation, 3d",
   hot: true,
   new: true,
-  status: false
+  status: true
 }, {
-  title: "Sliders duration time set",
+  title: "Mouse move animation triggered on mouse movement",
+  hot: false,
+  new: false,
+  status: true
+}, {
+  title: "Five additional themes are now ready to use",
+  hot: false,
+  new: false,
+  status: true
+}, {
+  title: "Overlay Color Control",
   hot: false,
   new: false,
   status: false
 }, {
-  title: "Slider hover pause on/off",
-  hot: false,
-  new: false,
-  status: false
-}, {
-  title: "Slide Overly Color option",
-  hot: false,
-  new: false,
-  status: false
-}, {
-  title: "Slider Animation option",
-  hot: true,
-  new: false,
-  status: false
-}, {
-  title: "Slider Content Default/Middle option",
-  hot: false,
-  new: false,
-  status: false
-}, {
-  title: "Slider Arrow size option added",
-  hot: false,
-  new: false,
-  status: false
-}, {
-  title: "Slider Arrow height and width, Border Radius, color option added",
-  hot: false,
-  new: false,
-  status: false
-}, {
-  title: "Button in content",
-  hot: true,
-  new: false,
-  status: true
-}, {
-  title: "There are two layout options horizontal and vertical",
-  hot: true,
-  new: false,
-  status: true
-}, {
-  title: "Animation, delay, and duration:Title, description, and button set this",
-  hot: true,
-  new: false,
-  status: true
-}, {
-  title: "Set indicator image option",
-  hot: true,
-  new: false,
-  status: true
-}, {
-  title: "Multiple Arrow icon",
-  hot: true,
-  new: false,
-  status: true
-}, {
-  title: "Transition modes:Fade, Slide, Flip",
-  hot: true,
-  new: false,
-  status: true
-}, {
-  title: "Content position",
-  hot: true,
-  new: false,
-  status: true
-}, {
-  title: "Slide on Mousewheel:Slide on Mousewheel option",
-  hot: true,
-  new: false,
-  status: true
-}, {
-  title: "Arrow Follow Mouse:Slide on the arrow follow option",
-  hot: true,
-  new: false,
-  status: true
-}, {
-  title: "Slide on mouse drag:Slide on mouse drag",
-  hot: true,
-  new: false,
-  status: true
-}, {
-  title: "Indicators custom position",
-  hot: true,
-  new: false,
-  status: true
-}, {
-  title: "Slider Margin",
-  hot: true,
-  new: false,
-  status: true
-}, {
-  title: "Shortcode:Shortcode option to use anywhere",
-  hot: true,
-  new: false,
-  status: true
-}, {
-  title: "Slider Height:Slider height can be set according to the device",
-  hot: true,
-  new: false,
-  status: true
-}, {
-  title: "Slide Drag and Drop:Allows dragging and dropping of slide items",
-  hot: true,
-  new: false,
-  status: true
-}, {
-  title: "Added four source types:Image, Posts, WooCommerce, and Video",
+  title: "Card Animations",
   hot: true,
   new: true,
   status: true
 }, {
-  title: "Added four layout types:Slider, Carousel, Grid, and Thumbnails",
+  title: "Content Positioning",
+  hot: false,
+  new: true,
+  status: true
+}, {
+  title: "Icon Size Control",
+  hot: false,
+  new: false,
+  status: false
+}, {
+  title: "Icon Styling Options",
+  hot: false,
+  new: false,
+  status: false
+}, {
+  title: "Content Buttons",
+  hot: true,
+  new: false,
+  status: false
+}, {
+  title: "Horizontal & Vertical Layouts",
+  hot: true,
+  new: false,
+  status: false
+}, {
+  title: "Per-Element Animation Settings",
   hot: true,
   new: true,
   status: true
+}, {
+  title: "Variant buttons and status options available",
+  hot: true,
+  new: true,
+  status: true
+}, {
+  title: "Transition Modes",
+  hot: true,
+  new: true,
+  status: true
+}, {
+  title: "Content Placement",
+  hot: true,
+  new: true,
+  status: true
+}, {
+  title: "Card Grab Mouse animation",
+  hot: true,
+  new: true,
+  status: true
+}, {
+  title: "Card Margin Control",
+  hot: true,
+  new: false,
+  status: false
+}, {
+  title: "Responsive Height",
+  hot: true,
+  new: false,
+  status: false
+}, {
+  title: "Animated card with drag functionality",
+  hot: true,
+  new: true,
+  status: true
+}, {
+  title: "Layout Types",
+  hot: true,
+  new: true,
+  status: false
 }];
 
 /***/ }),
@@ -11602,7 +11567,7 @@ const Header = ({
     className: "heading-title"
   }, " Info Cards ")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "plugin-version"
-  }, " v2.0.0 ")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, " v1.0.11")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "navLinks"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "firstLinks"
@@ -12450,28 +12415,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   helpItem: () => (/* binding */ helpItem)
 /* harmony export */ });
 const changeLog = [{
-  date: "1.1.28 – - 8 July, 2025",
+  date: "1.0.11 –- 22 July, 2025",
   list: [{
-    title: "Added four source types: Image, Posts, WooCommerce, and Video"
+    title: "Added 5 professionally designed card themes for faster styling"
   }, {
-    title: "Added four layout types: Slider, Carousel, Grid, and Thumbnails"
+    title: "Added  layout types:   Grid and Column"
   }]
 }];
 const helpItem = [{
-  title: 'Need any Assistance?',
-  description: 'Our Expert Support Team is always ready to help you out promptly.',
-  link: 'https://bplugins.com/support',
-  linkText: 'Contact Support'
+  title: "Need any Assistance?",
+  description: "Our Expert Support Team is always ready to help you out promptly.",
+  link: "https://bplugins.com/support",
+  linkText: "Contact Support"
 }, {
-  title: 'Looking for Documentation?',
-  description: 'We have detailed documentation on every aspects of the plugin.',
-  link: 'https://bplugins.com/docs/info-cards/',
-  linkText: 'Documentation'
+  title: "Looking for Documentation?",
+  description: "We have detailed documentation on every aspects of the plugin.",
+  link: "https://bplugins.com/docs/info-cards/",
+  linkText: "Documentation"
 }, {
-  title: 'Liked This Plugin?',
-  description: 'Glad to know that, you can support us by leaving a 5 ⭐ rating.',
-  link: 'https://wordpress.org/support/plugin/info-cards/reviews/#new-post',
-  linkText: 'Rate the Plugin'
+  title: "Liked This Plugin?",
+  description: "Glad to know that, you can support us by leaving a 5 ⭐ rating.",
+  link: "https://wordpress.org/support/plugin/info-cards/reviews/#new-post",
+  linkText: "Rate the Plugin"
 }];
 
 /***/ }),
