@@ -345,6 +345,7 @@ const General = ({
 
               });
 
+              
             // updateAllCard("background", { color: "#570DF8" })
 
             if (
