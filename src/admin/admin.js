@@ -5,4 +5,4 @@ import AppContainer from './Index';
 document.addEventListener('DOMContentLoaded', () => {
   const helpEl = document.getElementById('icbAdminHelpPage');
   createRoot(helpEl).render(<AppContainer />);
-});
+}); 

@@ -387,7 +387,7 @@ const Style = ({
               Component={UnitControl}
                  {...premiumProps}
             />
-            {/* <UnitControl step={1} style={{marginTop:"10px"}} label={__("Height ", "info-cards")} value={styles?.card?.image?.height} onChange={(value)=>setAttributes({styles:updateData(styles,value,"card","image","height")})} /> */}
+            <UnitControl step={1} style={{marginTop:"10px"}} label={__("Height ", "info-cards")} value={styles?.card?.image?.height} onChange={(value)=>setAttributes({styles:updateData(styles,value,"card","image","height")})} />
 
             <SelectControlPro
               label={__("Select Image Fit")}
@@ -2526,7 +2526,7 @@ const Style = ({
 
             <BControlPro
               style={{ marginTop: "8px" }}
-              label="Alignment"
+              label="Content Alignment"
               options={[
                 { label: "Left", value: "left" },
                 { label: "Center", value: "center" },
@@ -2538,7 +2538,7 @@ const Style = ({
                   styles: updateData(styles, v, "card", "content", "alignment"),
                 })
               }
-               Component={BoxControls}
+               Component={BButtonGroup}
                       {...premiumProps}
             />
             {/* <Label className = 'mt8'>Gap</Label> */}

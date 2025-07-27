@@ -684,109 +684,174 @@
     }
   }
 
-  // theme 10 ar style 
-   .themeTenProductInfoGrab {
-
+  // theme 10 ar style
+  .themeTenProductInfoGrab {
     display: flex;
     justify-content: center;
-    
-    .themeTenGrabMouseMoveSection{
-       
-        position: relative,;
-        background: black;
-        overflow: hidden;
-.themeTenGrabMouseMoveContent{
-           position: absolute;
-          transform: translate(-50%, -50%);
-          z-index: 10;
-}
+
+    .themeTenGrabMouseMoveSection {
+      position: relative;
+      background: black;
+      overflow: hidden;
+      .themeTenGrabMouseMoveContent {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+      }
 
       .themeTenProductInfoCard {
         will-change: transform;
-      margin-top: 0px;
-      padding: 0;
-      max-width: 100%;
-      position: relative;
-      border: 2px solid transparent;
-      background: none;
-      background-clip: padding-box, border-box;
-      background-origin: padding-box, border-box;
-      cursor: grab;
-      user-select: none;
-      transform-style: preserve-3d;
-      overflow: visible;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-      transition: box-shadow 0.3s ease;
-
-      &:hover {
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-      }
-
-      &::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        z-index: 1;
-        pointer-events: none;
-      }
-
-      &::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        z-index: 2;
-        pointer-events: none;
-      }
-
-      .themeTenCardQuest {
-        position: absolute;
-        transform: translateX(-50%);
-        perspective: 1000px;
+        margin-top: 0px;
+        padding: 0;
+        max-width: 100%;
+        position: relative;
+        border: 2px solid transparent;
+        background: none;
+        background-clip: padding-box, border-box;
+        background-origin: padding-box, border-box;
+        cursor: grab;
+        user-select: none;
         transform-style: preserve-3d;
-        z-index: 3;
+        overflow: visible;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease;
 
-        .grabImg {
-          transform: translateZ(50px);
-          user-select: none;
+        &:hover {
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          z-index: 1;
           pointer-events: none;
-          display: block;
-        }
-      }
-
-      .themeTenCardText {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        z-index: 3;
-        perspective: 1000px;
-        transform-style: preserve-3d;
-
-        .themeTenGrabTitle {
-          margin: 0;
-          transform: translateZ(50px);
         }
 
-        .themeTenGrabDescription {
-          max-width: 70%;
-          transform: translateZ(50px);
+        &::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          z-index: 2;
+          pointer-events: none;
         }
 
-        .themeTenGrabButton {
-          border-radius: 12px;
-          transform: translateZ(50px);
-          user-select: none;
-          display: inline-block;
-          transition: background-color 0.3s ease;
+        .themeTenCardQuest {
+          position: absolute;
+          transform: translateX(-50%);
+          perspective: 1000px;
+          transform-style: preserve-3d;
+          z-index: 3;
 
-          &:hover {
-            background: #005ecb;
+          .grabImg {
+            transform: translateZ(50px);
+            user-select: none;
+            pointer-events: none;
+            display: block;
+          }
+        }
+
+        .themeTenCardText {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          z-index: 3;
+          perspective: 1000px;
+          transform-style: preserve-3d;
+
+          .themeTenGrabTitle {
+            margin: 0;
+            transform: translateZ(50px);
+          }
+
+          .themeTenGrabDescription {
+            max-width: 70%;
+            transform: translateZ(50px);
+          }
+
+          .themeTenGrabButton {
+            border-radius: 12px;
+            transform: translateZ(50px);
+            user-select: none;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+              background: #005ecb;
+            }
           }
         }
       }
     }
-    
   }
 
+  // theme 11 ar style
+  .themeElevenServices-section {
+    display: flex;
+    overflow: hidden;
+
+    .themeElevenServices-container {
+      display: grid;
+      .themeElevenService-card-container {
+        .themeElevenService-card {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          transition: all 0.3s ease;
+          position: relative;
+
+          .themeElevenService-icon {
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            .themeElevenIcon {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              svg {
+                object-fit: contain;
+              }
+            }
+          }
+
+          .themeElevenService-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+          }
+
+          .themeElevenService-link {
+            margin-top: auto;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            outline: none;
+            box-shadow: none;
+            border: none;
+            display: flex;
+            align-items: center;
+          }
+
+          .themeElevenService-link .themeElevenServiceArrow-icon {
+            margin-left: 8px;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+          }
+
+          .themeElevenService-link:hover .themeElevenServiceArrow-icon {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+      }
+    }
   }
 }

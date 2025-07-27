@@ -1,6 +1,7 @@
   
   
   import ThemeTenMouseMove from '../Common/theme10/ThemeTenMouseMove';
+import ThemeElevenServiceInfo from '../Common/theme11/ThemeElevenServiceInfo';
 import Theme6 from '../Common/theme6/Theme6';
 import SevenInfoCard from '../Common/theme7/SevenInfoCard';
 import ThemeEightInfoProfile from '../Common/theme8/ThemeEightInfoProfile';
@@ -47,5 +48,8 @@ import Cards from './Cards';
           <ThemeTenMouseMove isEditor={false}  attributes={attributes} />
         </div>)
       }
+        if(theme==="theme11"){
+      return(<ThemeElevenServiceInfo  isEditor={false}  attributes={attributes} />)
+    }
 }
 

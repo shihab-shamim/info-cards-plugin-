@@ -16,9 +16,9 @@ if(!class_exists('bsbAdminMenu')) {
         }
 
         public function adminEnqueueScripts($hook) {
-            if ('toplevel_page_info-cards-dashboard' === $hook) {
-                wp_enqueue_style( 'icb-admin-style', ICB_DIR . 'build/admin/admin.css', false, ICB_VERSION );
-                wp_enqueue_script( 'icb-admin-script', ICB_DIR . 'build/admin/admin.js', ['react', 'react-dom', 'wp-data', "wp-api", "wp-util", "wp-i18n"], ICB_VERSION, true );
+            if ('tools_page_info-cards-dashboard' === $hook) {
+                wp_enqueue_style( 'icb-admin-style', ICB_DIR . 'build/admin.css', false, ICB_VERSION );
+                wp_enqueue_script( 'icb-admin-script', ICB_DIR . 'build/admin.js', ['react', 'react-dom', 'wp-data', "wp-api", "wp-util", "wp-i18n"], ICB_VERSION, true );
 
                  wp_localize_script('icb-admin-script', 'pluginAction', [
                     'ajaxUrl' => admin_url('admin-ajax.php'),
@@ -32,14 +32,13 @@ if(!class_exists('bsbAdminMenu')) {
     <path  d='M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm80 256h64c44.2 0 80 35.8 80 80c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16c0-44.2 35.8-80 80-80zm-32-96a64 64 0 1 1 128 0 64 64 0 1 1 -128 0zm256-32H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16s7.2-16 16-16z' />
 </svg>";
 
-            add_menu_page(
+            add_submenu_page(
+                "tools.php",
                 __('Info Cards', 'info-cards'),
                 __('Info Cards', 'info-cards'),
                 'manage_options',
                 'info-cards-dashboard',
-                [$this, 'icb_help_page'],
-                'data:image/svg+xml;base64,' . base64_encode($menuIcon),
-                6
+                [$this, 'icb_help_page']
             );
         }
 

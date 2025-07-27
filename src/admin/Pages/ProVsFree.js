@@ -7,7 +7,7 @@ const ProVsFree = ({ isPremium }) => {
     return <><Layout isPremium={isPremium}>
         <div className="headerArea">
             <h2>{__('Free vs Pro Comparison', 'slider')}</h2>
-            <a className="action-button" href="https://bplugins.com/products/b-slider/#pricing" target="_blank" rel="noopener noreferrer">Upgrade to Pro Now</a>
+            <a className="action-button" href="tools.php?page=info-cards-dashboard-pricing" rel="noopener noreferrer">Upgrade to Pro Now</a>
         </div>
         <div className="feature-section">
             <div className="feature-container">
@@ -57,14 +57,14 @@ const ProVsFree = ({ isPremium }) => {
 
         <div className="pro-upgrade-section">
             <h2>Upgrade To PRO &amp; Enjoy Advanced Features!</h2>
-            <p>
-                Over, <strong>5000+</strong> people are already using B Slider to create stunning
-                sliders and galleries on their websites—why not join them?
-            </p>
+           <p>
+    Over <strong>2000+</strong> people are already using Info Card to design beautiful, customizable cards and content boxes on their websites—why not join them?
+</p>
+
             <div className="buttons">
-                <a href="https://bplugins.com/products/b-slider/#pricing" target='_blank' rel='noreferrer' className="btn btn-primary">Upgrade to Pro Now!</a>
-                <a href="https://bplugins.com/products/b-slider/#demos" target='_blank' rel='noreferrer' className="btn btn-link">Live Demo</a>
-                <a href="https://bplugins.com/contact/" target='_blank' className="btn btn-link" rel='noreferrer'>Support</a>
+                <a href="tools.php?page=info-cards-dashboard-pricing"  rel='noreferrer' className="btn btn-primary">Upgrade to Pro Now!</a>
+                <a href="https://bblockswp.com/demo/info-cards/" target='_blank' rel='noreferrer' className="btn btn-link">Live Demo</a>
+                <a href="https://bplugins.com/support/" target='_blank' className="btn btn-link" rel='noreferrer'>Support</a>
             </div>
         </div>
     </>

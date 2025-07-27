@@ -50,7 +50,7 @@ if ( !defined( 'ABSPATH' ) ) { exit; }
 							require_once dirname(__FILE__) . '/freemius-lite/start.php';
 						}
             $apbConfig = array(
-                  'id'                  => '17727',
+                 'id'                  => '17727',
                 'slug'                => 'info-cards',
                 'type'                => 'plugin',
                 'public_key'          => 'pk_a98bc1d71dc1e0a8bf0aede3af3e0',
@@ -66,8 +66,11 @@ if ( !defined( 'ABSPATH' ) ) { exit; }
                 ),
                 'menu'                => array(
                     'slug'           => 'info-cards-dashboard',
-                    'first-path'     => 'admin.php?page=info-cards-dashboard#/welcome',
+                    'first-path'     => 'tools.php?page=info-cards-dashboard#/welcome',
                     'support'        => false,
+                    'parent'         => array(
+                        'slug' => 'tools.php',
+                    ),
                 ),
             );
             $ic_fs = INFO_CARDS_PRO ? fs_dynamic_init( $apbConfig ) : fs_lite_dynamic_init( $apbConfig );
@@ -113,7 +116,7 @@ if ( !defined( 'ABSPATH' ) ) { exit; }
 					}
 		
 					wp_send_json_success([
-						'isPipe' => false
+						'isPipe' => ssbIsPremium()
 						
 					
 						

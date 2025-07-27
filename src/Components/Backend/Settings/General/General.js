@@ -53,6 +53,7 @@ const General = ({
     options,
     styles,
     grabCardInfo,
+    productsInfo
   } = attributes;
 
   const [device, setDevice] = useState("desktop");
@@ -179,6 +180,7 @@ const General = ({
       "https://images.unsplash.com/photo-1517021897933-0e0319cfbc28?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max",
   };
 
+
   const onAddCard = () => {
     const newCards = [
       ...cards,
@@ -244,6 +246,8 @@ const General = ({
                 cardPadding: { top: "0", right: "0", bottom: "0", left: "0" },
                 btnColors: { color: "#fff", bg: "#4527a4" },
                 btnHovColors: { color: "#fff", bg: "#fe6601" },
+                            align:"none"
+
               });
             // updateAllCard("background", { color: "#fff" })
 
@@ -260,6 +264,8 @@ const General = ({
                 cardPadding: { top: "0", right: "0", bottom: "0", left: "0" },
                 btnColors: { color: "#fff", bg: "#4527a4" },
                 btnHovColors: { color: "#fff", bg: "#fe6601" },
+                            align:"none"
+
               });
             // updateAllCard("background", { color: "#fff" })
 
@@ -281,6 +287,8 @@ const General = ({
                 },
                 btnColors: { color: "#fff", bg: "#4527a4" },
                 btnHovColors: { color: "#fff", bg: "#fe6601" },
+                            align:"none"
+
               });
             // updateAllCard("background", { color: "#fff" })
 
@@ -297,6 +305,8 @@ const General = ({
                 cardPadding: { top: "0", right: "0", bottom: "0", left: "0" },
                 btnColors: { color: "#fff", bg: "#4527a4" },
                 btnHovColors: { color: "#fff", bg: "#fe6601" },
+                            align:"none"
+
               });
             // updateAllCard("background", { color: "#fff" })
 
@@ -313,6 +323,8 @@ const General = ({
                 cardPadding: { top: "0", right: "0", bottom: "0", left: "0" },
                 btnColors: { color: "#fff", bg: "#000" },
                 btnHovColors: { color: "#ffffffb3", bg: "#000000b3" },
+                            align:"none"
+
               });
             // updateAllCard("background", { color: "#570DF8" }));
 
@@ -329,6 +341,8 @@ const General = ({
                 cardPadding: { top: "0", right: "0", bottom: "0", left: "0" },
                 btnColors: { color: "#fff", bg: "#000" },
                 btnHovColors: { color: "#ffffffb3", bg: "#000000b3" },
+                            align:"none"
+
               });
 
             // updateAllCard("background", { color: "#570DF8" })
@@ -338,7 +352,8 @@ const General = ({
               val === "theme7" ||
               val === "theme8" ||
               val === "theme9" ||
-              val === "theme10"
+              val === "theme10" ||
+               val === "theme11" 
             ) {
               setAttributes(themeSwitch(val, attributes, setAttributes));
             }
@@ -355,6 +370,7 @@ const General = ({
             { label: "Theme 8", value: "theme8" },
             { label: "Theme 9", value: "theme9" },
             { label: "Theme 10", value: "theme10" },
+            { label: "Theme 11", value: "theme11" }
           ]}
         />
 

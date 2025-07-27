@@ -8,6 +8,7 @@ import {
 } from "../../../../bpl-tools/utils/getCSS";
 import { getBoxValue } from "../../../../bpl-tools/utils/functions";
 import {
+	deskBreakpoint,
   mobileBreakpoint,
   tabBreakpoint,
 } from "../../../../bpl-tools/utils/data";
@@ -190,6 +191,50 @@ const Style = ({ attributes, id,isBack }) => {
   }
 }
 
+
+
+// theme 11 ar style selector 
+  const themeElevenServicesSectionSl = `${mainSl} .themeElevenServices-section`;
+  const themeElevenServicesContainerSl = `${themeElevenServicesSectionSl} .themeElevenServices-container`;
+  const themeElevenServicesCardContainerSl = `${themeElevenServicesContainerSl} .themeElevenService-card-container`;
+  const themeElevenServicesCardIconSl = `${themeElevenServicesContainerSl} .themeElevenService-icon`;
+  const themeElevenServicesCardSl = `${themeElevenServicesContainerSl} .themeElevenService-card`;
+  const themeElevenServicesTitleSl = `${themeElevenServicesContainerSl} .themeElevenService-title`;
+  const themeElevenServicesDescriptionSl = `${themeElevenServicesContainerSl} .themeElevenService-description`;
+  const themeElevenServicesButtonSl = `${themeElevenServicesContainerSl} .themeElevenService-link`;
+  const themeElevenServicesButtonArrowIconSl = `${themeElevenServicesButtonSl} .themeElevenServiceArrow-icon`;
+  const themeElevenServicesHighlightSl = `${themeElevenServicesCardSl} .themeElevenService-badge`;
+
+
+
+    const themeElevenDynamicPadding = productsInfo?.map((card, index) => {
+      return `
+	${themeElevenServicesCardContainerSl}-${index + 1}{
+	padding-top:${card?.top};
+
+	}
+     
+    `;
+    })
+    .join("\n");
+
+  const themeElevenDynamicIconColor = productsInfo?.map((card, index) => {
+      return `
+	.themeElevenIcon-${index + 1} svg{
+	  width: ${styles?.card?.logo?.size};
+        height: ${styles?.card?.logo?.size};
+        fill: ${card?.icon?.color};
+	
+	}
+		${themeElevenServicesCardIconSl}-${index + 1}{
+		background-color:${card?.icon?.bg};
+		}
+
+      
+    `;
+    })
+    .join("\n");
+
   return (
     <style>
       {`
@@ -221,6 +266,12 @@ const Style = ({ attributes, id,isBack }) => {
 		   ${getTypoCSS('', styles?.card?.content?.title?.typo)?.googleFontLink}
         ${getTypoCSS('', styles?.card?.content?.description?.typo)?.googleFontLink}
         ${getTypoCSS('', styles?.card?.content?.button?.typo)?.googleFontLink}
+
+		 ${getTypoCSS("", styles?.card?.title?.typo)?.googleFontLink}
+		 ${getTypoCSS("", styles?.card?.descriptions?.typo)?.googleFontLink}
+		 ${getTypoCSS("", styles?.card?.button?.typo)?.googleFontLink}
+		 ${getTypoCSS("", styles?.card?.highlight?.typo)?.googleFontLink}
+
 		
 		
 
@@ -269,6 +320,12 @@ const Style = ({ attributes, id,isBack }) => {
 	   ${getTypoCSS(themeTenGrabTitleSl, styles?.card?.content?.title?.typo)?.styles}
          ${getTypoCSS(themeTenGrabDescriptionSl, styles?.card?.content?.description?.typo)?.styles}
          ${getTypoCSS(themeTenGrabButtonSl, styles?.card?.content?.button?.typo)?.styles}
+
+		 
+		 ${getTypoCSS(themeElevenServicesTitleSl, styles?.card?.title?.typo)?.styles} 
+		 ${getTypoCSS(themeElevenServicesDescriptionSl, styles?.card?.description?.typo)?.styles} 
+		 ${getTypoCSS(themeElevenServicesButtonSl, styles?.card?.button?.typo)?.styles} 
+		 ${getTypoCSS(themeElevenServicesHighlightSl, styles?.card?.highlight?.typo)?.styles} 
 		
 
         
@@ -352,7 +409,7 @@ const Style = ({ attributes, id,isBack }) => {
 		}
 		${productImageSl}{
 			 max-width:${styles?.card?.image?.width};
-             min-height: ${styles?.card?.image?.height};
+             height: ${styles?.card?.image?.height};
 			 object-fit: ${styles?.card?.image?.position};
 		
 
@@ -903,6 +960,104 @@ const Style = ({ attributes, id,isBack }) => {
       }
 
     }
+
+
+
+
+
+
+
+
+	 
+		${themeElevenServicesContainerSl}{
+
+		 ${getBackgroundCSS(styles?.bg)}
+		 padding:${getBoxCSS(styles?.padding?.desktop)};
+		 margin:${getBoxCSS(styles?.margin?.desktop)};
+		 border-radius:${getBoxCSS(styles?.radius)};
+		  grid-template-columns: repeat(${styles?.columns?.desktop}, 1fr); 
+		  column-gap:${styles?.columnGap?.desktop};
+          row-gap:${styles?.rowGap?.desktop} ;
+		}
+		  ${ theme==="theme11" && themeElevenDynamicIconColor}
+		 
+
+
+		
+		${deskBreakpoint}{
+		${ theme==="theme11" && themeElevenDynamicPadding}
+		}
+
+		${themeElevenServicesCardSl}{
+		${getBackgroundCSS(styles?.card?.bg)}
+		height:${styles?.card?.height};
+		border-radius:${getBoxCSS(styles?.card?.radius)};
+		padding:${getBoxCSS(styles?.card?.padding)};
+		box-shadow:${getMultiShadowCSS(styles?.card?.shadow)};
+		}
+		${themeElevenServicesCardIconSl}{
+		width:${styles?.card?.logo?.width};
+		height:${styles?.card?.logo?.height};
+		
+		}
+		${themeElevenServicesTitleSl}{
+		color: ${styles?.card?.title?.color};
+		}
+   	${themeElevenServicesDescriptionSl}{
+		color: ${styles?.card?.description?.color};
+		}
+    	
+
+		${themeElevenServicesButtonSl}{
+		color:${styles?.card?.button?.color};
+		}
+		${themeElevenServicesButtonSl}:hover{
+	    color:${styles?.card?.button?.hoverColor};
+		fill:${styles?.card?.button?.hoverColor};
+		}
+
+		${themeElevenServicesButtonArrowIconSl} svg{
+		width:${styles?.card?.button?.size};
+		height:${styles?.card?.button?.size};
+		}
+
+		${themeElevenServicesHighlightSl}{
+		${getColorsCSS(styles?.card?.highlight?.colors)}
+		padding:${getBoxCSS(styles?.card?.highlight?.padding)};
+		border-radius:${getBoxCSS(styles?.card?.highlight?.radius)};
+		}
+
+
+
+
+
+		${tabBreakpoint}{
+		
+		${themeElevenServicesContainerSl}{
+	
+		 padding:${getBoxCSS(styles?.padding?.tablet)};
+		 margin:${getBoxCSS(styles?.margin?.tablet)};
+		  grid-template-columns: repeat(${styles?.columns?.tablet}, 1fr); 
+		  column-gap:${styles?.columnGap?.tablet};
+          row-gap:${styles?.rowGap?.tablet} ;
+		}
+		   
+		}
+
+
+
+		${mobileBreakpoint}{
+		${themeElevenServicesContainerSl}{
+		
+		 padding:${getBoxCSS(styles?.padding?.mobile)};
+		 margin:${getBoxCSS(styles?.margin?.mobile)};
+		  grid-template-columns: repeat(${styles?.columns?.mobile}, 1fr); 
+		    column-gap:${styles?.columnGap?.mobile};
+          row-gap:${styles?.rowGap?.mobile};
+		}
+		  	
+		}
+	
 
 
         

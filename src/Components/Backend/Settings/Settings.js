@@ -123,6 +123,8 @@
                             cardPadding: { top: "0", right: "0", bottom: "0", left: "0" },
                             btnColors: { color: "#fff", bg: "#4527a4" },
                             btnHovColors: { color: "#fff", bg: "#fe6601" },
+                            align:"none"
+
                           });
                         // updateAllCard("background", { color: "#fff" })
             
@@ -139,6 +141,8 @@
                             cardPadding: { top: "0", right: "0", bottom: "0", left: "0" },
                             btnColors: { color: "#fff", bg: "#4527a4" },
                             btnHovColors: { color: "#fff", bg: "#fe6601" },
+                            align:"none"
+
                           });
                         // updateAllCard("background", { color: "#fff" })
             
@@ -160,6 +164,8 @@
                             },
                             btnColors: { color: "#fff", bg: "#4527a4" },
                             btnHovColors: { color: "#fff", bg: "#fe6601" },
+                            align:"none"
+
                           });
                         // updateAllCard("background", { color: "#fff" })
             
@@ -176,6 +182,8 @@
                             cardPadding: { top: "0", right: "0", bottom: "0", left: "0" },
                             btnColors: { color: "#fff", bg: "#4527a4" },
                             btnHovColors: { color: "#fff", bg: "#fe6601" },
+                            align:"none"
+
                           });
                         // updateAllCard("background", { color: "#fff" })
             
@@ -192,6 +200,8 @@
                             cardPadding: { top: "0", right: "0", bottom: "0", left: "0" },
                             btnColors: { color: "#fff", bg: "#000" },
                             btnHovColors: { color: "#ffffffb3", bg: "#000000b3" },
+                            align:"none"
+
                           });
                         // updateAllCard("background", { color: "#570DF8" }));
             
@@ -208,6 +218,7 @@
                             cardPadding: { top: "0", right: "0", bottom: "0", left: "0" },
                             btnColors: { color: "#fff", bg: "#000" },
                             btnHovColors: { color: "#ffffffb3", bg: "#000000b3" },
+                            align:"none"
                           });
             
                         // updateAllCard("background", { color: "#570DF8" })
@@ -217,7 +228,8 @@
                           val === "theme7" ||
                           val === "theme8" ||
                           val === "theme9" ||
-                          val === "theme10"
+                          val === "theme10" ||
+                          val === "theme11"
                         ) {
                           setAttributes(themeSwitch(val, attributes, setAttributes));
                         }
@@ -231,7 +243,7 @@
         <AboutProModal
         isProModalOpen={isProModalOpen}
         setIsProModalOpen={setIsProModalOpen}
-        link="https://checkout.freemius.com/plugin/17727/plan/29468/"
+        link="tools.php?page=info-cards-dashboard#/upgrade-to-pro"
       >
           <li>
           <strong>

@@ -91,7 +91,12 @@ const PopularPlugin = ({ isPremium }) => {
                             {popularPlugins?.map((singlePlugin, index) => {
                                 const isInstalled = installedPlugins.some(
                                     (pluginSlug) =>
-                                        pluginSlug === `${singlePlugin?.slug}/${singlePlugin?.slug}.php`
+                                        {
+                                        if (singlePlugin?.slug === "advanced-post-block") {
+                                            return pluginSlug === "advanced-post-block/plugin.php";
+                                        }
+                                        return pluginSlug === `${singlePlugin?.slug}/${singlePlugin?.slug}.php`;
+                                    }
                                 );
                                 return (
                                     <div className="item" key={index}>

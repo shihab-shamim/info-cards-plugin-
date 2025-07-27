@@ -6,6 +6,7 @@ import PopularPlugin from './Pages/PopularPlugin';
 import Demo from './Pages/Demo/Demo';
 import ProVsFree from './Pages/ProVsFree';
 import { usePremiumInEditor } from '../../../bpl-tools/hooks';
+import UpgradeNow from './Pages/upgrade/UpgradeNow';
 
 const App = () => {
   const { isPremium } = usePremiumInEditor("ssbUtils", "ssbPremiumChecker");
@@ -17,7 +18,8 @@ const App = () => {
         <Route path="/welcome" element={<Welcome isPremium={isPremium} />} />
         <Route path="/most-popular" element={<PopularPlugin isPremium={isPremium} />} />
         <Route path="/demo" element={<Demo isPremium={isPremium} upgradeLink='https://bplugins.com/products/b-slider/#pricing' />} />
-        {!isPremium && <Route path="/free-vs-pro" element={<ProVsFree isPremium={isPremium} />} />}
+        {/* {!isPremium && <Route path="/free-vs-pro" element={<ProVsFree isPremium={isPremium} />} />} */}
+        {!isPremium && <Route path="/upgrade-to-pro" element={<UpgradeNow isPremium={isPremium} />} />}
 
         {/* When no routes match, it will redirect to this route path. Note that it should be registered above. */}
         <Route path="*" element={<Navigate to="/welcome" replace />} />
