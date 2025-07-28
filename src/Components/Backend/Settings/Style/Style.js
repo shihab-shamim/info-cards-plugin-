@@ -2689,6 +2689,131 @@ const Style = ({
           </PanelBody>
         </>
       )}
+
+      {
+        theme === "theme11" && ( <>
+      <PanelBody
+        className="bPlPanelBody"
+        title={__("Section", "info-cards")}
+        initialOpen={false}
+      >
+        <Background
+          value={styles?.bg}
+          onChange={(v) =>
+            setAttributes({ styles: updateData(styles, v, "bg") })
+          }
+        />
+        <BoxControls
+          className="mt10"
+          label={__("Radius", "info-cards")}
+          values={styles?.radius}
+          onChange={(v) =>
+            setAttributes({ styles: updateData(styles, v, "radius") })
+          }
+        />
+      </PanelBody>
+
+      <PanelBody
+        className="bPlPanelBody"
+        title={__("Card", "info-cards")}
+        initialOpen={false}
+      >
+        <Background
+          value={styles?.card?.bg}
+          onChange={(v) =>
+            setAttributes({ styles: updateData(styles, v, "card", "bg") })
+          }
+        />
+
+        <UnitControl
+          label={__("Height", "info-cards")}
+          value={styles?.card?.height}
+          onChange={(v) =>
+            setAttributes({ styles: updateData(styles, v, "card", "height") })
+          }
+        />
+
+        <BoxControls
+          className="mt10"
+          styles={{ marginTop: "10px" }}
+          label={__("Radius", "info-cards")}
+          values={styles?.card?.radius}
+          onChange={(v) =>
+            setAttributes({ styles: updateData(styles, v, "card", "radius") })
+          }
+        />
+
+        <BoxControls
+          className="mt10"
+          styles={{ marginTop: "10px" }}
+          label={__("padding", "info-cards")}
+          values={styles?.card?.padding}
+          onChange={(v) =>
+            setAttributes({ styles: updateData(styles, v, "card", "padding") })
+          }
+        />
+
+        <ShadowControl value={styles?.card?.shadow} onChange={v=>setAttributes({ styles: updateData(styles, v, "card", "shadow") })}  />
+      </PanelBody>
+
+      <PanelBody className="bPlPanelBody"
+        title={__("Logo", "info-cards")}
+        initialOpen={false}>
+
+          <UnitControl label={__("Logo Bg Width", "info-cards")}  value={styles?.card?.logo?.width} onChange={v=>setAttributes({ styles: updateData(styles, v, "card", "logo","width") })} />
+
+          <UnitControl style={{marginTop:"10px"}} label={__("Logo Bg Height", "info-cards")} value={styles?.card?.logo?.height} onChange={v=>setAttributes({ styles: updateData(styles, v, "card", "logo","height") })} />
+
+            <UnitControl style={{marginTop:"10px"}} label={__("Logo Size", "info-cards")} value={styles?.card?.logo?.size} onChange={v=>setAttributes({ styles: updateData(styles, v, "card", "logo","size") })} />
+
+      </PanelBody>
+      <PanelBody className="bPlPanelBody"
+        title={__("HightLight", "info-cards")}
+        initialOpen={false}>
+          <ColorsControl value={styles?.card?.highlight?.colors} onChange={v=>setAttributes({styles:updateData(styles,v,"card","highlight","colors")})} />
+
+          <BoxControls label={__("Padding", "info-cards")} values={styles?.card?.highlight?.padding} onChange={v=>setAttributes({styles:updateData(styles,v,"card","highlight","padding")})}  />
+          <BoxControls className='mt10' label={__("Radius", "info-cards")} values={styles?.card?.highlight?.radius} onChange={v=>setAttributes({styles:updateData(styles,v,"card","highlight","radius")})}  />
+          <Typography className='mt10' label={__("Typography", "info-cards")} value={styles?.card?.highlight?.typo} onChange={v=>setAttributes({styles:updateData(styles,v,"card","highlight","typo")})}  />
+
+
+      </PanelBody>
+
+
+      <PanelBody className="bPlPanelBody"
+        title={__("Title", "info-cards")}
+         initialOpen={false}
+        > 
+        <ColorControl value={styles?.card?.title?.color}  onChange={v=>setAttributes({ styles: updateData(styles, v, "card", "title","color") })} />
+        <Typography value={styles?.card?.title?.typo}  onChange={v=>setAttributes({styles:updateData(styles,v,"card","title","typo")})} />
+
+      </PanelBody>
+
+   <PanelBody className="bPlPanelBody"
+        title={__("Description", "info-cards")}
+         initialOpen={false}>
+           <ColorControl value={styles?.card?.description?.color}  onChange={v=>setAttributes({ styles: updateData(styles, v, "card", "description","color") })} />
+        <Typography value={styles?.card?.description?.typo}  onChange={v=>setAttributes({styles:updateData(styles,v,"card","description","typo")})} />
+
+   </PanelBody>
+
+   {options?.isButtonVisible && <PanelBody className="bPlPanelBody"
+        title={__("Button", "info-cards")}
+         initialOpen={false}>
+           <ColorControl value={styles?.card?.button?.color}  onChange={v=>setAttributes({ styles: updateData(styles, v, "card", "button","color") })} />
+
+           <ColorControl label={__("Hover Color","info-cards")} value={styles?.card?.button?.hoverColor}  onChange={v=>setAttributes({ styles: updateData(styles, v, "card", "button","hoverColor") })} />
+
+        <Typography value={styles?.card?.button?.typo}  onChange={v=>setAttributes({styles:updateData(styles,v,"card","button","typo")})} />
+
+          <IconLibrary  value={options?.buttonIcon} onChange={v=>setAttributes({options:updateData(options,v,"buttonIcon")})} />
+
+            
+            <UnitControl style={{marginTop:"10px"}} label={__("Icon Size ","info-cards")} value={styles?.card?.button?.size}  onChange={v=>setAttributes({styles:updateData(styles,v,"card","button","size")})} />
+
+   </PanelBody>}
+    </>)
+      }
     </>
   );
 };

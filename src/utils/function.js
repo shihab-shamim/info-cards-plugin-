@@ -2122,7 +2122,7 @@ import ThemeElevenServiceInfo from "../Components/Common/theme11/ThemeElevenServ
     {
       label: "Theme-11",
       value: "theme11",
-      img: "https://templates.bplugins.com/wp-content/uploads/2025/07/image-5-1.png",
+      img: "https://templates.bplugins.com/wp-content/uploads/2025/07/image-7-1.png",
       height: "auto",
       width: "160px",
       isPro:true

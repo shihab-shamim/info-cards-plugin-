@@ -345,7 +345,7 @@ const General = ({
 
               });
 
-              
+
             // updateAllCard("background", { color: "#570DF8" })
 
             if (
@@ -1670,6 +1670,173 @@ const General = ({
           </PanelBody>
         </>
       )}
+
+      {
+        theme ==="theme11" &&(  <>
+      <PanelBody
+        className="bPlPanelBody"
+        title={__("Services", "info-cards")}
+        initialOpen={false}
+      >
+      
+
+        {/* <ItemsPanel
+          newItem={themeElevenNewCard}
+          design="sortable"
+          attributes={attributes}
+          setAttributes={setAttributes}
+          arrKey="serviceInfo"
+          itemLabel="Service"
+          ItemSettings={ServiceInfoSetting}
+        /> */}
+      </PanelBody>
+
+      <PanelBody
+        className="bPlPanelBody"
+        title={__("Layout", "info-cards")}
+        initialOpen={false}
+      >
+        {/* <PanelRow>
+          <Label className={"mt5"}>Widthss</Label>
+          <Device />
+        </PanelRow>
+
+        <UnitControl
+          value={styles?.width[device]}
+          onChange={(v) =>
+            setAttributes({ styles: updateData(styles, v, "width", device) })
+          }
+        /> */}
+
+        <PanelRow>
+          <Label className={"mt5"}>Margin</Label>
+          <Device />
+        </PanelRow>
+
+        <BoxControl
+          values={styles?.margin[editDevice]}
+          onChange={(v) =>
+            setAttributes({ styles: updateData(styles, v, "margin", editDevice) })
+          }
+        />
+
+        <PanelRow>
+          <Label className={"mt5"}>Padding</Label>
+          <Device />
+        </PanelRow>
+
+        <BoxControl
+          values={styles?.padding[editDevice]}
+          onChange={(v) =>
+            setAttributes({ styles: updateData(styles, v, "padding", editDevice) })
+          }
+        />
+
+        {/* <BButtonGroup
+          style={{ marginTop: "10px" }}
+          label="Alignment"
+          value={styles?.alignment}
+          options={[
+            { label: "Left", value: "left" },
+            { label: "Center", value: "center" },
+            { label: "Right", value: "right" },
+          ]}
+          onChange={(v) =>
+            setAttributes({ styles: updateData(styles, v, "alignment") })
+          }
+        /> */}
+
+        <PanelRow>
+          <Label className={"mt5"}>Columns</Label>
+          <Device />
+        </PanelRow>
+        <RangeControl
+          __nextHasNoMarginBottom
+          __next40pxDefaultSize
+          // label="Columns"
+          value={styles?.columns[editDevice]}
+          onChange={(v) =>
+            setAttributes({ styles: updateData(styles, v, "columns", editDevice) })
+          }
+          min={1}
+          max={10}
+        />
+
+        <PanelRow>
+          <Label className={"mt5"}>Column Gap</Label>
+          <Device />
+        </PanelRow>
+        <UnitControl
+          __nextHasNoMarginBottom
+          __next40pxDefaultSize
+          // label="Columns"
+          value={styles?.columnGap[editDevice]}
+          onChange={(v) =>
+            setAttributes({
+              styles: updateData(styles, v, "columnGap", editDevice),
+            })
+          }
+          min={1}
+          max={100}
+        />
+
+        <PanelRow>
+          <Label className={"mt5"}>Row Gap</Label>
+          <Device />
+        </PanelRow>
+        <UnitControl
+          __nextHasNoMarginBottom
+          __next40pxDefaultSize
+          // label="Columns"
+          value={styles?.rowGap[editDevice]}
+          onChange={(v) =>
+            setAttributes({
+              styles: updateData(styles, v, "rowGap", editDevice),
+            })
+          }
+          min={1}
+          max={100}
+        />
+      </PanelBody>
+
+      <PanelBody
+        className="bPlPanelBody"
+        title={__("Options", "info-cards")}
+        initialOpen={false}
+      >
+        <Label>
+          Open link in a new tab{" "}
+          <ToggleControl
+            checked={options?.isOpenNewTab}
+            onChange={() =>
+              setAttributes({
+                options: updateData(
+                  options,
+                  !options?.isOpenNewTab,
+                  "isOpenNewTab"
+                ),
+              })
+            }
+          />
+        </Label>
+        <Label>
+          Show Button{" "}
+          <ToggleControl
+            checked={options?.isButtonVisible}
+            onChange={() =>
+              setAttributes({
+                options: updateData(
+                  options,
+                  !options?.isButtonVisible,
+                  "isButtonVisible"
+                ),
+              })
+            }
+          />
+        </Label>
+      </PanelBody>
+    </>)
+      }
     </>
   );
 };
