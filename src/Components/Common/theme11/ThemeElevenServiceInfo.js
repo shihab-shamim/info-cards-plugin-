@@ -1,8 +1,9 @@
 import {  RichText } from '@wordpress/block-editor';
 import { updateData } from '../../../utils/function';
+import { BControlPro } from '../../../../../bpl-tools/ProControls';
 
 
-const ThemeElevenServiceInfo = ({ attributes, setAttributes, isEditor }) => {
+const ThemeElevenServiceInfo = ({ attributes, setAttributes, isEditor ,premiumProps}) => {
   const { productsInfo, options } = attributes;
   return  <section className="themeElevenServices-section">
       <div className="themeElevenServices-container">
@@ -20,7 +21,9 @@ const ThemeElevenServiceInfo = ({ attributes, setAttributes, isEditor }) => {
               className={`themeElevenService-card`}
             >
               {info?.highlight && (
-                isEditor?<RichText  value={info?.highlightLabel} tagName='div' className="themeElevenService-badge" onChange={(v)=>setAttributes({productsInfo:updateData(productsInfo,v,index,"highlightLabel")})} />: <RichText.Content className="themeElevenService-badge" value={info?.highlightLabel} tagName='div'></RichText.Content>
+                isEditor?<BControlPro  Component={RichText}
+          {...premiumProps}
+  value={info?.highlightLabel} tagName='div' className="themeElevenService-badge" onChange={(v)=>setAttributes({productsInfo:updateData(productsInfo,v,index,"highlightLabel")})} />: <RichText.Content className="themeElevenService-badge" value={info?.highlightLabel} tagName='div'></RichText.Content>
               )}
               <div className={`themeElevenService-icon themeElevenService-icon-${index + 1}`}>
                 <span
@@ -28,14 +31,18 @@ const ThemeElevenServiceInfo = ({ attributes, setAttributes, isEditor }) => {
                   dangerouslySetInnerHTML={{ __html: info?.icon?.svgPath }}
                 />
               </div>
-              { isEditor?<RichText placeholder='title...' className="themeElevenService-title" tagName='h2' value={info?.title} onChange={(v)=>setAttributes({productsInfo:updateData(productsInfo,v,index,"title")})} />: <RichText.Content className="themeElevenService-title" tagName='h2' value={info?.title}></RichText.Content>}
+              { isEditor?<BControlPro Component={RichText}
+          {...premiumProps} placeholder='title...' className="themeElevenService-title" tagName='h2' value={info?.title} onChange={(v)=>setAttributes({productsInfo:updateData(productsInfo,v,index,"title")})} />: <RichText.Content className="themeElevenService-title" tagName='h2' value={info?.title}></RichText.Content>}
 
-            {isEditor?<RichText placeholder='description...' className="themeElevenService-description" tagName='p' value={info?.description} onChange={(v)=>setAttributes({productsInfo:updateData(productsInfo,v,index,"description")})} />:  <RichText.Content className="themeElevenService-description" tagName='p' value={info?.description} ></RichText.Content>}
+            {isEditor?<BControlPro Component={RichText}
+          {...premiumProps} placeholder='description...' className="themeElevenService-description" tagName='p' value={info?.description} onChange={(v)=>setAttributes({productsInfo:updateData(productsInfo,v,index,"description")})} />:  <RichText.Content className="themeElevenService-description" tagName='p' value={info?.description} ></RichText.Content>}
 
               {options?.isButtonVisible && (
   isEditor ? (
     <div className="themeElevenService-link">
-      <RichText
+      <BControlPro
+      Component={RichText}
+          {...premiumProps}
         tagName="span"
         value={info?.button?.text}
         onChange={(v) =>

@@ -28,6 +28,7 @@ import { updateData } from "../../../../../../bpl-tools/utils/functions";
 import { RangeControl } from "@wordpress/components";
 import { perUnit, pxUnit } from "../../../../../../bpl-tools/utils/options";
 import { BControlPro, SelectControlPro } from "../../../../../../bpl-tools/ProControls";
+import { BDevice } from "../../../../../../bpl-tools/Components/Deprecated";
 
 const Style = ({
   attributes,
@@ -2697,19 +2698,24 @@ const Style = ({
         title={__("Section", "info-cards")}
         initialOpen={false}
       >
-        <Background
+        <BControlPro
+         label={__("Background Color", "info-cards")}
           value={styles?.bg}
           onChange={(v) =>
             setAttributes({ styles: updateData(styles, v, "bg") })
           }
+          Component={Background}
+          {...premiumProps}
         />
-        <BoxControls
+        <BControlPro
           className="mt10"
           label={__("Radius", "info-cards")}
           values={styles?.radius}
           onChange={(v) =>
             setAttributes({ styles: updateData(styles, v, "radius") })
           }
+            Component={BoxControls}
+          {...premiumProps}
         />
       </PanelBody>
 
@@ -2718,22 +2724,27 @@ const Style = ({
         title={__("Card", "info-cards")}
         initialOpen={false}
       >
-        <Background
+        <BControlPro 
+        label={__("Background","info-cards")}
           value={styles?.card?.bg}
           onChange={(v) =>
             setAttributes({ styles: updateData(styles, v, "card", "bg") })
           }
+            Component={Background}
+          {...premiumProps}
         />
 
-        <UnitControl
+        <BControlPro
           label={__("Height", "info-cards")}
           value={styles?.card?.height}
           onChange={(v) =>
             setAttributes({ styles: updateData(styles, v, "card", "height") })
           }
+            Component={UnitControl}
+          {...premiumProps}
         />
 
-        <BoxControls
+        <BControlPro
           className="mt10"
           styles={{ marginTop: "10px" }}
           label={__("Radius", "info-cards")}
@@ -2741,9 +2752,11 @@ const Style = ({
           onChange={(v) =>
             setAttributes({ styles: updateData(styles, v, "card", "radius") })
           }
+            Component={BoxControls}
+          {...premiumProps}
         />
 
-        <BoxControls
+        <BControlPro
           className="mt10"
           styles={{ marginTop: "10px" }}
           label={__("padding", "info-cards")}
@@ -2751,30 +2764,40 @@ const Style = ({
           onChange={(v) =>
             setAttributes({ styles: updateData(styles, v, "card", "padding") })
           }
+           Component={BoxControls}
+          {...premiumProps}
         />
 
-        <ShadowControl value={styles?.card?.shadow} onChange={v=>setAttributes({ styles: updateData(styles, v, "card", "shadow") })}  />
+        <BControlPro label={__("Shadow","info-cards")} value={styles?.card?.shadow} onChange={v=>setAttributes({ styles: updateData(styles, v, "card", "shadow") })}  Component={ShadowControl}
+          {...premiumProps}  />
       </PanelBody>
 
       <PanelBody className="bPlPanelBody"
         title={__("Logo", "info-cards")}
         initialOpen={false}>
 
-          <UnitControl label={__("Logo Bg Width", "info-cards")}  value={styles?.card?.logo?.width} onChange={v=>setAttributes({ styles: updateData(styles, v, "card", "logo","width") })} />
+          <BControlPro  Component={UnitControl}
+          {...premiumProps} label={__("Logo Bg Width", "info-cards")}  value={styles?.card?.logo?.width} onChange={v=>setAttributes({ styles: updateData(styles, v, "card", "logo","width") })} />
 
-          <UnitControl style={{marginTop:"10px"}} label={__("Logo Bg Height", "info-cards")} value={styles?.card?.logo?.height} onChange={v=>setAttributes({ styles: updateData(styles, v, "card", "logo","height") })} />
+          <BControlPro  Component={UnitControl}
+          {...premiumProps} style={{marginTop:"10px"}} label={__("Logo Bg Height", "info-cards")} value={styles?.card?.logo?.height} onChange={v=>setAttributes({ styles: updateData(styles, v, "card", "logo","height") })} />
 
-            <UnitControl style={{marginTop:"10px"}} label={__("Logo Size", "info-cards")} value={styles?.card?.logo?.size} onChange={v=>setAttributes({ styles: updateData(styles, v, "card", "logo","size") })} />
+            <BControlPro  Component={UnitControl}
+          {...premiumProps} style={{marginTop:"10px"}} label={__("Logo Size", "info-cards")} value={styles?.card?.logo?.size} onChange={v=>setAttributes({ styles: updateData(styles, v, "card", "logo","size") })} />
 
       </PanelBody>
       <PanelBody className="bPlPanelBody"
         title={__("HightLight", "info-cards")}
         initialOpen={false}>
-          <ColorsControl value={styles?.card?.highlight?.colors} onChange={v=>setAttributes({styles:updateData(styles,v,"card","highlight","colors")})} />
+          <BControlPro  Component={ColorsControl}
+          {...premiumProps} value={styles?.card?.highlight?.colors} onChange={v=>setAttributes({styles:updateData(styles,v,"card","highlight","colors")})} />
 
-          <BoxControls label={__("Padding", "info-cards")} values={styles?.card?.highlight?.padding} onChange={v=>setAttributes({styles:updateData(styles,v,"card","highlight","padding")})}  />
-          <BoxControls className='mt10' label={__("Radius", "info-cards")} values={styles?.card?.highlight?.radius} onChange={v=>setAttributes({styles:updateData(styles,v,"card","highlight","radius")})}  />
-          <Typography className='mt10' label={__("Typography", "info-cards")} value={styles?.card?.highlight?.typo} onChange={v=>setAttributes({styles:updateData(styles,v,"card","highlight","typo")})}  />
+          <BControlPro  Component={BoxControls}
+          {...premiumProps} label={__("Padding", "info-cards")} values={styles?.card?.highlight?.padding} onChange={v=>setAttributes({styles:updateData(styles,v,"card","highlight","padding")})}  />
+          <BControlPro  Component={BoxControls}
+          {...premiumProps} className='mt10' label={__("Radius", "info-cards")} values={styles?.card?.highlight?.radius} onChange={v=>setAttributes({styles:updateData(styles,v,"card","highlight","radius")})}  />
+          <BControlPro  Component={Typography}
+          {...premiumProps} className='mt10' label={__("Typography", "info-cards")} value={styles?.card?.highlight?.typo} onChange={v=>setAttributes({styles:updateData(styles,v,"card","highlight","typo")})}  />
 
 
       </PanelBody>
@@ -2784,34 +2807,247 @@ const Style = ({
         title={__("Title", "info-cards")}
          initialOpen={false}
         > 
-        <ColorControl value={styles?.card?.title?.color}  onChange={v=>setAttributes({ styles: updateData(styles, v, "card", "title","color") })} />
-        <Typography value={styles?.card?.title?.typo}  onChange={v=>setAttributes({styles:updateData(styles,v,"card","title","typo")})} />
+        <BControlPro label={__("Color", "info-cards")}  Component={ColorControl}
+          {...premiumProps} value={styles?.card?.title?.color}  onChange={v=>setAttributes({ styles: updateData(styles, v, "card", "title","color") })} />
+        <BControlPro label={__("Typography", "info-cards")}   Component={Typography}
+          {...premiumProps} value={styles?.card?.title?.typo}  onChange={v=>setAttributes({styles:updateData(styles,v,"card","title","typo")})} />
 
       </PanelBody>
 
    <PanelBody className="bPlPanelBody"
         title={__("Description", "info-cards")}
          initialOpen={false}>
-           <ColorControl value={styles?.card?.description?.color}  onChange={v=>setAttributes({ styles: updateData(styles, v, "card", "description","color") })} />
-        <Typography value={styles?.card?.description?.typo}  onChange={v=>setAttributes({styles:updateData(styles,v,"card","description","typo")})} />
+           <BControlPro label={__("Color", "info-cards")}  Component={ColorControl}
+          {...premiumProps} value={styles?.card?.description?.color}  onChange={v=>setAttributes({ styles: updateData(styles, v, "card", "description","color") })} />
+        <BControlPro label={__("Typography", "info-cards")}  Component={Typography}
+          {...premiumProps} value={styles?.card?.description?.typo}  onChange={v=>setAttributes({styles:updateData(styles,v,"card","description","typo")})} />
 
    </PanelBody>
 
    {options?.isButtonVisible && <PanelBody className="bPlPanelBody"
         title={__("Button", "info-cards")}
          initialOpen={false}>
-           <ColorControl value={styles?.card?.button?.color}  onChange={v=>setAttributes({ styles: updateData(styles, v, "card", "button","color") })} />
+           <BControlPro label={__("Color", "info-cards")}  Component={ColorControl}
+          {...premiumProps} value={styles?.card?.button?.color}  onChange={v=>setAttributes({ styles: updateData(styles, v, "card", "button","color") })} />
 
-           <ColorControl label={__("Hover Color","info-cards")} value={styles?.card?.button?.hoverColor}  onChange={v=>setAttributes({ styles: updateData(styles, v, "card", "button","hoverColor") })} />
+           <BControlPro   Component={ColorControl}
+          {...premiumProps} label={__("Hover Color","info-cards")} value={styles?.card?.button?.hoverColor}  onChange={v=>setAttributes({ styles: updateData(styles, v, "card", "button","hoverColor") })} />
 
-        <Typography value={styles?.card?.button?.typo}  onChange={v=>setAttributes({styles:updateData(styles,v,"card","button","typo")})} />
+        <BControlPro label={__("Typography", "info-cards")}  Component={Typography}
+          {...premiumProps} value={styles?.card?.button?.typo}  onChange={v=>setAttributes({styles:updateData(styles,v,"card","button","typo")})} />
 
-          <IconLibrary  value={options?.buttonIcon} onChange={v=>setAttributes({options:updateData(options,v,"buttonIcon")})} />
+          <BControlPro label={__("Icon", "info-cards")}  Component={IconLibrary}
+          {...premiumProps}  value={options?.buttonIcon} onChange={v=>setAttributes({options:updateData(options,v,"buttonIcon")})} />
 
             
-            <UnitControl style={{marginTop:"10px"}} label={__("Icon Size ","info-cards")} value={styles?.card?.button?.size}  onChange={v=>setAttributes({styles:updateData(styles,v,"card","button","size")})} />
+            <BControlPro  Component={UnitControl}
+          {...premiumProps} style={{marginTop:"10px"}} label={__("Icon Size ","info-cards")} value={styles?.card?.button?.size}  onChange={v=>setAttributes({styles:updateData(styles,v,"card","button","size")})} />
 
    </PanelBody>}
+    </>)
+      }
+
+
+      {
+        theme ==="theme12" &&( <>
+      <PanelBody
+        className="bPlPanelBody"
+        title={__("Section", "info-cards")}
+        initialOpen={false}
+      >
+        <BControlPro
+          label="Background"
+          value={styles?.bg}
+          onChange={(v) =>
+            setAttributes({ styles: updateData(styles, v, "bg") })
+          }
+          Component={Background}
+                            {...premiumProps}
+        />
+         <PanelRow><Label>Padding</Label> <Device/> </PanelRow>
+
+        <BControlPro
+          // label="Padding"
+          values={styles?.padding[editDevice]}
+          onChange={(v) =>
+            setAttributes({
+              styles: updateData(styles, v, "padding", editDevice),
+            })
+          }
+          Component={BoxControls}
+                            {...premiumProps}
+        />
+         <PanelRow><Label>Margin</Label> <Device/> </PanelRow>
+        <BControlPro
+          className="mt10"
+          // label="Margin"
+          values={styles?.margin[editDevice]}
+          onChange={(v) =>
+            setAttributes({
+              styles: updateData(styles, v, "margin", editDevice),
+            })
+          }
+           Component={BoxControls}
+                            {...premiumProps}
+        />
+        <BControlPro
+          className="mt10"
+          label="Radius"
+          values={styles?.radius}
+          onChange={(v) =>
+            setAttributes({ styles: updateData(styles, v, "radius") })
+          }
+           Component={BoxControls}
+                            {...premiumProps}
+        />
+        <PanelRow><Label>Columns</Label> <Device/> </PanelRow>
+
+        <BControlPro
+          className="mt10"
+          // label="Columns"
+          value={styles?.columns[editDevice]}
+          onChange={(v) =>
+            setAttributes({
+              styles: updateData(styles, v, "columns",editDevice),
+            })
+          }
+           Component={RangeControl}
+                            {...premiumProps}
+        />
+
+        <BControlPro
+          className="mt10"
+          label="Column Gap"
+          value={styles?.gap?.column}
+          onChange={(v) =>
+            setAttributes({ styles: updateData(styles, v, "gap", "column") })
+          }
+          Component={RangeControl}
+                            {...premiumProps}
+        />
+        <BControlPro
+          className="mt10"
+          label="Column Row"
+          value={styles?.gap?.row}
+          onChange={(v) =>
+            setAttributes({ styles: updateData(styles, v, "gap", "row") })
+          }
+          Component={RangeControl}
+                            {...premiumProps}
+        />
+      </PanelBody>
+
+      <PanelBody
+        className="bPlPanelBody"
+        title={__("Content", "info-cards")}
+        initialOpen={false}
+      >
+        <BControlPro
+          label="Image Radius"
+          values={styles?.content?.image?.radius}
+          onChange={(v) =>
+            setAttributes({
+              styles: updateData(styles, v, "content", "image", "radius"),
+            })
+          }
+          Component={BoxControls}
+                            {...premiumProps}
+        />
+        <BControlPro
+          className="mt10"
+          label="Padding"
+          values={styles?.content?.padding}
+          onChange={(v) =>
+            setAttributes({
+              styles: updateData(styles, v, "content", "padding"),
+            })
+          }
+           Component={BoxControls}
+                            {...premiumProps}
+        />
+        <BControlPro
+          className="mt10"
+          label="Icon Width"
+          value={styles?.content?.icon?.width}
+          onChange={(v) =>
+            setAttributes({
+              styles: updateData(styles, v, "content", "icon", "width"),
+            })
+          }
+           Component={UnitControl}
+                            {...premiumProps}
+        />
+        <BControlPro
+          className="mt10"
+          label="Icon Height"
+          value={styles?.content?.icon?.height}
+          onChange={(v) =>
+            setAttributes({
+              styles: updateData(styles, v, "content", "icon", "height"),
+            })
+          }
+           Component={UnitControl}
+                            {...premiumProps}
+        />
+        <BControlPro
+          label="Icon Color"
+          value={styles?.content?.icon?.color}
+          onChange={(v) =>
+            setAttributes({
+              styles: updateData(styles, v, "content", "icon", "color"),
+            })
+          }
+           Component={ColorControl}
+                            {...premiumProps}
+        />
+
+        <BControlPro
+          label="Sub Title Color"
+          value={styles?.content?.subTitle?.color}
+          onChange={(v) =>
+            setAttributes({
+              styles: updateData(styles, v, "content", "subTitle", "color"),
+            })
+          }
+           Component={ColorControl}
+                            {...premiumProps}
+        />
+
+        <BControlPro
+          label="Sub Title"
+          value={styles?.content?.subTitle?.typo}
+          onChange={(v) =>
+            setAttributes({
+              styles: updateData(styles, v, "content", "subTitle", "typo"),
+            })
+          }
+           Component={Typography}
+                            {...premiumProps}
+        />
+
+        <BControlPro
+          label="Title Color"
+          value={styles?.content?.title?.color}
+          onChange={(v) =>
+            setAttributes({
+              styles: updateData(styles, v, "content", "title", "color"),
+            })
+          }
+           Component={ColorControl}
+                            {...premiumProps}
+        />
+        <BControlPro
+          label=" Title"
+          value={styles?.content?.title?.typo}
+          onChange={(v) =>
+            setAttributes({
+              styles: updateData(styles, v, "content", "title", "typo"),
+            })
+          }
+           Component={Typography}
+                            {...premiumProps}
+        />
+      </PanelBody>
     </>)
       }
     </>

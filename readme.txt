@@ -1,5 +1,5 @@
 === Info Cards - Gutenberg block for creating Beautiful Cards===
-Contributors: bplugins, abuhayat, btechnologies,shihabshamim
+Contributors: bplugins, abuhayat,shihabshamim
 Donate link: https://www.buymeacoffee.com/abuhayat
 Tags: block, cards, gutenberg, info, section  
 Buy me a coffee: https://www.buymeacoffee.com/abuhayat

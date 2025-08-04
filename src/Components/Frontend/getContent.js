@@ -2,6 +2,7 @@
   
   import ThemeTenMouseMove from '../Common/theme10/ThemeTenMouseMove';
 import ThemeElevenServiceInfo from '../Common/theme11/ThemeElevenServiceInfo';
+import ThemeTwelveHoverService from '../Common/theme12/ThemeTwelveHoverService';
 import Theme6 from '../Common/theme6/Theme6';
 import SevenInfoCard from '../Common/theme7/SevenInfoCard';
 import ThemeEightInfoProfile from '../Common/theme8/ThemeEightInfoProfile';
@@ -50,6 +51,9 @@ import Cards from './Cards';
       }
         if(theme==="theme11"){
       return(<ThemeElevenServiceInfo  isEditor={false}  attributes={attributes} />)
+    }
+    if(theme === "theme12"){
+      return (<ThemeTwelveHoverService isEditor={false}  attributes={attributes}/>)
     }
 }
 

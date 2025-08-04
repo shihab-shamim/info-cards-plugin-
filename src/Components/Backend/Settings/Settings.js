@@ -229,7 +229,8 @@
                           val === "theme8" ||
                           val === "theme9" ||
                           val === "theme10" ||
-                          val === "theme11"
+                          val === "theme11" ||
+                          val === "theme12"
                         ) {
                           setAttributes(themeSwitch(val, attributes, setAttributes));
                         }
