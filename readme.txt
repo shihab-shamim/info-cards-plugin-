@@ -1,4 +1,4 @@
-=== Info Cards - Gutenberg block for creating Beautiful Cards===
+=== Info Cards – Add Text and Media in Card Layouts===
 Contributors: bplugins, abuhayat,shihabshamim
 Donate link: https://www.buymeacoffee.com/abuhayat
 Tags: block, cards, gutenberg, info, section  
