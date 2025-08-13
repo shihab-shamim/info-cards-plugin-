@@ -49,6 +49,12 @@ if(!class_exists('bsbAdminMenu')) {
         }
 
         public function get_popular_plugins () {
+            if ( ! current_user_can( 'activate_plugins' ) ) {
+                wp_send_json_error( [ 'message' => 'You are not allowed to perform this action.' ], 403 );
+            }
+            if (!isset($_GET['nonce']) || !wp_verify_nonce(sanitize_text_field($_GET['nonce']), 'bsb_dashboard_nonce')) {
+                wp_send_json_error(['message' => 'Invalid nonce or request.'], 400);
+            }
 
             if (!function_exists('plugins_api')) {
                 require_once ABSPATH . 'wp-admin/includes/plugin-install.php';
@@ -63,6 +69,14 @@ if(!class_exists('bsbAdminMenu')) {
         }
 
         public function get_active_plugins() {
+             if ( ! current_user_can( 'activate_plugins' ) ) {
+                wp_send_json_error( [ 'message' => 'You are not allowed to perform this action.' ], 403 );
+            }
+
+             if (!isset($_GET['nonce']) || !wp_verify_nonce(sanitize_text_field($_GET['nonce']), 'bsb_dashboard_nonce')) {
+                wp_send_json_error(['message' => 'Invalid nonce or request.'], 400);
+            }
+
             if (!isset($_GET['nonce']) || !wp_verify_nonce(sanitize_text_field($_GET['nonce']), 'wp_rest')) {
                 wp_send_json_error(['message' => 'Invalid nonce or request.'], 400);
             }
@@ -113,6 +127,9 @@ if(!class_exists('bsbAdminMenu')) {
         }
 
         public function activated_plugin() {
+            if ( ! current_user_can( 'activate_plugins' ) ) {
+                wp_send_json_error( [ 'message' => 'You are not allowed to perform this action.' ], 403 );
+            }
             // Verify nonce
             if (!isset($_GET['nonce']) || !wp_verify_nonce(sanitize_text_field($_GET['nonce']), 'wp_rest')) {
                 wp_send_json_error(['message' => 'Invalid nonce or request.'], 400);

@@ -14,12 +14,13 @@
  * @fs_free_only /freemius-lite, /inc/upgradePage.php
  */
 
+
 if ( !defined( 'ABSPATH' ) ) { exit; }
 
 
  if ( function_exists( 'ic_fs' ) ) {
         	register_activation_hook(__FILE__, function () {
-		// 'swiper-slider/swiper-slider.php' ---> ai line er prothom ta slug r porer ta php file er name
+		
 		if (is_plugin_active('info-cards/info-cards.php')) {
 		  deactivate_plugins('info-cards/info-cards.php');
 		}

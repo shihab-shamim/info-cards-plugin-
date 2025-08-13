@@ -2196,12 +2196,6 @@ import ThemeTwelveHoverService from "../Components/Common/theme12/ThemeTwelveHov
 
 
 
-
-
-
-
-
-
   export const toolTipPresets = [
     {
       label: "Default",
