@@ -63,6 +63,8 @@ const PopularPlugin = ({ isPremium }) => {
             if (jsonStart !== -1) {
                 const jsonString = responseText.slice(jsonStart);
                 const response = JSON.parse(jsonString);
+                console.log(response);
+
                 window.location.href = response.data.redirectUrl;
             } else {
                 console.error("No JSON found in the response.");

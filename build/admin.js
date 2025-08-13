@@ -10,63 +10,20 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   useDeviceWidth: () => (/* reexport safe */ _useDeviceWidth__WEBPACK_IMPORTED_MODULE_0__["default"]),
-/* harmony export */   usePremium: () => (/* reexport safe */ _usePremium__WEBPACK_IMPORTED_MODULE_1__["default"]),
+/* harmony export */   usePremium: () => (/* reexport safe */ _usePremium__WEBPACK_IMPORTED_MODULE_3__["default"]),
 /* harmony export */   usePremiumInEditor: () => (/* reexport safe */ _usePremiumInEditor__WEBPACK_IMPORTED_MODULE_2__["default"]),
-/* harmony export */   useWPAjax: () => (/* reexport safe */ _useWPAjax__WEBPACK_IMPORTED_MODULE_3__["default"]),
-/* harmony export */   useWPOptionQuery: () => (/* reexport safe */ _useWPOptionQuery__WEBPACK_IMPORTED_MODULE_4__["default"])
+/* harmony export */   useWPAjax: () => (/* reexport safe */ _useWPAjax__WEBPACK_IMPORTED_MODULE_0__["default"]),
+/* harmony export */   useWPOptionQuery: () => (/* reexport safe */ _useWPOptionQuery__WEBPACK_IMPORTED_MODULE_1__["default"])
 /* harmony export */ });
-/* harmony import */ var _useDeviceWidth__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./useDeviceWidth */ "../bpl-tools/hooks/useDeviceWidth.js");
-/* harmony import */ var _usePremium__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./usePremium */ "../bpl-tools/hooks/usePremium.js");
+/* harmony import */ var _useWPAjax__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./useWPAjax */ "../bpl-tools/hooks/useWPAjax.js");
+/* harmony import */ var _useWPOptionQuery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./useWPOptionQuery */ "../bpl-tools/hooks/useWPOptionQuery.js");
 /* harmony import */ var _usePremiumInEditor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./usePremiumInEditor */ "../bpl-tools/hooks/usePremiumInEditor.js");
-/* harmony import */ var _useWPAjax__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./useWPAjax */ "../bpl-tools/hooks/useWPAjax.js");
-/* harmony import */ var _useWPOptionQuery__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./useWPOptionQuery */ "../bpl-tools/hooks/useWPOptionQuery.js");
+/* harmony import */ var _usePremium__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./usePremium */ "../bpl-tools/hooks/usePremium.js");
 
 
 
 
 
-
-
-/***/ }),
-
-/***/ "../bpl-tools/hooks/useDeviceWidth.js":
-/*!********************************************!*\
-  !*** ../bpl-tools/hooks/useDeviceWidth.js ***!
-  \********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
-const useDeviceWidth = () => {
-  const [device, setDevice] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('desktop');
-  const handleWindowSizeChange = () => {
-    const width = window.innerWidth;
-    if (width > 1024) {
-      setDevice('desktop');
-    } else if (width > 640) {
-      setDevice('tablet');
-    } else {
-      setDevice('mobile');
-    }
-  };
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    handleWindowSizeChange();
-    window.addEventListener('resize', handleWindowSizeChange);
-    return () => {
-      window.removeEventListener('resize', handleWindowSizeChange);
-    };
-  }, []);
-  return {
-    device
-  };
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useDeviceWidth);
 
 /***/ }),
 
@@ -11159,6 +11116,7 @@ const PopularPlugin = ({
       if (jsonStart !== -1) {
         const jsonString = responseText.slice(jsonStart);
         const response = JSON.parse(jsonString);
+        console.log(response);
         window.location.href = response.data.redirectUrl;
       } else {
         console.error("No JSON found in the response.");
