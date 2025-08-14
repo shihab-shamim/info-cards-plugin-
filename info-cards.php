@@ -4,7 +4,7 @@
  * Description:       Create beautiful cards with text and image.
  * Requires at least: 5.8
  * Requires PHP:      7.1
- * Version:           1.0.11
+ * Version:           2.0.0
  * Author:            bPlugins
  * Author URI:        http://bplugins.com
  * License:           GPL-2.0-or-later
@@ -31,7 +31,7 @@ if ( !defined( 'ABSPATH' ) ) { exit; }
     } else {
         /**
          * DO NOT REMOVE THIS IF, IT IS ESSENTIAL FOR THE
-         * `function_exists` CALL ABOVE TO PROPERLY WORK.
+         * function_exists` CALL ABOVE TO PROPERLY WORK.
          */
         define( 'INFO_CARDS_PRO', file_exists( dirname(__FILE__) . '/freemius/start.php' ) );
 
@@ -174,10 +174,3 @@ BPICB_Info_Cards::get_instance();
     if( !INFO_CARDS_PRO ){
 		require_once ICB_DIR_PATH . '/inc/upgradePage.php';
 	}
-
-
-
-
-
-
-    

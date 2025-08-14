@@ -40,7 +40,7 @@ if(!class_exists('icbAdminMenu')) {
                 'info-cards-dashboard',
                 [$this, 'icb_help_page']
             );
-        }
+        } 
 
         public function icb_help_page(){
             ?>
@@ -145,9 +145,9 @@ if(!class_exists('icbAdminMenu')) {
                 $api = plugins_api('plugin_information', ['slug' => $plugin_name, 'fields' => ['sections' => false]]);
                 if (is_wp_error($api)) {
                     wp_send_json_error(['message' => 'Failed to fetch plugin information.']);
-                }
+                } 
         
-                // Suppress unexpected output
+                // Suppress unexpected output 
                 ob_start();
                 $upgrader = new Plugin_Upgrader();
                 $result = $upgrader->install($api->download_link);
@@ -157,7 +157,7 @@ if(!class_exists('icbAdminMenu')) {
 
                 if ($result) {
                     // Set transient to show notice
-                    set_transient('bblocks_show_activation_notice', $plugin_slug, 1000000); // Valid for 60 seconds
+                    set_transient('bblocks_show_activation_notice', $plugin_slug, 1000000); // Valid for 60 seconds 
                     $redirect_url = admin_url('plugins.php?plugin_status=all');
                     wp_send_json_success(['message' => 'Plugin installed successfully.', 'redirectUrl' => $redirect_url]);
 

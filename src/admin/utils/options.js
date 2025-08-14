@@ -1,6 +1,6 @@
 export const changeLog = [
   {
-    date: "1.0.11 –- 22 July, 2025",
+    date: "2.0.0 –- 14 Aug, 2025",
     list: [
       {
         title: "Added 5 professionally designed card themes for faster styling",
