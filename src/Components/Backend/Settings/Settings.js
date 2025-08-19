@@ -123,7 +123,8 @@
                             cardPadding: { top: "0", right: "0", bottom: "0", left: "0" },
                             btnColors: { color: "#fff", bg: "#4527a4" },
                             btnHovColors: { color: "#fff", bg: "#fe6601" },
-                            align:"none"
+                            align:"none",
+                            styles:{}
 
                           });
                         // updateAllCard("background", { color: "#fff" })
@@ -141,7 +142,8 @@
                             cardPadding: { top: "0", right: "0", bottom: "0", left: "0" },
                             btnColors: { color: "#fff", bg: "#4527a4" },
                             btnHovColors: { color: "#fff", bg: "#fe6601" },
-                            align:"none"
+                            align:"none",
+                            styles:{}
 
                           });
                         // updateAllCard("background", { color: "#fff" })
@@ -164,7 +166,8 @@
                             },
                             btnColors: { color: "#fff", bg: "#4527a4" },
                             btnHovColors: { color: "#fff", bg: "#fe6601" },
-                            align:"none"
+                            align:"none",
+                            styles:{}
 
                           });
                         // updateAllCard("background", { color: "#fff" })
@@ -182,7 +185,8 @@
                             cardPadding: { top: "0", right: "0", bottom: "0", left: "0" },
                             btnColors: { color: "#fff", bg: "#4527a4" },
                             btnHovColors: { color: "#fff", bg: "#fe6601" },
-                            align:"none"
+                            align:"none",
+                            styles:{}
 
                           });
                         // updateAllCard("background", { color: "#fff" })
@@ -200,7 +204,8 @@
                             cardPadding: { top: "0", right: "0", bottom: "0", left: "0" },
                             btnColors: { color: "#fff", bg: "#000" },
                             btnHovColors: { color: "#ffffffb3", bg: "#000000b3" },
-                            align:"none"
+                            align:"none",
+                            styles:{}
 
                           });
                         // updateAllCard("background", { color: "#570DF8" }));
@@ -218,7 +223,8 @@
                             cardPadding: { top: "0", right: "0", bottom: "0", left: "0" },
                             btnColors: { color: "#fff", bg: "#000" },
                             btnHovColors: { color: "#ffffffb3", bg: "#000000b3" },
-                            align:"none"
+                            align:"none",
+                            styles:{}
                           });
             
                         // updateAllCard("background", { color: "#570DF8" })

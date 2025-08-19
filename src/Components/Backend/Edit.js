@@ -12,7 +12,7 @@ import { usePremiumInEditor } from "../../../../bpl-tools/hooks";
 
 
 const Edit = ({ attributes, setAttributes, clientId ,device}) => {
-  const { isPremium } = usePremiumInEditor("ssbUtils", "ssbPremiumChecker");
+  const { isPremium } = usePremiumInEditor("bpicbUtils", "bpicbPremiumChecker");
   const { cards,theme } = attributes;
  const isBacked=true;
  const [activeIndex, setActiveIndex] = useState(0);

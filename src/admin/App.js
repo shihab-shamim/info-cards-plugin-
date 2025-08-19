@@ -9,7 +9,7 @@ import { usePremiumInEditor } from '../../../bpl-tools/hooks';
 import UpgradeNow from './Pages/upgrade/UpgradeNow';
 
 const App = () => {
-  const { isPremium } = usePremiumInEditor("ssbUtils", "ssbPremiumChecker");
+  const { isPremium } = usePremiumInEditor("bpicbUtils", "bpicbPremiumChecker");
 
   return (
     <>

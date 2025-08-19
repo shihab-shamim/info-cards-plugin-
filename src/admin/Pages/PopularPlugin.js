@@ -14,7 +14,7 @@ const PopularPlugin = ({ isPremium }) => {
         const fetchPopularPlugins = async () => {
             try {
                 setLoading(true);
-                const res = await fetch(`${pluginAction.ajaxUrl}?action=get_popular_plugins&nonce=${pluginAction.nonce}`);
+                const res = await fetch(`${pluginAction.ajaxUrl}?action=bpicb_get_popular_plugins&nonce=${pluginAction.nonce}`);
                 const response = await res.json();
 
                 const allowedPlugins = ['html5-audio-player', 'html5-video-player', 'pdf-poster', '3d-viewer', 'advanced-post-block', 'advance-custom-html'];
@@ -35,7 +35,7 @@ const PopularPlugin = ({ isPremium }) => {
         const fetchActivePlugins = async () => {
             try {
                 const res = await fetch(
-                    `${pluginAction.ajaxUrl}?action=get_active_plugins&nonce=${pluginAction.nonce}`
+                    `${pluginAction.ajaxUrl}?action=bpicb_get_active_plugins&nonce=${pluginAction.nonce}`
                 );
                 const response = await res.json();
                 if (response.success) {
@@ -56,7 +56,7 @@ const PopularPlugin = ({ isPremium }) => {
         setPluginslug(pluginName); // Set the loading state to the plugin name
 
         try {
-            const res = await fetch(`${pluginAction.ajaxUrl}?action=activated_plugin&plugin_name=${pluginName}&nonce=${pluginAction.nonce}`);
+            const res = await fetch(`${pluginAction.ajaxUrl}?action=&plugin_name=${pluginName}&nonce=${pluginAction.nonce}`);
             const responseText = await res.text();
 
             const jsonStart = responseText.indexOf("{");

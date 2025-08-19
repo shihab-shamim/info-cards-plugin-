@@ -1,6 +1,6 @@
 export const changeLog = [
   {
-    date: "2.0.0 –- 14 Aug, 2025",
+    date: "2.0.1 –- 17 Aug, 2025",
     list: [
       {
         title: "Added 5 professionally designed card themes for faster styling",
@@ -33,3 +33,4 @@ export const helpItem = [
     linkText: "Rate the Plugin",
   },
 ];
+

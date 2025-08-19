@@ -36,11 +36,12 @@
 			btnAlign,
 			btnColors,
 			btnHovColors,
-			styles,
+			styles={},
 			alignment,
 			productsInfo,options,
 			theme
 		} = attributes;
+		console.log(styles);
 
 
 
